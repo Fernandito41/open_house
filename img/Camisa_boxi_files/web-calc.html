@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)chrome-extension://odjgaldpgkhpckckgkbmmphjjeobjpmk/web-page-calc/web-calc.html -->
+<html lang="en" style="--container-bg-color: #0b2639; --numpad-bg-color: #0c2742; --default-color: white;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --container-bg-color: #0b2639;
+            --numpad-bg-color: #0c2742;
+            --button-focus-bg-color: linear-gradient(135deg, #3495fe, #14d7fd);
+            --default-color: white;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            color: var(--default-color);
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--container-bg-color);
+        }
+
+        .heading {
+            height: auto;
+            text-align: center;
+            font-family: system-ui;
+        }
+
+        .output-area {
+            height: auto;
+            border-bottom: 2px solid #0f84c9;
+        }
+
+        .num-pad {
+            background-color: var(--numpad-bg-color);
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        button {
+            background-color: var(--numpad-bg-color);
+            color: var(--default-color);
+            border: none;
+            outline: none;
+            font-size: 20px;
+            font-family: system-ui;
+            border-radius: 5px;
+            width: 45px;
+            margin: 8px 0px;
+            -webkit-user-select: none;
+            user-select: none;
+            padding: 0px;
+        }
+
+        button:focus,
+        button:active,
+        button:focus-within {
+            background: var(--button-focus-bg-color);
+            color: var(--default-color) !important;
+        }
+
+        div#output {
+            text-align: right;
+            padding: 0px 10px 10px 10px;
+            font-size: 30px;
+            font-family: system-ui;
+            font-weight: 500;
+
+            overflow-x: scroll;
+        }
+
+        div#history {
+            color: #bdbdbd;
+            text-align: right;
+            font-size: 20px;
+            font-family: monospace;
+            padding: 0px 20px;
+            overflow-x: scroll;
+        }
+
+        #history::-webkit-scrollbar,
+        #output::-webkit-scrollbar,
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+            background-color: transparent;
+        }
+
+        #history::-webkit-scrollbar-thumb,
+        #output::-webkit-scrollbar-thumb {
+            background-color: #bdbdbd;
+            border-radius: 2px;
+        }
+
+        .operator {
+            color: #2aa3e8;
+        }
+
+        .slider.round {
+            border-radius: 9px;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0.5em;
+            height: 12px;
+            width: 24px;
+            background-color: #e6e6e6;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+        }
+
+        #theme_mode {
+            position: absolute;
+            width: 25px;
+            height: 20px;
+            z-index: 200;
+            cursor: pointer;
+            top: 0px;
+            opacity: 0;
+        }
+
+        input:checked+.slider::before {
+            -webkit-transform: translateX(26px);
+            transform: translateX(26px);
+            background-color: #0c2742;
+            border-color: #607d8b;
+        }
+
+        .slider.round::before {
+            border-radius: 50%;
+        }
+
+        .slider::before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: -8px;
+            bottom: -3px;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+            border: solid 1px lightgrey;
+            background-color: white;
+        }
+
+        .theme-changer {
+            left: 10px;
+            top: 0px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <!-- <div class="top"></div> -->
+        <div class="heading">
+            <h3>Calculator</h3>
+            <div class="theme-changer">
+                <input type="checkbox" id="theme_mode" checked="">
+                <span class="slider round"></span>
+                <!-- <input id="theme_btn" type="button"> -->
+            </div>
+        </div>
+        <div class="output-area">
+            <div id="history">
+
+            </div>
+            <div id="output">
+                0
+            </div>
+        </div>
+        <div class="num-pad">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><button id="clr" style="color: #e56e2a;">C</button></td>
+                        <td><button id="cut" class="operator">✗</button></td>
+                        <td><button id="mod" class="operator">%</button></td>
+                        <td><button id="div" class="operator">÷</button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="sev">7</button></td>
+                        <td><button id="eig">8</button></td>
+                        <td><button id="nin">9</button></td>
+                        <td><button id="mul" class="operator">⨯</button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="fou">4</button></td>
+                        <td><button id="fiv">5</button></td>
+                        <td><button id="six">6</button></td>
+                        <td><button id="min" class="operator">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="one">1</button></td>
+                        <td><button id="two">2</button></td>
+                        <td><button id="thr">3</button></td>
+                        <td><button id="plu" class="operator">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="dot">.</button></td>
+                        <td><button id="zer">0</button></td>
+                        <td><button id="trz" style="font-size: 20px;">000</button></td>
+                        <td><button id="sol" class="operator">=</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="chrome-extension://odjgaldpgkhpckckgkbmmphjjeobjpmk/web-page-calc/web-calc.js"></script>
+
+
+</body></html>

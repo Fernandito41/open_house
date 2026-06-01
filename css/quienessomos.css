@@ -1,0 +1,1279 @@
+* {
+  /* Estilo general para todos los elementos */
+  box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+  margin: 0; /* Elimina márgenes por defecto */
+  padding: 0; /* Elimina relleno por defecto */
+}
+
+body {
+  /* Estilo del cuerpo de la página */
+  padding-top: 80px; /* Espacio en la parte superior para la navbar */
+  margin: 0px; /* Elimina márgenes */
+  padding: 0; /* Altura total */
+  height: 100%; /* Altura mínima de la ventana */
+  min-height: 100vh; /* Fuente utilizada */
+  font-family: Arial, Helvetica, sans-serif; /* Evita el desplazamiento horizontal */
+  overflow-x: hidden; /* Color del texto */
+  color: gray;
+  /* Added smooth background gradient */
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+  /* Added width constraints to prevent horizontal overflow */
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* ========== NAVBAR STYLES (NO MODIFICAR) ========== */
+.navbar {
+  /* Estilo para la barra de navegación */
+  position: fixed; /* Fija la barra en la parte superior */
+  top: 0; /* Alinea al borde superior */
+  left: 0; /* Alinea al borde izquierdo*/
+  width: 100%; /* Ancho completo */
+  height: 48px; /* Altura de la barra */
+  display: flex; /* Utiliza flexbox para alinear elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+  background: black; /* Fondo negro */
+  color: white; /* Color del texto */
+  border-bottom: 1.5px solid #111; /* Borde inferior */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  padding: 0 16px; /* Relleno horizontal */
+  gap: 0; /*Espacio entre filas*/
+}
+
+.navbar .logo {
+  /* Estilo para el logotipo en la barra de navegación */
+  font-size: 1.1rem; /* Tamaño de fuente */
+  font-weight: 700; /* Negrita */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  color: white; /* Color del texto */
+  margin-right: 32px; /* Espacio a la derecha */
+  font-family: "Montserrat", "Arial Narrow", Arial, sans-serif; /* Fuente utilizada */
+  text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+.nav-links {
+  /* Estilo para los enlaces de navegación */
+  display: flex; /* Utiliza flexbox para alinear enlaces */
+  align-items: center; /* Centra verticalmente los enlaces */
+  gap: 0; /* Sin espacio entre enlaces */
+  margin: 0; /* Elimina márgenes */
+  padding: 0; /* Elimina relleno */
+  list-style: none; /* Elimina viñetas de la lista */
+}
+
+.nav-links li {
+  /* Estilo para cada elemento de la lista de enlaces */
+  display: flex; /* Hace que cada elemento ocupe toda la línea */
+  align-items: center; /* Centra verticalmente */
+}
+
+.nav-links a {
+  /* Estilo para los enlaces dentro de la barra de navegación */
+  color: white; /* Color del texto */
+  text-decoration: none; /* Elimina subrayado */
+  font-size: 1rem; /* Tamaño de fuente */
+  font-weight: 500; /* Peso de fuente */
+  padding: 0 22px; /* Relleno horizontal */
+  height: 48px; /* Altura del enlace */
+  display: flex; /* Utiliza flexbox para centrar contenido */
+  align-items: center; /* Centra verticalmente */
+}
+
+.nav-links li:not(:last-child) a {
+  /* Estilo para la separación entre enlaces (excepto el último) */
+  border-right: 1.5px solid white; /* Borde derecho */
+}
+
+.icono_hamburgesa { /* Botón del menú hamburguesa */
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  color: white; /* Color del icono */
+  font-size: 20px; /* Tamaño del icono */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+/* Estilo para los botones de registro, carrito e inicio */
+.registro, /* Botón de registro */
+.carrito, /* Botón del carrito */
+.inicio { /* Botón de inicio */
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  color: white; /* Color del texto o icono */
+  font-size: 20px; /* Tamaño del texto */
+  cursor: pointer; /* Cursor tipo puntero */
+  margin-left: 12px; /* Espacio a la izquierda */
+}
+
+.barra_lateral_contenedor { /* Contenedor de la barra lateral */
+  position: relative; /* Posición relativa para contener elementos posicionados */
+}
+
+.barra_lateral { /* Barra lateral */
+  position: fixed; /* Fija la barra en la pantalla */
+  top: 0; /* Alineada al borde superior */
+  left: -320px; /* Oculta la barra fuera del área visible */
+  width: 260px; /* Ancho de la barra lateral */
+  height: 100vh; /* Altura completa del viewport */
+  background: #fff; /* Fondo blanco */
+  border-right: 2px solid #111; /* Borde derecho oscuro */
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.07); /* Sombra sutil */
+  transition: left 0.3s; /* Transición suave al mostrarse */
+  z-index: 2000; /* Capa superior */
+  padding-top: 60px; /* Espacio superior interno */
+}
+
+.barra_lateral ul { /* Listas dentro de la barra lateral */
+  list-style: none; /* Sin viñetas */
+  padding: 0; /* Sin relleno */
+  margin: 0; /* Sin márgenes */
+}
+
+.barra_lateral ul li a { /* Enlaces dentro de la barra lateral */
+  display: block; /* Cada enlace ocupa toda la línea */
+  color: #111; /* Color del texto */
+  padding: 16px 28px; /* Espaciado interno */
+  text-decoration: none; /* Sin subrayado */
+  border-bottom: 1px solid #eee; /* Línea divisoria inferior */
+  font-size: 1rem; /* Tamaño del texto */
+}
+
+.barra_lateral ul li a:hover { /* Efecto hover en los enlaces de la barra lateral */
+  background: #f5f5f5; /* Fondo gris claro al pasar el cursor */
+}
+
+.barra_lateral.activa { /* Cuando la barra lateral está activa o visible */
+  left: 0; /* Mueve la barra dentro del área visible */
+}
+
+.desplegable { /* Menús desplegables */
+  display: none; /* Ocultos por defecto */
+  position: absolute; /* Posición absoluta respecto al contenedor */
+  top: 100%; /* Aparece justo debajo del elemento padre */
+  right: 0; /* Alineado a la derecha */
+  background-color: #222; /* Fondo oscuro */
+  border: 1px solid #333; /* Borde ligeramente más claro */
+  border-radius: 6px; /* Bordes redondeados */
+  padding: 8px 0; /* Espaciado vertical */
+  min-width: 150px; /* Ancho mínimo */
+  z-index: 1001; /* Capa sobre otros elementos */
+}
+
+.desplegable a { /* Enlaces dentro del menú desplegable */
+  display: block; /* Ocupan toda la línea */
+  padding: 10px 16px; /* Espaciado interno */
+  color: white; /* Texto blanco */
+  text-decoration: none; /* Sin subrayado */
+}
+
+.desplegable a:hover { /* Efecto hover en los enlaces del menú desplegable */
+  background-color: #444; /* Fondo más claro al pasar el cursor */
+  transition: 0.3s; /* Transición suave */
+}
+
+.registro-contenedor { /* Contenedor del botón de registro con menú */
+  position: relative; /* Posición relativa para el menú desplegable */
+  display: inline-block; /* Mantiene el contenedor en línea */
+}
+
+.registro-contenedor:hover .desplegable { /* Muestra el menú al pasar el cursor */
+  display: block; /* Hace visible el menú desplegable */
+}
+
+.search-container { /* Contenedor de la barra de búsqueda */
+  display: flex; /* Uso de flexbox para alinear elementos */
+  align-items: center; /* Centrado vertical */
+  background-color: white; /* Fondo blanco */
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 5px 10px; /* Espaciado interno */
+  margin-left: auto; /* Empuja el contenedor hacia la derecha */
+}
+
+.search-input { /* Campo de texto de búsqueda */
+  border: none; /* Sin borde */
+  outline: none; /* Sin contorno al hacer clic */
+  padding: 5px; /* Espaciado interno */
+  border-radius: 20px; /* Bordes redondeados */
+  font-size: 14px; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+  width: 140px; /* Ancho del campo */
+}
+
+.search-btn { /* Botón del buscador */
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cursor tipo puntero */
+  color: #333; /* Color del icono */
+  font-size: 16px; /* Tamaño del icono */
+}
+
+
+main { /* Contenedor principal de la página */
+  max-width: 1400px; /* Limita el ancho máximo */
+  margin: 0 auto; /* Centra horizontalmente */
+  padding: 60px 20px; /* Espaciado interno superior/inferior y lateral */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho total */
+}
+
+h1 { /* Título principal */
+  margin-bottom: 20px; /* Espacio debajo del título */
+  color: #1a1a1a; /* Color del texto */
+  font-size: 3.5rem; /* Tamaño grande del texto */
+  text-align: center; /* Centra el texto */
+  font-weight: 800; /* Texto en negrita */
+  letter-spacing: -1px; /* Reduce ligeramente el espacio entre letras */
+  font-family: "Montserrat", "Arial Narrow", Arial, sans-serif; /* Tipografía moderna */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  position: relative; /* Permite posicionar elementos como ::after */
+  padding-bottom: 20px; /* Espacio inferior antes del subrayado decorativo */
+  width: 100%; /* Ocupa todo el ancho */
+  box-sizing: border-box; /* Evita desbordamientos al incluir padding */
+}
+
+h1::after { /* Subrayado decorativo del título principal */
+  content: ""; /* Crea un elemento visual vacío */
+  position: absolute; /* Posiciona respecto al h1 */
+  bottom: 0; /* Pegado al borde inferior */
+  left: 50%; /* Centrado horizontalmente */
+  transform: translateX(-50%); /* Ajusta para centrar correctamente */
+  width: 100px; /* Largo del subrayado */
+  height: 4px; /* Grosor del subrayado */
+  background: linear-gradient(90deg, #000 0%, #666 100%); /* Degradado de color */
+  border-radius: 2px; /* Bordes redondeados */
+}
+
+.quienes { /* Subtítulo o título secundario */
+  color: #2c2c2c; /* Color del texto */
+  text-align: center; /* Centrado horizontal */
+  font-size: 2.8rem; /* Tamaño grande */
+  margin-bottom: 60px; /* Espacio inferior */
+  font-weight: 700; /* Texto en negrita */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  text-transform: uppercase; /* Todo en mayúsculas */
+  font-family: "Montserrat", "Arial Narrow", Arial, sans-serif; /* Tipografía uniforme */
+}
+
+.contenedor { /* Contenedor de texto e imagen */
+  display: flex; /* Usa flexbox para alinear elementos */
+  align-items: center; /* Centra verticalmente el contenido */
+  gap: 60px; /* Espacio entre los elementos (texto e imagen) */
+  margin: 80px auto; /* Centrado y separación vertical */
+  max-width: 1200px; /* Limita el ancho máximo */
+  padding: 40px; /* Espaciado interno */
+  background: white; /* Fondo blanco */
+  border-radius: 20px; /* Bordes redondeados */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave en hover */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  box-sizing: border-box; /* Controla el tamaño total del contenedor */
+}
+
+img { /* Imágenes dentro del contenido */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 450px; /* Limita el tamaño máximo */
+  height: 550px; /* Altura fija */
+  margin-left: 0; /* Sin margen izquierdo */
+  border-radius: 15px; /* Bordes redondeados */
+  object-fit: cover; /* Recorta la imagen sin deformarla */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición al pasar el cursor */
+  box-sizing: border-box; /* Evita desbordes al incluir padding o bordes */
+}
+
+h2 { /* Títulos secundarios dentro del contenido */
+  margin-left: 0; /* Sin margen izquierdo */
+  margin-bottom: 20px; /* Espacio inferior */
+  text-align: left; /* Alineación a la izquierda */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  color: #1a1a1a; /* Color del texto */
+  font-size: 2.2rem; /* Tamaño medio-grande */
+  font-weight: 700; /* Texto en negrita */
+  letter-spacing: -0.5px; /* Ajuste del espaciado entre letras */
+  font-family: "Montserrat", "Arial Narrow", Arial, sans-serif; /* Fuente coherente */
+  position: relative; /* Necesario para colocar el ::after */
+  padding-bottom: 15px; /* Espacio inferior antes del subrayado */
+}
+
+h2::after { /* Subrayado decorativo de los subtítulos */
+  content: ""; /* Elemento vacío decorativo */
+  position: absolute; /* Posicionado respecto al h2 */
+  bottom: 0; /* En la parte inferior */
+  left: 0; /* Inicia en el borde izquierdo */
+  width: 60px; /* Largo del subrayado */
+  height: 3px; /* Grosor del subrayado */
+  background: #000; /* Color negro */
+  border-radius: 2px; /* Bordes redondeados */
+}
+
+p { /* Párrafos del contenido */
+  margin: 0; /* Sin margen exterior */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 600px; /* Limita el ancho máximo del texto */
+  color: #444; /* Color gris oscuro para mejor lectura */
+  text-align: justify; /* Texto justificado */
+  line-height: 1.8; /* Altura de línea amplia para legibilidad */
+  font-size: 1.05rem; /* Tamaño de fuente cómodo */
+  letter-spacing: 0.3px; /* Ligero espaciado entre letras */
+}
+
+
+.footer { /* Estilo general del pie de página */
+  width: 100%; /* Ocupa todo el ancho */
+  background-color: white; /* Fondo blanco */
+  color: black; /* Texto negro */
+  padding: 5px 5px; /* Espaciado interno */
+  justify-content: center; /* Centra el contenido */
+}
+
+.footer-texto { /* Contenedor del texto superior del footer */
+  width: 100%; /* Ocupa todo el ancho */
+  margin-bottom: 10px; /* Espacio inferior */
+  margin-left: 30%; /* Margen izquierdo */
+}
+
+.footer-texto p { /* Estilo para los párrafos dentro del footer */
+  font-size: 20px; /* Tamaño del texto */
+  color: black; /* Color del texto */
+  text-align: center; /* Centra el texto */
+  margin: 0; /* Elimina márgenes */
+  padding: 10px 10px; /* Espaciado interno */
+}
+
+.footer-columns { /* Contenedor de las columnas del footer */
+  display: flex; /* Usa diseño flexible */
+  justify-content: left; /* Alinea las columnas a la izquierda */
+  align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+  flex-wrap: wrap; /* Permite que las columnas se acomoden en varias filas */
+  gap: 30px; /* Espaciado entre columnas */
+  max-width: 1000px; /* Ancho máximo del contenedor */
+  width: 100%; /* Ocupa todo el ancho */
+}
+
+.footer-column { /* Cada columna individual del footer */
+  display: flex; /* Usa diseño flexible */
+  flex-direction: column; /* Alinea los elementos en columna */
+  min-width: 180px; /* Ancho mínimo */
+}
+
+.footer-column h3 { /* Títulos de las columnas del footer */
+  font-weight: bold; /* Negrita */
+  font-size: 17px; /* Tamaño del texto */
+  margin-bottom: 15px; /* Espacio inferior */
+}
+
+.footer-column a { /* Enlaces dentro de las columnas */
+  text-decoration: none; /* Quita el subrayado */
+  color: black; /* Color del texto */
+  font-size: 17px; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio entre enlaces */
+  transition: color 0.3s ease; /* Transición suave del color */
+}
+
+.footer-column a:hover { /* Efecto hover sobre los enlaces */
+  color: #555; /* Cambia a gris oscuro */
+}
+
+.footer-links { /* Contenedor oculto para los enlaces desplegables */
+  display: none; /* No visible por defecto */
+  flex-direction: column; /* Enlaces apilados en columna */
+  gap: 10px; /* Espacio entre enlaces */
+}
+
+.footer-column:hover .footer-links,
+.footer-title:focus + .footer-links { /* Muestra los enlaces al pasar el cursor o enfocar */
+  display: flex;
+}
+
+.footer-title { /* Títulos interactivos del footer */
+  cursor: pointer; /* Cambia el cursor a puntero */
+}
+
+.email-link { /* Enlace de correo electrónico */
+  font-weight: bold; /* En negrita */
+  display: inline-block; /* Ocupa solo el espacio del contenido */
+  margin-top: 10px; /* Espacio superior */
+}
+
+.email-link .small-text { /* Texto pequeño debajo del correo */
+  display: block; /* En nueva línea */
+  font-weight: normal; /* Peso normal */
+  font-size: 12px; /* Tamaño pequeño */
+  color: #777; /* Gris claro */
+  margin-top: 5px; /* Espacio superior */
+}
+
+.footer-legal * { /* Resetea márgenes y padding de los elementos dentro de .footer-legal */
+  margin: 0;
+  padding: 0;
+}
+
+.footer-legal { /* Sección legal inferior del footer */
+  width: 100%; /* Ocupa todo el ancho */
+  background-color: white; /* Fondo blanco */
+  padding: 20px 60px; /* Espaciado interno */
+  display: flex; /* Diseño flexible */
+  justify-content: space-between; /* Distribuye los elementos */
+  align-items: center; /* Centra verticalmente */
+  font-size: 13px; /* Tamaño del texto */
+  border-top: 1px solid black; /* Línea superior */
+  color: white; /* Texto blanco (no visible por fondo blanco, probable error de diseño) */
+  position: relative; /* Posiciona dentro del flujo normal */
+  z-index: 1; /* Prioridad de apilamiento */
+  height: auto; /* Ajusta la altura automáticamente */
+  margin: 0; /* Sin márgenes */
+  gap: 25px; /* Espacio entre elementos */
+}
+
+.footer-legal-links { /* Contenedor de enlaces legales */
+  text-decoration: none; /* Quita el subrayado */
+  display: flex; /* Flexbox horizontal */
+  gap: 25px; /* Espacio entre enlaces */
+}
+
+.footer-legal-links a { /* Enlaces dentro de la parte legal */
+  color: black; /* Color del texto */
+  text-decoration: none; /* Sin subrayado */
+  font-size: 13px; /* Tamaño pequeño */
+  transition: color 0.3s ease; /* Transición suave del color */
+}
+
+.footer-legal-2025 { /* Texto de derechos reservados */
+  font-size: 13px; /* Tamaño del texto */
+  color: black; /* Color del texto */
+  white-space: nowrap; /* Evita salto de línea */
+}
+
+.footer-contenido { /* Contenedor principal del contenido del footer */
+  display: flex; /* Flexbox */
+  flex-direction: row-reverse; /* Invierte el orden de los elementos */
+  align-items: flex-start; /* Alinea al inicio verticalmente */
+  padding: 10px 60px; /* Espaciado interno */
+  flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+}
+
+.social-column { /* Contenedor de iconos de redes sociales */
+  display: flex; /* Flexbox horizontal */
+  flex-wrap: nowrap; /* En una sola línea */
+  max-width: 200px; /* Ancho máximo */
+  gap: 10px; /* Espacio entre iconos */
+}
+
+.social-column .icon { /* Iconos de redes sociales */
+  display: flex; /* Centra el contenido */
+  justify-content: center; /* Centra horizontalmente */
+  width: 30px; /* Tamaño del icono */
+  height: 30px; /* Altura del icono */
+  background-color: #000; /* Fondo negro */
+  color: white; /* Texto blanco */
+  border-radius: 60%; /* Iconos circulares */
+  font-size: 18px; /* Tamaño del icono */
+  text-decoration: none; /* Quita subrayado */
+  align-items: center; /* Centra verticalmente */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+.tooltip { /* Etiquetas flotantes (no visibles por defecto) */
+  display: none;
+}
+
+.facebook:hover,
+.facebook:hover .tooltip { /* Efecto hover para Facebook */
+  background-color: #3b5999; /* Azul de Facebook */
+  color: #fff; /* Texto blanco */
+}
+
+.twitter:hover,
+.twitter:hover .tooltip { /* Efecto hover para Twitter */
+  background-color: #46c1f6; /* Azul claro de Twitter */
+  color: #fff; /* Texto blanco */
+}
+
+.instagram:hover,
+.instagram:hover .tooltip { /* Efecto hover para Instagram */
+  background-color: #e1306c; /* Rosa de Instagram */
+  color: #fff; /* Texto blanco */
+}
+
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* 2000px - Extra Large Desktops */
+@media screen and (max-width: 2000px) { /* Estilos aplicados a pantallas grandes (hasta 2000px) */
+  main { /* Contenedor principal */
+    max-width: 1600px; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 80px 40px; /* Espaciado interno amplio */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding en el cálculo total del ancho */
+  }
+
+  h1 { /* Título principal */
+    font-size: 4rem; /* Tamaño de fuente grande */
+  }
+
+  .quienes { /* Subtítulo o sección “Quiénes somos” */
+    font-size: 3.2rem; /* Tamaño de texto grande */
+  }
+
+  .contenedor { /* Contenedor de imagen y texto */
+    gap: 80px; /* Espacio amplio entre elementos */
+    padding: 50px; /* Espaciado interno */
+    margin: 100px auto; /* Espacio vertical grande y centrado */
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+  }
+
+  img { /* Imágenes dentro del contenido */
+    max-width: 500px; /* Tamaño máximo más grande */
+    height: 600px; /* Altura fija mayor */
+  }
+
+  h2 { /* Títulos secundarios */
+    font-size: 2.5rem; /* Tamaño grande */
+  }
+
+  p { /* Párrafos */
+    font-size: 1.15rem; /* Texto ligeramente más grande */
+    line-height: 1.9; /* Espaciado entre líneas amplio */
+  }
+}
+
+/* 1366px - Large Desktops */
+@media screen and (max-width: 1366px) { /* Estilos para pantallas medianas a grandes (1366px o menos) */
+  main { /* Contenedor principal */
+    max-width: 1200px; /* Reduce el ancho máximo */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 60px 30px; /* Espaciado interno moderado */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+  }
+
+  h1 { /* Título principal */
+    font-size: 3.5rem; /* Tamaño reducido */
+  }
+
+  .quienes { /* Subtítulo o encabezado de sección */
+    font-size: 2.8rem; /* Tamaño de texto más pequeño */
+  }
+
+  .contenedor { /* Contenedor de contenido */
+    gap: 60px; /* Espaciado entre elementos reducido */
+    padding: 40px; /* Menor padding interno */
+    margin: 80px auto; /* Menor espacio vertical */
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box; /* Controla el ancho total */
+  }
+
+  img { /* Imágenes */
+    max-width: 450px; /* Tamaño máximo reducido */
+    height: 550px; /* Altura proporcional */
+  }
+
+  h2 { /* Títulos secundarios */
+    font-size: 2.2rem; /* Tamaño de fuente moderado */
+  }
+
+  p { /* Texto de párrafos */
+    font-size: 1.05rem; /* Tamaño de fuente estándar */
+  }
+}
+
+
+/* 1024px - Tablets Landscape */
+@media screen and (max-width: 1024px) { /* Estilos aplicados a tablets en posición horizontal o pantallas medianas */
+
+  main { /* Contenedor principal */
+    padding: 50px 25px; /* Espaciado interno */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+  }
+
+  h1 { /* Título principal */
+    font-size: 3rem; /* Tamaño de texto más pequeño */
+    margin-bottom: 15px; /* Espacio inferior */
+    padding: 0 10px; /* Espaciado lateral */
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box; /* Ajuste de dimensiones */
+  }
+
+  h1::after { /* Línea decorativa debajo del título */
+    width: 80px; /* Longitud de la línea */
+    height: 3px; /* Grosor de la línea */
+  }
+
+  .quienes { /* Subtítulo o encabezado de sección */
+    font-size: 2.4rem; /* Tamaño del texto más reducido */
+    margin-bottom: 50px; /* Espacio inferior */
+  }
+
+  .contenedor { /* Contenedor de imagen y texto */
+    gap: 40px; /* Espaciado entre elementos */
+    padding: 20px 15px; /* Espaciado interno */
+    margin: 40px 10px; /* Margen externo reducido */
+    width: calc(100% - 20px); /* Ocupa casi todo el ancho del viewport */
+    max-width: 100%; /* Evita desbordamiento horizontal */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+  }
+
+  img { /* Imágenes dentro del contenido */
+    max-width: 100%; /* No excede el ancho del contenedor */
+    width: 100%; /* Se ajusta al ancho disponible */
+    height: auto; /* Mantiene la proporción original */
+    min-height: 400px; /* Altura mínima para mantener presencia visual */
+    margin: 0; /* Sin márgenes externos */
+    box-sizing: border-box; /* Control de tamaño */
+  }
+
+  h2 { /* Subtítulos */
+    font-size: 2rem; /* Tamaño más pequeño */
+    margin-bottom: 15px; /* Espacio inferior */
+  }
+
+  h2::after { /* Línea decorativa debajo del subtítulo */
+    width: 50px; /* Longitud de la línea */
+  }
+
+  p { /* Párrafos de texto */
+    font-size: 1rem; /* Tamaño estándar */
+    line-height: 1.7; /* Espaciado entre líneas adecuado */
+  }
+
+  /* Footer responsivo */
+  .footer-texto { /* Contenedor de los textos principales del footer */
+    margin-left: 0; /* Elimina el margen izquierdo */
+    width: 100%; /* Ocupa todo el ancho */
+  }
+
+  .footer-texto p { /* Párrafos dentro del texto del footer */
+    font-size: 16px; /* Tamaño de fuente moderado */
+    padding: 10px 15px; /* Espaciado interno */
+  }
+
+  .footer-contenido { /* Contenedor principal del footer */
+    flex-direction: column; /* Coloca los elementos en columna */
+    padding: 10px 15px; /* Espaciado interno */
+    align-items: center; /* Centra horizontalmente los elementos */
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box; /* Controla dimensiones */
+  }
+
+  .footer-columns { /* Contenedor de columnas del footer */
+    flex-direction: column; /* Pasa de filas a columnas */
+    width: 100%; /* Ocupa todo el ancho */
+    gap: 20px; /* Espaciado entre columnas */
+  }
+
+  .footer-column { /* Cada columna del footer */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    min-width: 100%; /* Asegura ancho completo */
+  }
+
+  .social-column { /* Columna de redes sociales */
+    margin-bottom: 20px; /* Espacio inferior */
+    justify-content: center; /* Centra los íconos */
+    max-width: 100%; /* Evita que se desborde */
+  }
+
+  .footer-legal { /* Sección legal del footer */
+    flex-direction: column; /* Coloca los elementos en columna */
+    padding: 15px 10px; /* Espaciado interno */
+    gap: 15px; /* Espaciado entre elementos */
+    text-align: center; /* Centra el texto */
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box; /* Ajusta dimensiones */
+  }
+
+  .footer-legal-links { /* Enlaces legales del footer */
+    flex-direction: column; /* Pasa de fila a columna */
+    gap: 10px; /* Espacio entre enlaces */
+  }
+}
+
+
+/* 768px - Tablets Portrait */
+@media screen and (max-width: 768px) { /* Estilos aplicados a tablets en posición vertical */
+
+  body { /* Cuerpo principal de la página */
+    padding-top: 60px; /* Espacio superior para la barra de navegación */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    width: 100%; /* Ocupa todo el ancho del viewport */
+  }
+
+  /* Mejora del diseño responsive del navbar */
+  .navbar { /* Contenedor principal de la barra de navegación */
+    display: flex; /* Activa el diseño flexible */
+    flex-wrap: nowrap; /* Mantiene los elementos en una sola línea */
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Distribuye los elementos a los lados */
+    padding: 8px 10px; /* Espaciado interno */
+    height: auto; /* Ajusta la altura automáticamente */
+    min-height: 48px; /* Altura mínima */
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+  }
+
+  .navbar .logo { /* Estilo del logotipo */
+    font-size: 0.95rem; /* Tamaño del texto más pequeño */
+    margin-right: 10px; /* Espacio derecho */
+    letter-spacing: 1px; /* Espaciado entre letras */
+  }
+
+  .nav-links { /* Contenedor de los enlaces de navegación */
+    display: flex; /* Distribuye los enlaces en fila */
+    flex-direction: row; /* Mantiene la orientación horizontal */
+    align-items: center; /* Centra verticalmente los enlaces */
+    gap: 0; /* Sin espacio entre enlaces */
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a { /* Estilos de los enlaces individuales */
+    font-size: 0.85rem; /* Tamaño de fuente más pequeño */
+    padding: 0 8px; /* Espaciado lateral */
+    height: 40px; /* Altura uniforme */
+  }
+
+  .search-container { /* Contenedor del buscador */
+    padding: 3px 8px; /* Espaciado interno */
+    margin-left: 8px; /* Espacio a la izquierda */
+  }
+
+  .search-input { /* Campo de búsqueda */
+    width: 90px; /* Ancho reducido */
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+  }
+
+  .registro,
+  .carrito,
+  .inicio { /* Íconos o botones de registro, carrito e inicio */
+    font-size: 17px; /* Tamaño de fuente moderado */
+    margin-left: 8px; /* Separación lateral */
+  }
+
+  main { /* Contenedor principal del contenido */
+    padding: 40px 15px; /* Espaciado interno */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 100vw; /* Previene desbordamiento horizontal */
+    box-sizing: border-box; /* Ajusta el ancho con padding */
+  }
+
+  h1 { /* Título principal */
+    font-size: 2.5rem; /* Tamaño del texto reducido */
+    margin-bottom: 15px; /* Espacio inferior */
+    padding: 0 10px; /* Espaciado lateral */
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box;
+  }
+
+  h1::after { /* Línea decorativa bajo el título */
+    width: 70px; /* Longitud de la línea */
+  }
+
+  /* Título de la sección “Quiénes Somos” ajustado */
+  .quienes {
+    font-size: 2rem; /* Tamaño de texto adaptado */
+    margin-bottom: 40px; /* Espaciado inferior */
+    letter-spacing: 1px; /* Ligero espaciado entre letras */
+  }
+
+  .contenedor { /* Contenedor de texto e imagen */
+    flex-direction: column; /* Cambia de fila a columna */
+    gap: 30px; /* Espacio entre elementos */
+    padding: 20px 15px; /* Espaciado interno */
+    margin: 40px 10px; /* Márgenes externos */
+    width: calc(100% - 20px); /* Ocupa casi todo el ancho */
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  img { /* Imágenes del contenido */
+    max-width: 100%; /* No sobrepasa el ancho del contenedor */
+    width: 100%; /* Se adapta al espacio disponible */
+    height: auto; /* Mantiene proporciones */
+    min-height: 400px; /* Asegura una altura mínima */
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  h2 { /* Subtítulos */
+    font-size: 1.8rem; /* Tamaño más pequeño */
+    text-align: center; /* Centrado en pantallas pequeñas */
+    margin-bottom: 15px;
+  }
+
+  h2::after { /* Línea decorativa centrada */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  p { /* Párrafos */
+    font-size: 0.95rem; /* Tamaño más compacto */
+    text-align: center; /* Centrado */
+    max-width: 100%; /* Ocupa todo el ancho */
+  }
+
+  /* Ajustes del footer para tablet */
+  .footer-texto { /* Contenedor de textos del pie de página */
+    margin-left: 0; /* Centrado */
+  }
+
+  .footer-texto p { /* Párrafos del footer */
+    font-size: 15px; /* Tamaño de fuente reducido */
+  }
+
+  .footer-contenido { /* Contenedor del contenido del footer */
+    flex-direction: column; /* Cambia de fila a columna */
+    padding: 10px 15px; /* Espaciado interno */
+  }
+
+  .footer-columns { /* Columnas del footer */
+    flex-direction: column; /* Apila las columnas */
+    width: 100%;
+    gap: 20px; /* Espacio entre secciones */
+  }
+
+  .footer-column { /* Cada columna individual */
+    width: 100%; /* Ocupa todo el ancho */
+    min-width: 100%;
+  }
+
+  .social-column { /* Contenedor de redes sociales */
+    margin-bottom: 20px; /* Espacio inferior */
+    justify-content: center; /* Centra los íconos */
+    max-width: 100%;
+  }
+
+  .footer-legal { /* Sección legal del pie */
+    padding: 12px 8px; /* Espaciado interno */
+    gap: 12px; /* Espaciado entre elementos */
+  }
+
+  .footer-legal-links a { /* Enlaces legales individuales */
+    font-size: 12px; /* Tamaño reducido */
+  }
+
+  .footer-legal-2025 { /* Texto de derechos de autor */
+    font-size: 12px; /* Tamaño reducido */
+  }
+}
+
+
+/* 600px - Large Mobile */
+@media screen and (max-width: 600px) { /* Estilos aplicados a móviles grandes */
+
+  main { /* Contenedor principal del contenido */
+    padding: 30px 12px; /* Espaciado interno */
+    width: 100%; /* Ocupa todo el ancho */
+    max-width: 100vw; /* Evita el desbordamiento horizontal */
+  }
+
+  h1 { /* Título principal */
+    font-size: 2.2rem; /* Tamaño de fuente reducido */
+    margin-bottom: 12px; /* Espacio inferior */
+    padding: 0 5px; /* Espaciado lateral */
+  }
+
+  /* Tamaño ajustado para el título .quienes en móviles grandes */
+  .quienes {
+    font-size: 1.8rem; /* Tamaño adaptado */
+    margin-bottom: 35px; /* Espacio inferior */
+    letter-spacing: 1.5px; /* Espaciado entre letras */
+  }
+
+  .contenedor { /* Contenedor de texto e imagen */
+    padding: 15px 12px; /* Espaciado interno */
+    margin: 30px 8px; /* Margen exterior */
+    width: calc(100% - 16px); /* Ancho ajustado */
+    max-width: 100%;
+    gap: 25px; /* Separación entre elementos */
+    border-radius: 15px; /* Bordes redondeados */
+  }
+
+  img { /* Imágenes principales */
+    min-height: 350px; /* Altura mínima */
+    border-radius: 12px; /* Bordes redondeados */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  h2 { /* Subtítulos */
+    font-size: 1.6rem; /* Tamaño más pequeño */
+    margin-bottom: 12px;
+  }
+
+  h2::after { /* Línea decorativa bajo h2 */
+    width: 45px;
+    height: 2.5px;
+  }
+
+  p { /* Párrafos */
+    font-size: 0.9rem; /* Texto más compacto */
+    line-height: 1.6; /* Espaciado entre líneas */
+    letter-spacing: 0.2px; /* Espaciado leve entre letras */
+  }
+
+  /* Ajustes del footer para móviles grandes */
+  .footer-texto {
+    margin-left: 0; /* Centrado */
+  }
+
+  .footer-texto p {
+    font-size: 15px;
+  }
+
+  .footer-legal { /* Sección legal del pie */
+    padding: 12px 8px; /* Espaciado interno */
+    gap: 12px; /* Separación entre elementos */
+  }
+
+  .footer-legal-links a {
+    font-size: 12px;
+  }
+
+  .footer-legal-2025 {
+    font-size: 12px;
+  }
+}
+
+/* 480px - Medium Mobile */
+@media screen and (max-width: 480px) { /* Estilos aplicados a móviles medianos */
+
+  /* Navbar optimizado para móviles medianos */
+  .navbar {
+    display: flex; /* Activa el diseño flexible */
+    flex-wrap: wrap; /* Permite que los elementos pasen a otra línea */
+    flex-direction: row; /* Dirección en fila */
+    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Espacia elementos a los extremos */
+    padding: 8px 4px; /* Espaciado interno */
+    height: auto; /* Ajusta la altura */
+  }
+
+  .logo { /* Logotipo */
+    font-size: 1rem; /* Tamaño reducido */
+    margin-right: 12px; /* Espacio a la derecha */
+    flex: 1 1 auto; /* Se ajusta dentro del contenedor flexible */
+    text-align: left; /* Alineado a la izquierda */
+  }
+
+  .nav-links { /* Contenedor de enlaces de navegación */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 2 1 auto;
+    margin-bottom: 0;
+    gap: 0;
+    flex-wrap: wrap; /* Permite que los enlaces se ajusten */
+  }
+
+  .nav-links a { /* Enlaces individuales */
+    font-size: 0.95rem; /* Tamaño reducido */
+    padding: 0 8px;
+    height: 38px;
+    border-right: none;
+    border-bottom: none;
+    text-align: left;
+    white-space: nowrap; /* Evita salto de línea */
+  }
+
+  .search-container { /* Contenedor del buscador */
+    width: auto;
+    padding: 2px 6px;
+    margin-left: 8px;
+    margin-bottom: 0;
+    align-self: center;
+    flex: 0 0 auto; /* Tamaño fijo */
+  }
+
+  .user-actions { /* Contenedor de botones de usuario */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    order: 2;
+    flex: 0 0 auto;
+  }
+
+  .icono_hamburgesa { /* Ícono del menú hamburguesa */
+    order: -1; /* Mueve el ícono al inicio */
+    margin-right: 8px;
+    margin-left: 0;
+  }
+
+  main { /* Contenedor principal del contenido */
+    padding: 40px 10px;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  h1 { /* Título principal */
+    font-size: 1.9rem; /* Tamaño reducido */
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  /* Ajuste del título .quienes en móviles medianos */
+  .quienes {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+
+  .contenedor { /* Contenedor del texto e imagen */
+    padding: 12px 10px;
+    margin: 25px 5px;
+    width: calc(100% - 10px);
+    max-width: 100%;
+    gap: 20px;
+    border-radius: 12px;
+  }
+
+  img { /* Imágenes principales */
+    min-height: 300px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  h2 { /* Subtítulos */
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+
+  h2::after { /* Línea decorativa de h2 */
+    width: 40px;
+    height: 2px;
+  }
+
+  p { /* Párrafos */
+    font-size: 0.85rem; /* Tamaño reducido */
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+  }
+
+  /* Ajustes del footer para móviles medianos */
+  .footer-texto p {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .footer-contenido {
+    padding: 8px 10px;
+  }
+
+  .footer-legal {
+    padding: 10px 8px;
+    gap: 10px;
+  }
+
+  .footer-legal-links a {
+    font-size: 11px;
+  }
+
+  .footer-legal-2025 {
+    font-size: 11px;
+  }
+}
+
+
+/* 414px - iPhone Plus/Max */
+@media screen and (max-width: 414px) { /* Estilos aplicados a dispositivos tipo iPhone Plus o Max */
+  
+  main { /* Contenedor principal */
+    padding: 20px 8px; /* Espaciado interno reducido */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 100vw; /* Evita el desbordamiento horizontal */
+  }
+
+  h1 { /* Título principal */
+    font-size: 1.75rem; /* Tamaño de fuente reducido */
+    margin-bottom: 10px; /* Espaciado inferior */
+    padding: 0; /* Sin relleno lateral */
+  }
+
+  /* Ajuste del título .quienes para pantallas tipo iPhone Plus */
+  .quienes {
+    font-size: 1.5rem; /* Fuente más pequeña */
+    margin-bottom: 28px; /* Espacio inferior ajustado */
+    letter-spacing: 0.8px; /* Espaciado leve entre letras */
+  }
+
+  .contenedor { /* Contenedor general de texto e imagen */
+    padding: 12px 8px; /* Espaciado interno */
+    margin: 20px 5px; /* Margen externo */
+    width: calc(100% - 10px); /* Ancho ajustado */
+    max-width: 100%; /* Evita el desbordamiento */
+    gap: 18px; /* Espacio entre elementos */
+  }
+
+  img { /* Imágenes principales */
+    min-height: 280px; /* Altura mínima adaptada */
+    width: 100%; /* Ocupan todo el ancho */
+    max-width: 100%;
+  }
+
+  h2 { /* Subtítulos */
+    font-size: 1.3rem; /* Tamaño más pequeño */
+  }
+
+  h2::after { /* Línea decorativa bajo subtítulos */
+    width: 35px;
+  }
+
+  p { /* Párrafos */
+    font-size: 0.82rem; /* Texto más pequeño y legible */
+  }
+}
+
+/* 360px - Small Mobile */
+@media screen and (max-width: 360px) { /* Estilos para móviles pequeños como Android compactos */
+
+  body {
+    padding-top: 55px; /* Espacio superior para navbar fija */
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden; /* Evita scroll horizontal */
+  }
+
+  /* Navbar optimizada para móviles pequeños */
+  .navbar {
+    display: flex; /* Layout flexible */
+    flex-wrap: wrap; /* Permite ajustar en múltiples líneas */
+    flex-direction: row; /* Dirección horizontal */
+    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Distribuye espacio */
+    padding: 8px 4px; /* Relleno interno reducido */
+    height: 95px; /* Altura fija adaptada */
+  }
+
+  .logo { /* Logotipo */
+    font-size: 1rem; /* Tamaño reducido */
+    margin-right: 12px;
+    flex: 1 1 auto;
+    text-align: left; /* Alineado a la izquierda */
+  }
+
+  .nav-links { /* Contenedor de enlaces de navegación */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 2 1 auto;
+    margin-bottom: 0;
+    gap: 0;
+    flex-wrap: wrap; /* Permite que los enlaces bajen de línea */
+  }
+
+  .nav-links a { /* Enlaces individuales del menú */
+    font-size: 0.95rem;
+    padding: 0 8px;
+    height: 38px;
+    border-right: none;
+    border-bottom: none;
+    text-align: left;
+    white-space: nowrap; /* Evita salto de línea */
+  }
+
+  .search-container { /* Contenedor de la barra de búsqueda */
+    width: auto;
+    padding: 2px 6px;
+    margin-left: 8px;
+    margin-bottom: 0;
+    align-self: center;
+    flex: 0 0 auto; /* No se expande */
+  }
+
+  .user-actions { /* Íconos o botones de usuario */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    order: 2; /* Posiciona al final */
+    flex: 0 0 auto;
+  }
+
+  .icono_hamburgesa { /* Ícono de menú hamburguesa */
+    order: -1; /* Se muestra al inicio */
+    margin-right: 8px;
+    margin-left: 0;
+  }
+
+  main { /* Contenedor principal del contenido */
+    padding: 50px 6px; /* Más espacio superior */
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  h1 { /* Título principal */
+    font-size: 1.6rem; /* Tamaño compacto */
+    margin-bottom: 8px;
+    padding: 0;
+  }
+
+  /* Ajuste del título .quienes para pantallas pequeñas */
+  .quienes {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+  }
+
+  .contenedor { /* Contenedor de texto e imagen */
+    padding: 10px 6px;
+    margin: 18px 4px;
+    width: calc(100% - 8px);
+    max-width: 100%;
+    gap: 12px; /* Separación más reducida */
+    border-radius: 10px; /* Bordes redondeados suaves */
+  }
+
+  img { /* Imágenes principales */
+    min-height: 250px; /* Altura mínima más pequeña */
+    border-radius: 8px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  h2 { /* Subtítulos */
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  h2::after { /* Línea decorativa bajo subtítulos */
+    width: 30px;
+    height: 2px;
+  }
+
+  p { /* Párrafos */
+    font-size: 0.78rem; /* Texto compacto */
+    line-height: 1.5; /* Altura de línea para legibilidad */
+  }
+
+  /* Footer adaptado para móviles pequeños */
+  .footer-texto {
+    margin-left: 0; /* Centrado */
+  }
+
+  .footer-texto p {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  .footer-contenido {
+    padding: 6px 8px;
+  }
+
+  .footer-legal { /* Zona legal inferior */
+    padding: 8px 6px;
+    gap: 8px;
+  }
+
+  .footer-legal-links a { /* Enlaces legales */
+    font-size: 10px;
+  }
+
+  .footer-legal-2025 { /* Texto de derechos */
+    font-size: 10px;
+  }
+}

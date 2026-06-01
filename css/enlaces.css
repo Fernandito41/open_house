@@ -1,0 +1,183 @@
+*{/*Esto hace que toda la pagina sea un poco mas ordenada*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{/*Esto define la altura que se utilizara, el tipo de letra y el color del 
+    fondo*/
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    color: gray;
+    background-color:white ;
+
+}
+body{/*Esto hace que se alinee en una columna y define la alutra minima*/
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.navbar{/*Esto define las caracteristicas para la barra de navegacion*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: black;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.navbar .logo{/*Esto define las caracteristicas para los logos que aparecen en la barra
+    de navegacion*/
+    font-size: 1.8 rem; 
+    font-weight: bold;
+    color: white;
+}
+.nav-links{/*Esto define el espacio entre los links que nos redirigiran a los apartados
+    de hombre, mujer y verano*/
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+
+}
+.nav-links a{
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+.hero-section{
+    padding: 40px;
+    flex: 1;
+}
+
+.footer{/*Esto define algunas caracteristicas del footer como la posicion, el ancho, el
+    color de fondo, y justifica el texto*/
+    position: relative;
+    width: 100%;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    gap: 190px;
+    max-width: 1150px;
+    margin: 0 auto;
+    margin-left: 50px;
+    padding: 60px 30px;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 210px;
+}
+
+.footer-column h3 {
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #555;
+}
+
+.email-link {/*Esto define el margin del link para enviar un email, al igual que 
+    dice que la letra se vera en negrita*/
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.email-link .small-text {
+    display: block;
+    font-weight: normal;
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
+.footer-legal{/*Aqui se define las caracteristicas del apartado legal que aparece
+    en el foote*/
+    position: relative;
+    width: 100%;
+    background-color: #111;
+    padding: 40px 20px 50px;
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 13px;
+    border-top: 5px solid #444;
+    color: white;
+}
+
+.footer-legal a{  /* Estilo para los enlaces dentro del footer legal, estableciendo color y eliminando subrayado */
+    color: white;
+    text-decoration: none;
+}
+.wrapper { /* Contenedor principal para los elementos que se ubican en la parte inferior de la página */
+    position:absolute;
+    bottom: 334px;
+    left: 1400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 999;
+}
+.abajo{  /* Contenedor para agrupar elementos en una fila */
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.wrapper .icon {  /* Estilo para los iconos dentro del contenedor .wrapper */
+    position: relative;
+    background-color:black;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    text-decoration: none;
+}
+
+.wrapper .icon:hover .tooltip { /* Estilo para la herramienta de informacion (tooltip) que aparece al pasar el mouse sobre el icono */
+    opacity: 1;
+    pointer-events: auto;
+}
+.facebook:hover, .facebook:hover .tooltip {
+    background-color: #3b5999;
+    color: #fff;
+}
+.twitter:hover, .twitter:hover .tooltip {
+    background-color: #46c1f6;
+    color: #fff;
+}
+.instagram:hover, .instagram:hover .tooltip {
+    background-color: #e1306c;
+    color: #fff;
+}
+.youtube:hover, .youtube:hover .tooltip {
+    background-color: #de463b;
+    color: #fff;
+}
+.tiktok:hover, .tiktok:hover .tooltip {
+    background-color: #000;
+    color: #fff;
+}

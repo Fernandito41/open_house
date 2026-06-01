@@ -1,0 +1,1595 @@
+/* ✅ Reseteo general de caja para todos los elementos */
+* {
+  box-sizing: border-box; /* Hace que el padding y border no aumenten el ancho total de los elementos */
+}
+
+/* 🌐 Estilos generales del cuerpo de la página */
+body { 
+  margin: 0; /* Elimina los márgenes por defecto del navegador */
+  padding: 0; /* Elimina el relleno por defecto */
+  height: 100%; /* Asegura que el cuerpo ocupe toda la altura */
+  font-family: Arial, Helvetica, sans-serif; /* Fuente principal */
+  overflow-x: hidden; /* Evita el scroll horizontal */
+  color: gray; /* Color de texto por defecto */
+  background-color: white; /* Fondo blanco para toda la página */
+}
+
+/* 🔝 Barra de navegación fija en la parte superior */
+.navbar { 
+  position: fixed; /* Fija la barra para que siempre esté visible */
+  top: 0; /* La posiciona en la parte superior */
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho */
+  height: 48px; /* Altura de la barra */
+  display: flex; /* Activa el modelo flexbox */
+  align-items: center; /* Centra los elementos verticalmente */
+  background: black; /* Fondo negro */
+  color: white; /* Texto blanco */
+  border-bottom: 1.5px solid #111; /* Línea inferior sutil */
+  z-index: 1000; /* Se asegura de estar sobre otros elementos */
+  padding: 0 16px; /* Espaciado horizontal interno */
+  gap: 0; /* Sin separación entre elementos flex */
+}
+
+/* 🧩 Logo dentro de la barra de navegación */
+.navbar .logo {
+  font-size: 1.1rem; /* Tamaño de fuente del logo */
+  font-weight: 700; /* Negrita */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  color: white;
+  margin-right: 32px; /* Espacio a la derecha del logo */
+  font-family: "Montserrat", "Arial Narrow", Arial, sans-serif; /* Fuente moderna */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+}
+
+/* 🔗 Contenedor principal de los enlaces de navegación */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none; /* Elimina los puntos de lista */
+}
+
+/* 🔗 Elementos individuales de la lista */
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+/* 🔗 Enlaces dentro de la barra de navegación */
+.nav-links a {
+  color: white;
+  text-decoration: none; /* Sin subrayado */
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0 22px; /* Espaciado interno */
+  height: 48px;
+  display: flex;
+  align-items: center; /* Centra el texto verticalmente */
+}
+
+/* Línea divisoria entre enlaces (excepto el último) */
+.nav-links li:not(:last-child) a {
+  border-right: 1.5px solid white;
+}
+
+/* 🍔 Icono del menú hamburguesa (para móviles) */
+.icono_hamburgesa {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+
+/* 🧍‍♂️ Iconos de acciones (registro, carrito, inicio de sesión, etc.) */
+.registro,
+.carrito,
+.inicio {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+/* 📁 Contenedor de la barra lateral */
+.barra_lateral_contenedor {
+  position: relative;
+}
+
+/* 📜 Barra lateral (menú oculto a la izquierda) */
+.barra_lateral {
+  position: fixed;
+  top: 0;
+  left: -320px; /* Oculta la barra fuera de la pantalla */
+  width: 260px;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  background: #fff;
+  border-right: 2px solid #111;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.07);
+  transition: left 0.3s; /* Animación suave al abrir/cerrar */
+  z-index: 2000; /* Sobre el contenido */
+  padding-top: 60px; /* Espacio superior (bajo el navbar) */
+}
+
+/* Lista dentro de la barra lateral */
+.barra_lateral ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Enlaces dentro de la barra lateral */
+.barra_lateral ul li a {
+  display: block;
+  color: #111;
+  padding: 16px 28px;
+  text-decoration: none;
+  border-bottom: 1px solid #eee; /* Línea divisoria sutil */
+  font-size: 1rem;
+}
+
+.barra_lateral ul li a:hover {
+  background: #f5f5f5; /* Color de fondo al pasar el ratón */
+}
+
+/* Clase activa → muestra la barra lateral */
+.barra_lateral.activa {
+  left: 0; /* Se mueve dentro de la vista */
+}
+
+/* 🔽 Menú desplegable (para registro o perfil) */
+.desplegable {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%; /* Aparece debajo del icono */
+  right: 0;
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 8px 0;
+  min-width: 150px;
+  z-index: 1001;
+}
+
+/* Enlaces dentro del menú desplegable */
+.desplegable a {
+  display: block;
+  padding: 10px 16px;
+  color: white;
+  text-decoration: none;
+}
+
+.desplegable a:hover {
+  background-color: #444; /* Efecto hover */
+  transition: 0.3s;
+}
+
+/* Contenedor del botón de registro (activa el desplegable) */
+.registro-contenedor {
+  position: relative;
+  display: inline-block;
+}
+
+/* Al pasar el cursor sobre el contenedor → muestra el menú */
+.registro-contenedor:hover .desplegable {
+  display: block;
+}
+
+/* 🔍 Barra de búsqueda (contenedor) */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-left: auto; /* Empuja la búsqueda al lado derecho */
+}
+
+/* Campo de entrada del buscador */
+.search-input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #333;
+  width: 140px;
+}
+
+/* Botón del buscador (ícono de lupa) */
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 16px;
+}
+
+/* CONTENEDOR PRINCIPAL - Mobile First */
+.carrito-pedidos-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 80vh;
+  padding: 70px 15px 20px 15px;
+  box-sizing: border-box;
+  gap: 30px;
+}
+
+/* 🛒 SECCIÓN: Apartado del carrito */
+
+/* Contenedor principal cuando el carrito está vacío */
+.carrito-vacio {
+  position: relative; /* Permite posicionar elementos hijos relativos al contenedor */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  background: none; /* Sin color de fondo */
+  border-radius: 0; /* Sin bordes redondeados */
+  box-shadow: none; /* Sin sombra */
+  padding: 20px; /* Espaciado interno */
+  display: flex; /* Activa flexbox */
+  flex-direction: column; /* Los elementos hijos se apilan verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+  min-height: 50vh; /* Ocupa al menos la mitad de la altura de la ventana */
+  gap: 30px; /* Espacio entre elementos hijos */
+}
+
+/* Título que se muestra en el carrito vacío */
+.carrito-titulo {
+  font-size: 1.3rem; /* Tamaño de texto mediano-grande */
+  font-weight: bold; /* Texto en negrita */
+  color: #222; /* Color de texto oscuro */
+  margin-bottom: 20px; /* Separación inferior */
+  text-align: center; /* Centra el texto */
+}
+
+/* Contenedor de cada producto dentro del carrito */
+.carrito-item {
+  display: flex; /* Activa flexbox */
+  flex-direction: column; /* Apila los elementos del producto en columna */
+  align-items: flex-start; /* Alinea al inicio horizontalmente */
+  margin-bottom: 15px; /* Espacio inferior entre productos */
+  padding: 15px; /* Espaciado interno */
+  background: #f9f9f9; /* Fondo gris muy claro */
+  border-radius: 8px; /* Bordes redondeados suaves */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  gap: 10px; /* Espacio entre los elementos del producto */
+}
+
+/* Imagen miniatura del producto */
+.mini-imagen {
+  width: 80px; /* Ancho fijo de 80 píxeles */
+  height: auto; /* Mantiene la proporción */
+  margin-bottom: 10px; /* Separación inferior respecto al texto */
+  border-radius: 5px; /* Bordes ligeramente redondeados */
+}
+
+/* Botón para eliminar un producto del carrito */
+.btn-eliminar {
+  background-color: #ff4d4d; /* Rojo brillante */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 8px 16px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Muestra la mano al pasar el cursor */
+  font-size: 14px; /* Tamaño de fuente mediano */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  margin-top: 10px; /* Separación superior */
+}
+
+/* Efecto hover del botón eliminar */
+.btn-eliminar:hover {
+  background-color: #e60000; /* Rojo más oscuro al pasar el ratón */
+}
+
+/* Botón para “empezar a comprar” cuando el carrito está vacío */
+.btn-empezar {
+  font-size: 1rem; /* Tamaño de texto normal */
+  font-weight: bold; /* Negrita */
+  color: #fff; /* Texto blanco */
+  background: #222; /* Fondo negro grisáceo */
+  padding: 12px 32px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo mano */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); /* Sombra ligera */
+  margin-top: 10px; /* Margen superior */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 280px; /* Pero no supera 280px de ancho */
+}
+
+/* 📦 SECCIÓN: Apartado de hacer pedidos */
+.hacer-pedidos {
+  position: relative; /* Permite posicionar elementos hijos */
+  width: 100%; /* Ocupa todo el ancho */
+  background: #f7f7f7; /* Fondo gris muy claro */
+  border-radius: 12px; /* Bordes redondeados suaves */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); /* Sombra sutil para efecto de tarjeta */
+  padding: 25px 20px; /* Espaciado interno */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Elementos apilados verticalmente */
+  align-items: stretch; /* Cada elemento se estira al ancho completo */
+}
+
+/* Contenedor del resumen del pedido */
+.resumen-pedido {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  margin-bottom: 20px; /* Separación inferior */
+}
+
+/* Título del resumen del pedido */
+.resumen-titulo {
+  font-size: 1.1rem; /* Tamaño de texto mediano */
+  font-weight: bold; /* Negrita */
+  color: #222; /* Color oscuro */
+}
+
+/* Texto que muestra el total o monto del pedido */
+.resumen-total {
+  margin-top: 10px; /* Separación superior */
+  font-size: 1rem; /* Tamaño de texto normal */
+  color: #444; /* Gris oscuro */
+}
+
+/* Valor numérico del monto (cantidad final) */
+.resumen-monto {
+  font-weight: bold; /* Negrita */
+  color: #007bff; /* Azul principal (color de acción o marca) */
+}
+
+/* Botón para finalizar o hacer el pedido */
+.btn-hacer-pedido {
+  font-size: 1rem; /* Tamaño de texto normal */
+  font-weight: bold; /* Negrita */
+  color: #fff; /* Texto blanco */
+  background: #222; /* Fondo oscuro */
+  padding: 12px 32px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo mano */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); /* Sombra ligera */
+  margin-top: 10px; /* Margen superior */
+  width: 100%; /* Ocupa todo el ancho */
+  text-align: center; /* Centra el texto dentro del botón */
+}
+
+/* Descripción del método de pago */
+.descripcion-pago-texto {
+  margin-top: 18px; /* Separación superior */
+  font-size: 0.9rem; /* Tamaño de texto ligeramente pequeño */
+  color: #444; /* Gris oscuro */
+  text-align: left; /* Alineación izquierda */
+}
+
+/* Contenedor de los íconos de métodos de pago */
+.iconos-metodos-pago {
+  display: inline-flex; /* Los íconos se alinean en línea */
+  align-items: center; /* Centra los íconos verticalmente */
+  gap: 8px; /* Espacio entre cada ícono */
+  margin-top: 8px; /* Separación superior */
+  flex-wrap: wrap; /* Si hay muchos íconos, saltan a otra línea */
+}
+
+/* Ícono de PayPal */
+.icono-paypal {
+  font-size: 1.4rem; /* Tamaño mediano-grande */
+  color: #0a19ee; /* Azul característico de PayPal */
+}
+
+/* Ícono de Visa */
+.icono-visa {
+  font-size: 1.4rem;
+  color: #ff2f2f; /* Rojo brillante para Visa */
+}
+
+/* Ícono genérico de tarjeta */
+.icono-tarjeta {
+  font-size: 1.4rem;
+  color: #222; /* Negro o gris oscuro */
+}
+
+
+/* 🦶 SECCIÓN: FOOTER (pie de página general) */
+.footer {
+  width: 100%; /* El footer ocupa todo el ancho de la página */
+  background-color: white; /* Fondo blanco */
+  color: black; /* Texto en negro */
+  padding: 20px 15px; /* Espaciado interno */
+  justify-content: center; /* Centra su contenido horizontalmente (si se usa con flex) */
+}
+
+/* Bloque superior de texto del footer */
+.footer-texto {
+  width: 100%; /* Ocupa todo el ancho */
+  margin-bottom: 20px; /* Separación inferior respecto al siguiente bloque */
+}
+
+/* Párrafos dentro del footer */
+.footer-texto p {
+  font-size: 16px; /* Tamaño de letra mediano */
+  color: black; /* Texto negro */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin: 0; /* Sin margen exterior */
+  padding: 10px; /* Espacio interno alrededor del texto */
+}
+
+/* Contenedor principal del contenido del footer */
+.footer-contenido {
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Los elementos se apilan verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+  padding: 10px 15px; /* Espaciado interno */
+  gap: 30px; /* Espacio entre secciones dentro del footer */
+}
+
+/* 🔗 Sección de iconos de redes sociales */
+.social-column {
+  display: flex; /* Activa flexbox */
+  flex-wrap: wrap; /* Si hay muchos iconos, los manda a la siguiente línea */
+  justify-content: center; /* Centra horizontalmente los iconos */
+  gap: 12px; /* Espacio entre iconos */
+  width: 100%; /* Ocupa todo el ancho del footer */
+}
+
+/* Estilo de cada icono de red social */
+.social-column .icon {
+  display: flex; /* Activa flexbox para centrar el ícono */
+  justify-content: center; /* Centra horizontalmente */
+  width: 40px; /* Tamaño cuadrado de 40x40px */
+  height: 40px;
+  background-color: #000; /* Fondo negro por defecto */
+  color: white; /* Icono blanco */
+  border-radius: 50%; /* Forma circular */
+  font-size: 18px; /* Tamaño del icono */
+  text-decoration: none; /* Sin subrayado */
+  align-items: center; /* Centra verticalmente */
+  transition: background-color 0.3s, color 0.3s; /* Animación suave al pasar el ratón */
+}
+
+/* Tooltip (no visible por defecto) */
+.tooltip {
+  display: none; /* No se muestra */
+}
+
+/* 🎨 Colores específicos al pasar el mouse sobre cada red social */
+.facebook:hover {
+  background-color: #3b5999; /* Azul Facebook */
+}
+
+.twitter:hover {
+  background-color: #46c1f6; /* Celeste Twitter */
+}
+
+.instagram:hover {
+  background-color: #e1306c; /* Rosa Instagram */
+}
+
+.tiktok:hover {
+  background-color: #000; /* Negro TikTok */
+}
+
+/* 📁 Sección de columnas del footer */
+.footer-columns {
+  display: flex; /* Activa flexbox */
+  flex-direction: column; /* En móvil, las columnas se apilan */
+  align-items: center; /* Centra las columnas */
+  gap: 25px; /* Espacio entre cada columna */
+  width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+/* Cada columna del footer (enlaces, contacto, info, etc.) */
+.footer-column {
+  display: flex; /* Flexbox interno */
+  flex-direction: column; /* Apila los elementos dentro de la columna */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 300px; /* No pasa de 300px */
+  text-align: center; /* Centra el contenido de texto */
+  min-width: auto; /* Sin ancho mínimo fijo */
+}
+
+/* Título de cada columna (ej: “Contacto”, “Enlaces”, “Ayuda”) */
+.footer-column h3 {
+  font-weight: bold; /* Negrita */
+  font-size: 16px; /* Tamaño de fuente moderado */
+  margin-bottom: 12px; /* Espacio debajo del título */
+}
+
+/* Enlaces dentro de las columnas */
+.footer-column a {
+  text-decoration: none; /* Sin subrayado */
+  color: black; /* Texto negro */
+  font-size: 15px; /* Tamaño mediano */
+  margin-bottom: 8px; /* Espacio entre enlaces */
+  transition: color 0.3s ease; /* Suaviza el cambio de color al pasar el ratón */
+}
+
+/* Efecto hover de los enlaces */
+.footer-column a:hover {
+  color: #555; /* Gris oscuro al pasar el mouse */
+}
+
+/* Contenedor de los enlaces (por si se agrupan) */
+.footer-links {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Apila enlaces verticalmente */
+  gap: 8px; /* Espacio entre enlaces */
+}
+
+/* Hace que los títulos de las secciones sean interactivos */
+.footer-title {
+  cursor: pointer; /* Muestra el puntero al pasar por encima */
+}
+
+/* Enlace de correo electrónico en la sección de contacto */
+.email-link {
+  font-weight: bold; /* Texto resaltado */
+  display: inline-block; /* Se comporta como bloque en línea */
+  margin-top: 10px; /* Separación superior */
+}
+
+/* Texto pequeño debajo del correo (ej: horario o nota adicional) */
+.email-link .small-text {
+  display: block; /* Lo muestra debajo del correo */
+  font-weight: normal; /* Sin negrita */
+  font-size: 12px; /* Tamaño más pequeño */
+  color: #777; /* Gris claro */
+  margin-top: 5px; /* Pequeña separación superior */
+}
+
+/* 🔚 SECCIÓN LEGAL (parte inferior del footer) */
+.footer-legal * {
+  margin: 0;
+  padding: 0; /* Elimina márgenes y rellenos por defecto */
+}
+
+/* Contenedor del texto y enlaces legales (términos, privacidad, etc.) */
+.footer-legal {
+  width: 100%; /* Ocupa todo el ancho */
+  background-color: white; /* Fondo blanco */
+  padding: 20px 15px; /* Espaciado interno */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Elementos apilados verticalmente */
+  align-items: center; /* Centra el contenido */
+  font-size: 12px; /* Tamaño de texto pequeño */
+  border-top: 1px solid black; /* Línea divisoria superior */
+  color: black; /* Texto negro */
+  gap: 15px; /* Espacio entre los elementos internos */
+}
+
+/* Enlaces legales (como política de privacidad, términos, etc.) */
+.footer-legal-links {
+  text-decoration: none; /* Sin subrayado */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Enlaces apilados */
+  gap: 10px; /* Espacio entre enlaces */
+  text-align: center; /* Centra los enlaces */
+}
+
+/* Estilo de los enlaces legales individuales */
+.footer-legal-links a {
+  color: black; /* Texto negro */
+  text-decoration: none; /* Sin subrayado */
+  font-size: 12px; /* Tamaño pequeño */
+  transition: color 0.3s ease; /* Animación suave de color */
+}
+
+/* Texto con el año o derechos reservados */
+.footer-legal-2025 {
+  font-size: 12px; /* Texto pequeño */
+  color: black; /* Texto negro */
+  text-align: center; /* Centrado horizontal */
+  white-space: normal; /* Permite saltos de línea si es necesario */
+}
+
+
+/* max-width: 360px - Extra small mobile devices */
+@media (max-width: 360px) {
+  .navbar {
+    padding: 0 5px;
+    height: 46px;
+  }
+
+  .navbar .logo {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    margin-right: 4px;
+  }
+
+  .nav-links a {
+    font-size: 0.55rem;
+    padding: 0 5px;
+    height: 46px;
+  }
+
+  .icono_hamburgesa {
+    font-size: 16px;
+  }
+
+  .registro,
+  .carrito,
+  .inicio {
+    font-size: 16px;
+    margin-left: 4px;
+  }
+
+  .search-container {
+    padding: 3px 6px;
+  }
+
+  .search-input {
+    font-size: 11px;
+    width: 50px;
+    padding: 3px;
+  }
+
+  .search-btn {
+    font-size: 12px;
+  }
+
+  .carrito-pedidos-container {
+    padding: 55px 8px 15px 8px;
+    gap: 15px;
+  }
+
+  .carrito-vacio {
+    padding: 12px;
+    gap: 15px;
+    min-height: 35vh;
+  }
+
+  .carrito-titulo {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .carrito-item {
+    padding: 10px;
+    gap: 6px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+  }
+
+  .mini-imagen {
+    width: 60px;
+    margin-bottom: 6px;
+  }
+
+  .btn-eliminar {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  .btn-empezar {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    max-width: 220px;
+  }
+
+  .hacer-pedidos {
+    padding: 15px 10px;
+  }
+
+  .resumen-titulo {
+    font-size: 0.9rem;
+  }
+
+  .resumen-total {
+    margin-top: 6px;
+    font-size: 0.85rem;
+  }
+
+  .btn-hacer-pedido {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    margin-top: 6px;
+  }
+
+  .descripcion-pago-texto {
+    margin-top: 12px;
+    font-size: 0.75rem;
+  }
+
+  .iconos-metodos-pago {
+    gap: 5px;
+    margin-top: 5px;
+  }
+
+  .icono-paypal,
+  .icono-visa,
+  .icono-tarjeta {
+    font-size: 1rem;
+  }
+
+  .footer-texto p {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .footer-columns {
+    gap: 15px;
+  }
+
+  .footer-column {
+    min-width: 130px;
+  }
+
+  .footer-column h3 {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .footer-column a {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .footer-legal {
+    padding: 12px 8px;
+    font-size: 10px;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .footer-legal-links {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .footer-legal-links a {
+    font-size: 10px;
+  }
+
+  .footer-legal-2025 {
+    font-size: 10px;
+  }
+
+  .footer-contenido {
+    padding: 8px 10px;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-column {
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-column .icon {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  .email-link .small-text {
+    font-size: 10px;
+  }
+
+  .barra_lateral {
+    width: 220px;
+    left: -260px;
+  }
+
+  .barra_lateral ul li a {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+
+  .desplegable {
+    min-width: 110px;
+  }
+
+  .desplegable a {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* max-width: 414px - Small mobile devices */
+@media (max-width: 414px) and (min-width: 361px) {
+   .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 4px;
+    height: auto;
+  }
+  .logo {
+    font-size: 1rem;
+    margin-right: 12px;
+    flex: 1 1 auto;
+    text-align: left;
+  }
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 2 1 auto;
+    margin-bottom: 0;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    font-size: 0.95rem;
+    padding: 0 8px;
+    height: 38px;
+    border-right: none;
+    border-bottom: none;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .search-container {
+    width: auto;
+    padding: 2px 6px;
+    margin-left: 8px;
+    margin-bottom: 0;
+    align-self: center;
+    flex: 0 0 auto;
+  }
+  .user-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    order: 2;
+    flex: 0 0 auto;
+  }
+  .icono_hamburgesa {
+    order: -1;
+    margin-right: 8px;
+    margin-left: 0;
+  }
+
+  .carrito-pedidos-container {
+    padding: 58px 10px 18px 10px;
+    gap: 18px;
+  }
+
+  .carrito-vacio {
+    padding: 15px;
+    gap: 18px;
+  }
+
+  .carrito-titulo {
+    font-size: 1.05rem;
+  }
+
+  .carrito-item {
+    padding: 12px;
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+
+  .mini-imagen {
+    width: 65px;
+  }
+
+  .btn-eliminar {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+
+  .btn-empezar {
+    font-size: 0.9rem;
+    padding: 11px 24px;
+    max-width: 240px;
+  }
+
+  .hacer-pedidos {
+    padding: 18px 15px;
+  }
+
+  .resumen-titulo {
+    font-size: 0.95rem;
+  }
+
+  .resumen-total {
+    font-size: 0.9rem;
+  }
+
+  .btn-hacer-pedido {
+    font-size: 0.9rem;
+    padding: 11px 24px;
+  }
+
+  .descripcion-pago-texto {
+    font-size: 0.8rem;
+  }
+
+  .icono-paypal,
+  .icono-visa,
+  .icono-tarjeta {
+    font-size: 1.1rem;
+  }
+
+  .footer-texto p {
+    font-size: 13px;
+  }
+
+  .footer-column {
+    min-width: 140px;
+  }
+
+  .footer-column h3 {
+    font-size: 14px;
+  }
+
+  .footer-column a {
+    font-size: 13px;
+  }
+
+  .footer-legal {
+    padding: 14px 10px;
+    font-size: 10px;
+    flex-direction: column;
+  }
+
+  .footer-legal-links a {
+    font-size: 10px;
+  }
+
+  .footer-legal-2025 {
+    font-size: 10px;
+  }
+
+  .footer-contenido {
+    padding: 8px 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-column {
+    gap: 7px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-column .icon {
+    width: 27px;
+    height: 27px;
+    font-size: 15px;
+  }
+}
+
+/* max-width: 480px - Medium mobile devices */
+@media (max-width: 480px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 4px;
+    height: auto;
+  }
+  .logo {
+    font-size: 1rem;
+    margin-right: 12px;
+    flex: 1 1 auto;
+    text-align: left;
+  }
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 2 1 auto;
+    margin-bottom: 0;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    font-size: 0.95rem;
+    padding: 0 8px;
+    height: 38px;
+    border-right: none;
+    border-bottom: none;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .search-container {
+    width: auto;
+    padding: 2px 6px;
+    margin-left: 8px;
+    margin-bottom: 0;
+    align-self: center;
+    flex: 0 0 auto;
+  }
+  .user-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    order: 2;
+    flex: 0 0 auto;
+  }
+  .icono_hamburgesa {
+    order: -1;
+    margin-right: 8px;
+    margin-left: 0;
+  }
+
+
+  .carrito-pedidos-container {
+    padding: 60px 12px 18px 12px;
+    gap: 20px;
+  }
+
+  .carrito-vacio {
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .carrito-titulo {
+    font-size: 1.1rem;
+  }
+
+  .carrito-item {
+    padding: 13px;
+    gap: 9px;
+    font-size: 0.9rem;
+  }
+
+  .mini-imagen {
+    width: 70px;
+  }
+
+  .btn-eliminar {
+    padding: 7px 15px;
+    font-size: 13px;
+  }
+
+  .btn-empezar {
+    font-size: 0.95rem;
+    padding: 11px 28px;
+    max-width: 260px;
+  }
+
+  .hacer-pedidos {
+    padding: 20px 18px;
+  }
+
+  .resumen-titulo {
+    font-size: 1rem;
+  }
+
+  .resumen-total {
+    font-size: 0.95rem;
+  }
+
+  .btn-hacer-pedido {
+    font-size: 0.95rem;
+    padding: 11px 28px;
+  }
+
+  .descripcion-pago-texto {
+    font-size: 0.85rem;
+  }
+
+  .icono-paypal,
+  .icono-visa,
+  .icono-tarjeta {
+    font-size: 1.2rem;
+  }
+
+  .footer-texto p {
+    font-size: 14px;
+  }
+
+  .footer-column {
+    min-width: 150px;
+  }
+
+  .footer-column h3 {
+    font-size: 14px;
+  }
+
+  .footer-column a {
+    font-size: 14px;
+  }
+
+  .footer-legal {
+    padding: 15px 15px;
+    font-size: 11px;
+    flex-direction: column;
+  }
+
+  .footer-legal-links {
+    gap: 12px;
+  }
+
+  .footer-legal-links a {
+    font-size: 11px;
+  }
+
+  .footer-legal-2025 {
+    font-size: 11px;
+  }
+
+  .footer-contenido {
+    padding: 10px 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-column {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-column .icon {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+}
+
+/* max-width: 600px - Large mobile / Small tablets */
+@media (max-width: 600px) and (min-width: 481px) {
+  .navbar {
+    padding: 0 10px;
+  }
+
+  .navbar .logo {
+    font-size: 0.9rem;
+    letter-spacing: 1.7px;
+    margin-right: 12px;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+    padding: 0 9px;
+  }
+
+  .icono_hamburgesa {
+    font-size: 19px;
+  }
+
+  .registro,
+  .carrito,
+  .inicio {
+    font-size: 19px;
+    margin-left: 8px;
+  }
+
+  .search-input {
+    width: 90px;
+    font-size: 13px;
+  }
+
+  .carrito-pedidos-container {
+    padding: 65px 15px 20px 15px;
+    gap: 25px;
+  }
+
+  .carrito-vacio {
+    padding: 18px;
+    gap: 25px;
+  }
+
+  .carrito-titulo {
+    font-size: 1.2rem;
+  }
+
+  .carrito-item {
+    padding: 14px;
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+
+  .mini-imagen {
+    width: 75px;
+  }
+
+  .btn-eliminar {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+
+  .btn-empezar {
+    font-size: 0.98rem;
+    padding: 12px 30px;
+    max-width: 270px;
+  }
+
+  .hacer-pedidos {
+    padding: 22px 20px;
+  }
+
+  .resumen-titulo {
+    font-size: 1.05rem;
+  }
+
+  .resumen-total {
+    font-size: 0.98rem;
+  }
+
+  .btn-hacer-pedido {
+    font-size: 0.98rem;
+    padding: 12px 30px;
+  }
+
+  .descripcion-pago-texto {
+    font-size: 0.88rem;
+  }
+
+  .icono-paypal,
+  .icono-visa,
+  .icono-tarjeta {
+    font-size: 1.3rem;
+  }
+
+  .footer-texto p {
+    font-size: 16px;
+  }
+
+  .footer-columns {
+    gap: 25px;
+  }
+
+  .footer-column {
+    min-width: 160px;
+  }
+
+  .footer-column h3 {
+    font-size: 15px;
+  }
+
+  .footer-column a {
+    font-size: 15px;
+  }
+
+  .footer-legal {
+    padding: 16px 20px;
+    font-size: 11px;
+    flex-direction: column;
+  }
+
+  .footer-legal-links {
+    gap: 15px;
+  }
+  .footer-legal-links a {
+    font-size: 11px;
+  }
+
+  .footer-legal-2025 {
+    font-size: 11px;
+  }
+
+  .footer-contenido {
+    padding: 10px 25px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-column {
+    gap: 9px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-column .icon {
+    width: 29px;
+    height: 29px;
+    font-size: 17px;
+  }
+}
+
+/* TABLETS - 600px y superior */
+@media (min-width: 600px) {
+  .navbar {
+    height: 52px;
+    padding: 0 20px;
+  }
+
+  .navbar .logo {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .search-input {
+    width: 120px;
+  }
+
+  .carrito-pedidos-container {
+    padding: 80px 25px 30px 25px;
+  }
+
+  .footer-columns {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-column {
+    text-align: left;
+    max-width: 200px;
+    min-width: 180px;
+  }
+
+  .footer-legal {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 30px;
+  }
+
+  .footer-legal-links {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .footer-legal-2025 {
+    white-space: nowrap;
+  }
+}
+
+/* TABLETS GRANDES - 768px y superior */
+@media (min-width: 768px) {
+  .navbar {
+    height: 48px;
+    padding: 0 30px;
+    gap: 0;
+  }
+
+  .navbar .logo {
+    font-size: 1.1rem;
+    margin-right: 32px;
+  }
+
+  /* Mostrar nav-links en tablets */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-links li {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0 18px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links li:not(:last-child) a {
+    border-right: 1.5px solid white;
+  }
+
+ 
+
+  .search-input {
+    width: 140px;
+  }
+
+  .search-container {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .registro,
+  .carrito,
+  .inicio {
+    font-size: 20px;
+    margin-left: 12px;
+  }
+
+  /* Layout de dos columnas */
+  .carrito-pedidos-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 80px 30px 40px 30px;
+    gap: 40px;
+  }
+
+  .carrito-vacio {
+    position: sticky;
+    top: 100px;
+    width: 55%;
+    min-height: 60vh;
+    padding: 0;
+  }
+
+  .hacer-pedidos {
+    position: sticky;
+    top: 100px;
+    width: 40%;
+    max-width: 400px;
+    padding: 35px 25px;
+  }
+
+  .resumen-titulo {
+    font-size: 1.2rem;
+  }
+
+  .resumen-total {
+    font-size: 1.1rem;
+  }
+
+  .btn-hacer-pedido {
+    font-size: 1.1rem;
+  }
+
+  .descripcion-pago-texto {
+    font-size: 1rem;
+  }
+
+  .footer-texto p {
+    font-size: 20px;
+  }
+
+  .footer-contenido {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 10px 40px;
+  }
+
+  .social-column {
+    max-width: 250px;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+  }
+
+  .social-column .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-columns {
+    justify-content: flex-start;
+    gap: 30px;
+  }
+
+  .footer-column h3 {
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+
+  .footer-column a {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .footer-links {
+    display: none;
+    gap: 10px;
+  }
+
+  .footer-column:hover .footer-links,
+  .footer-title:focus + .footer-links {
+    display: flex;
+  }
+
+  .footer-legal {
+    padding: 20px 40px;
+    font-size: 13px;
+  }
+
+  .footer-legal-links {
+    gap: 25px;
+  }
+
+  .footer-legal-links a {
+    font-size: 13px;
+  }
+
+  .footer-legal-2025 {
+    font-size: 13px;
+  }
+}
+
+/* DESKTOP - 1024px y superior */
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 0 40px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    padding: 0 22px;
+  }
+
+  .carrito-pedidos-container {
+    padding: 90px 50px 50px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .carrito-vacio {
+    width: 60%;
+  }
+
+  .hacer-pedidos {
+    width: 35%;
+    max-width: 420px;
+    padding: 40px 30px;
+  }
+
+  .footer-contenido {
+    padding: 10px 60px;
+  }
+
+  .footer-legal {
+    padding: 20px 60px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .navbar {
+    padding: 0 40px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    padding: 0 22px;
+  }
+
+  .carrito-pedidos-container {
+    padding: 90px 50px 50px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .carrito-vacio {
+    width: 60%;
+  }
+
+  .hacer-pedidos {
+    width: 35%;
+    max-width: 420px;
+    padding: 40px 30px;
+  }
+
+  .footer-contenido {
+    padding: 10px 60px;
+  }
+
+  .footer-legal {
+    padding: 20px 60px;
+  }
+}
+
+/* PANTALLAS GRANDES - 1440px y superior */
+@media (min-width: 1440px) {
+  .carrito-pedidos-container {
+    padding: 100px 80px 60px 80px;
+  }
+
+  .hacer-pedidos {
+    max-width: 450px;
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .barra_lateral,
+  .social-column .icon,
+  .footer-column a,
+  .desplegable a {
+    transition: none;
+  }
+}

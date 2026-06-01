@@ -1,0 +1,559 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+}
+
+/* Overlay tipo Bershka desde el inicio */
+.overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white; /* fondo oscuro */
+  min-height: 100vh;
+  padding: 60px 20px;
+  color: black;
+}
+
+/* Cabecera "Escribe aquí" */
+.buscador-header {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.buscador-header h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Input con línea debajo */
+form.buscador {
+  display: flex;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+
+form.buscador input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: black;
+  font-size: 22px;
+  padding: 10px 5px;
+}
+
+form.buscador input::placeholder {
+  color: black;
+}
+
+form.buscador button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Títulos */
+h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Contenedor de productos */
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+/* Cajas de productos (tus estilos) */
+.Cajas {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  width: 240px;
+  margin-top: 2%;
+  height: auto;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.Cajas::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.Cajas:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+.Cajas:hover::before {
+  transform: scaleX(1);
+}
+
+.Cajas img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.Cajas:hover img {
+  transform: scale(1.08);
+}
+
+.informacion {
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.nombre {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.precio {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Sección "Te puede interesar" estilo especial */
+.overlay h2:first-of-type {
+  margin-top: 20px;
+}
+
+.overlay h2 {
+  width: 100%;
+  text-align: left;
+  color: black;
+}
+
+.cerrar {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1000;
+  transition: color 0.2s ease;
+}
+
+.cerrar:hover {
+  color: #667eea;
+}
+
+/* Added comprehensive responsive media queries for all breakpoints */
+
+/* 2000px - Extra large screens */
+@media (max-width: 2000px) {
+  .overlay {
+    padding: 80px 40px;
+  }
+
+  .buscador-header {
+    max-width: 600px;
+  }
+
+  .buscador-header h1 {
+    font-size: 48px;
+  }
+
+  .Cajas {
+    width: 280px;
+    padding: 28px;
+  }
+
+  .Cajas img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .contenedor {
+    gap: 30px;
+  }
+}
+
+/* 1366px - Large desktop */
+@media (max-width: 1366px) {
+  .overlay {
+    padding: 70px 35px;
+  }
+
+  .buscador-header h1 {
+    font-size: 42px;
+  }
+
+  .Cajas {
+    width: 250px;
+    padding: 26px;
+  }
+
+  .Cajas img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .contenedor {
+    gap: 28px;
+  }
+}
+
+/* 1024px - Standard desktop/tablet landscape */
+@media (max-width: 1024px) {
+  .overlay {
+    padding: 60px 30px;
+  }
+
+  .buscador-header h1 {
+    font-size: 38px;
+  }
+
+  form.buscador input,
+  form.buscador button {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+    margin-top: 35px;
+  }
+
+  .Cajas {
+    width: 220px;
+    padding: 22px;
+  }
+
+  .Cajas img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .contenedor {
+    gap: 22px;
+  }
+
+  .nombre {
+    font-size: 15px;
+  }
+
+  .precio {
+    font-size: 19px;
+  }
+}
+
+/* 768px - Tablet portrait */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 50px 25px;
+  }
+
+  .buscador-header {
+    max-width: 450px;
+  }
+
+  .buscador-header h1 {
+    font-size: 32px;
+  }
+
+  form.buscador input,
+  form.buscador button {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 18px;
+  }
+
+  .Cajas {
+    width: 200px;
+    padding: 20px;
+  }
+
+  .Cajas img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .contenedor {
+    gap: 20px;
+  }
+
+  .nombre {
+    font-size: 14px;
+  }
+
+  .precio {
+    font-size: 18px;
+  }
+
+  .cerrar {
+    top: 15px;
+    right: 20px;
+    font-size: 16px;
+  }
+}
+
+/* 600px - Large mobile */
+@media (max-width: 600px) {
+  .overlay {
+    padding: 40px 20px;
+  }
+
+  .buscador-header {
+    max-width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .buscador-header h1 {
+    font-size: 28px;
+  }
+
+  form.buscador input,
+  form.buscador button {
+    font-size: 16px;
+    padding: 8px 5px;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+
+  .Cajas {
+    width: 160px;
+    padding: 16px;
+    margin-top: 1%;
+  }
+
+  .Cajas img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .contenedor {
+    gap: 15px;
+    padding-bottom: 40px;
+  }
+
+  .informacion {
+    margin-top: 15px;
+  }
+
+  .nombre {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .precio {
+    font-size: 16px;
+  }
+
+  .cerrar {
+    top: 12px;
+    right: 15px;
+    font-size: 15px;
+  }
+}
+
+/* 480px - Standard mobile */
+@media (max-width: 480px) {
+  .overlay {
+    padding: 30px 15px;
+  }
+
+  .buscador-header h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  form.buscador input,
+  form.buscador button {
+    font-size: 15px;
+    padding: 8px 4px;
+  }
+
+  h2 {
+    font-size: 17px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+
+  .Cajas {
+    width: 140px;
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .Cajas img {
+    width: 110px;
+    height: 110px;
+    border-radius: 10px;
+  }
+
+  .contenedor {
+    gap: 12px;
+    padding-bottom: 35px;
+  }
+
+  .informacion {
+    margin-top: 12px;
+  }
+
+  .nombre {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .precio {
+    font-size: 15px;
+  }
+
+  .cerrar {
+    top: 10px;
+    right: 12px;
+    font-size: 14px;
+  }
+}
+
+/* 414px - iPhone Plus/Max */
+@media (max-width: 414px) {
+  .overlay {
+    padding: 25px 12px;
+  }
+
+  .buscador-header h1 {
+    font-size: 22px;
+  }
+
+  form.buscador input,
+  form.buscador button {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 16px;
+    margin-top: 18px;
+  }
+
+  .Cajas {
+    width: 130px;
+    padding: 12px;
+  }
+
+  .Cajas img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .contenedor {
+    gap: 10px;
+  }
+
+  .nombre {
+    font-size: 11px;
+  }
+
+  .precio {
+    font-size: 14px;
+  }
+}
+
+/* 360px - Small mobile */
+@media (max-width: 360px) {
+  .overlay {
+    padding: 20px 10px;
+  }
+
+  .buscador-header {
+    margin-bottom: 20px;
+  }
+
+  .buscador-header h1 {
+    font-size: 20px;
+  }
+
+  form.buscador {
+    border-bottom: 1.5px solid black;
+  }
+
+  form.buscador input,
+  form.buscador button {
+    font-size: 13px;
+    padding: 6px 3px;
+  }
+
+  h2 {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .Cajas {
+    width: 120px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .Cajas img {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+  }
+
+  .contenedor {
+    gap: 8px;
+    padding-bottom: 30px;
+  }
+
+  .informacion {
+    margin-top: 10px;
+  }
+
+  .nombre {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .precio {
+    font-size: 13px;
+  }
+
+  .cerrar {
+    top: 8px;
+    right: 10px;
+    font-size: 13px;
+  }
+}

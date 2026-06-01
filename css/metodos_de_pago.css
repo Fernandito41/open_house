@@ -1,0 +1,55 @@
+body { /*Estilos generales de la pagina*/
+    display: flex; /* Utiliza flexbox para el diseño */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    height: 100vh;  /* Altura completa de la ventana */
+    margin: 0; /* Elimina márgenes por defecto */
+    font-family: 'Segoe UI', Arial, sans-serif; /* Fuente utilizada */
+    flex-direction: column; /* Coloca los elementos en columna */
+    background: #f8f9fa; /* Color de fondo suave */
+}
+/* Estilo para el título de pago */
+.titulo-pago {
+    font-size: 2.5rem; /* Tamaño de fuente grande */
+    font-weight: 700; /* Negrita */
+    color: #222; /* Color del texto */
+    margin-bottom: 40px; /* Espacio debajo del título */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-align: center; /* Centra el texto */
+}
+/* Estilo para el contenedor de botones */
+.contenedor-botones {
+    display: flex; /* Utiliza flexbox para el diseño */
+    flex-direction: column; /* Coloca los botones en columna */
+    gap: 30px; /* Espacio entre los botones */
+    align-items: center;  /* Centra los botones horizontalmente */
+}
+/* Estilo para cada botón de pago */
+.boton-pago {
+    width: 220px; /* Ancho fijo del botón */
+    height: 220px; /* Altura fija del botón */
+    padding: 0; /* Sin relleno */
+    border: 2px solid #e0e0e0;
+    border-radius: 16px;  /* Borde gris claro */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    display: flex; /* Utiliza flexbox para centrar contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07); /* Sombra suave */
+    transition: box-shadow 0.2s; /* Transición suave para la sombra */
+}
+/* Estilo para el efecto hover del botón */
+.boton-pago:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);  /* Sombra más intensa al pasar el ratón */
+    border-color: #bdbdbd; /* Color de borde más oscuro al pasar el ratón */
+}
+/* Estilo para la imagen dentro del botón */
+.boton-pago img {
+    width: 150px;  /* Ancho fijo de la imagen */
+    height: 80px; /* Altura fija de la imagen */
+    object-fit: contain; /* Mantiene la proporción de la imagen */
+    display: block; /* Hace que la imagen sea un bloque */
+    margin: auto;  /* Centra la imagen dentro del botón */
+}
+

@@ -1,0 +1,298 @@
+/* Reset y estilos base */
+* {
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+}
+
+body { /* Estilo del cuerpo de la página */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Altura total */
+    font-family: Century Gothic, sans-serif; /* Evita el desplazamiento horizontal */
+}
+
+/* Estilos base - Mobile First */
+#login {
+    margin-top: 4%; /* Margen superior e inferior, centrado horizontalmente */
+    margin-left: auto; /* Asigna el margen izquierdo automáticamente*/
+    margin-right: auto; /* Asigna el margen derecho automáticamente*/
+    padding: 0 15px; /* Relleno horizontal */
+    width: 100%; /* Ancho completo */
+}
+
+#login form {
+    width: 100%; /* Ancho completo */
+    max-width: 400px; /* Ancho máximo del formulario */ 
+    text-align: center; /* Centra el texto */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    background-color: rgb(255, 255, 255); /* Fondo blanco */
+    box-shadow: 10px 10px 112px 0px rgba(114, 114, 114, 0.75); /* Sombra para dar profundidad */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 20px 15px; /* Relleno interno */
+    min-height: auto; /* Altura mínima automática */
+}
+/* Estilo del encabezado principal */
+h1 {
+    margin-top: 6px; /* Espacio superior */
+    margin-bottom: 20px; /* Espacio inferior */
+    color: rgb(80, 80, 80); /* Color del texto */
+    font-size: 22px;  /* Tamaño de fuente */
+}
+/* Estilo del contenedor de datos de inicio de sesión */
+#logindatos {
+    border: none; /* Sin borde */
+    margin-top: 5px;  /* Espacio superior */
+    border-radius: 10px; /* Bordes redondeados */
+    width: 100%; /* Ancho completo */
+    padding: 12px;  /* Relleno interno */
+    position: relative;
+}
+
+/* Iconos de usuario y contraseña */
+#login .img {
+    margin: 18px 0; /* Espacio vertical */
+    position: absolute; /* Posición absoluta para superponerse al input */
+    width: 25px; /* Ancho del icono */
+    height: auto; /* Altura automática */
+    border-radius: 0px; /* Sin bordes redondeados */
+    left: 15px; /* Alineación a la izquierda */
+    z-index: 1; /* Asegura que el icono esté por encima */
+}
+
+/* Estilo para los inputs del formulario */
+#login input {
+    border-radius: 15px; /* Bordes redondeados */
+    width: 100%; /* Ancho completo */
+    max-width: 100%; /* Ancho máximo */
+    height: 40px; /* Altura del input */
+    margin: 10px 0; /* Espacio vertical entre inputs */
+    border: 1px solid #ccc;  /* Borde gris claro */
+    padding: 8px 8px 8px 45px; /* Relleno interno, espacio a la izquierda para el icono */
+    font-size: 16px;  /* Tamaño de fuente */
+    display: block; /* Hace que el input ocupe toda la línea */
+} 
+/* Estilo para inputs con la clase "control" */
+#login input.control { 
+     padding-left: 45px; /* Espacio a la izquierda para el icono */
+    font-size: 16px; /* Tamaño de fuente */
+ }
+                                                                                                                                                                                                                                                                                
+
+/* Checkbox de términos */
+#login input.terminos { 
+    width: 18px;  /* Ancho del checkbox */
+    height: 18px; /* Altura del checkbox */
+    display: inline-block; /* Muestra en línea */
+    margin: 10px 5px 10px 0;  /* Espacio alrededor */
+    padding: 0; /* Sin relleno */
+    vertical-align: middle;  /* Alineación vertical */
+}
+
+/* Textos de términos */
+.terminos {
+    display: inline; /* Muestra en línea */
+}
+/* Estilo para el párrafo de términos */
+p.terminos {
+    font-size: 12px; /* Tamaño de fuente */
+    color: rgb(97, 91, 91);  /* Color del texto */
+    margin: 8px 0;  /* Espacio vertical */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+/* Estilo para el último párrafo de términos */
+p.terminos:last-of-type {
+    color: rgb(56, 115, 224);  /* Color azul */
+    text-decoration: underline; /* Subrayado */
+    margin-top: 15px;  /* Espacio superior */
+}
+
+/* Botón de inicio de sesión */
+#boton {
+    background-color: rgb(56, 115, 224); /* Fondo azul */
+    border-radius: 15px;  /* Bordes redondeados */
+    width: 100%; /* Ancho completo */
+    max-width: 200px;  /* Ancho máximo del botón */
+    height: 45px; /* Altura del botón */
+    color: rgb(255, 255, 255); /* Color del texto */
+    font-family: Century Gothic, sans-serif;  /* Fuente utilizada */
+    margin: 20px auto 10px; /* Margen superior, centrado horizontalmente */
+    display: block; ; /* Hace que el botón ocupe toda la línea */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    border: none;  /* Sin borde */
+    font-size: 16px;  /* Tamaño de fuente */
+    font-weight: bold;  /* Negrita */
+    transition: background-color 0.3s ease;  /* Transición suave para el color de fondo */
+}
+/* Efecto hover del botón */
+#boton:hover {
+    background-color: rgb(40, 95, 200); /* Fondo azul más oscuro al pasar el ratón */
+}
+/* Efecto activo del botón */
+#boton:active {
+    transform: scale(0.98); /* Reduce el tamaño al hacer clic */
+}
+
+/* Estados de validación */
+.required {
+    border-radius: 15px;  /* Bordes redondeados */
+    box-shadow: 0px 0px 5px #808080;  /* Sombra gris */
+}
+
+.invalid {
+    border-radius: 15px; /* Bordes redondeados */
+    border-color: rgb(12, 28, 243);  /* Borde azul */
+    border-width: 2px; /* Ancho del borde */
+}
+
+/* Mensajes de conexión y resultados */
+.title_conexion {
+    margin-top: 20px;  /* Espacio superior */
+    color: #444; /* Color del texto */
+    font-size: 14px;  /* Tamaño de fuente */
+    text-align: center;  /* Centra el texto */
+}
+
+.result {
+    margin-top: 20px; /* Espacio superior */
+    color: #d32f2f;  /* Color rojo para errores */
+    font-size: 14px;  /* Tamaño de fuente */
+    text-align: center; /* Centra el texto */
+    padding: 10px; /* Relleno interno */
+}
+
+/* Tablets pequeñas - 480px y superior */
+@media (min-width: 480px) {
+    #login {
+        padding: 0 20px;
+    }
+
+    #login form {
+        padding: 25px 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #login input {
+        height: 42px;
+        font-size: 17px;
+    }
+
+    p.terminos {
+        font-size: 13px;
+    }
+
+    #boton {
+        font-size: 17px;
+        height: 48px;
+    }
+}
+
+/* Tablets - 768px y superior */
+@media (min-width: 768px) {
+    #login {
+        margin-top: 5%;
+        padding: 0 30px;
+    }
+
+    #login form {
+        max-width: 450px;
+        padding: 30px 25px;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    #login .img {
+        width: 28px;
+        left: 18px;
+    }
+
+    #login input {
+        height: 45px;
+        font-size: 18px;
+        padding-left: 50px;
+    }
+
+    #login input.terminos {
+        width: 20px;
+        height: 20px;
+    }
+
+    p.terminos {
+        font-size: 14px;
+    }
+
+    #boton {
+        max-width: 220px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .title_conexion,
+    .result {
+        font-size: 15px;
+    }
+}
+
+/* Desktop - 1024px y superior */
+@media (min-width: 1024px) {
+    #login {
+        margin-top: 6%;
+        max-width: 1200px;
+    }
+
+    #login form {
+        max-width: 480px;
+        padding: 35px 30px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    #login .img {
+        width: 30px;
+        left: 20px;
+    }
+
+    #login input {
+        height: 48px;
+        font-size: 18px;
+    }
+
+    #boton {
+        max-width: 240px;
+        height: 52px;
+        margin-top: 25px;
+    }
+
+    #boton:hover {
+        box-shadow: 0 4px 12px rgba(56, 115, 224, 0.4);
+    }
+}
+
+/* Pantallas grandes - 1440px y superior */
+@media (min-width: 1440px) {
+    #login {
+        margin-top: 8%;
+    }
+
+    #login form {
+        max-width: 500px;
+        padding: 40px 35px;
+    }
+}
+
+/* Accesibilidad - Reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+    #boton {
+        transition: none;
+    }
+
+    #boton:active {
+        transform: none;
+    }
+}

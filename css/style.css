@@ -1,0 +1,549 @@
+*{
+    box-sizing: border-box;
+
+}
+body{/*Estilos generales de la pagina*/
+  padding-top: 40px;/*Espacio para la barra de navegacion*/
+  margin: 0px;/*Quitar margenes por defecto*/
+  padding: 0;/*Quitar padding por defecto*/
+    width: 100%;/*Ancho completo*/
+  height: 100%;/*Alto completo para el navbar*/
+    min-height: 100vh;/*Altura minima de la ventana del navbar (barra de navegacion*/
+    font-family: Arial, Helvetica, sans-serif;/*Tipo de letra*/
+    overflow-x: hidden;/*Quitar scroll horizontal*/
+    background-color:white ;/*Color de fondo de la pagina*/
+
+}
+ 
+.navbar { /* Estilo para la barra de navegación */
+  position: fixed; /* Fija la barra en la parte superior */
+  top: 0;  /* Alinea al borde superior */
+  left: 0; /* Alinea al borde izquierdo*/
+  width: 100%; /* Ancho completo */
+  height: 48px; /* Utiliza flexbox para alinear elementos */
+  display: flex;  /* Centra verticalmente los elementos */
+  align-items: center;  /* Relleno horizontal */
+  background: black; /* Fondo negro */
+  color: white;
+  border-bottom: 1.5px solid #111; 
+  z-index: 1000;  /* Asegura que esté por encima de otros elementos */
+  padding: 0 16px;
+  gap: 0; /*Espacio entre filas*/
+}
+
+.navbar .logo { /* Estilo para el logotipo en la barra de navegación */
+  font-size: 1.1rem;
+  font-weight: 700;  
+  letter-spacing: 2px;
+  color: white; 
+  margin-right: 32px; 
+  font-family: "Montserrat", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.nav-links { /* Estilo para los enlaces de navegación */
+  display: flex; 
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links li { /* Estilo para los enlaces dentro de la barra de navegación */
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a { /* Estilo para los enlaces dentro de la barra de navegación */
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0 22px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+.nav-links li:not(:last-child) a {
+  border-right: 1.5px solid white;
+}
+.icono_hamburgesa {  /* Estilo para el botón de menú hamburguesa */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+.registro,
+.carrito,
+.inicio {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 12px;
+}
+.barra_lateral_contenedor { /* Estilo para el contenedor de la barra lateral */
+
+  position: relative;
+}
+
+.barra_lateral {  /* Estilo para la barra lateral */
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 260px;
+  height: 100vh;
+  background: #fff;
+  border-right: 2px solid #111;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.07);
+  transition: left 0.3s;
+  z-index: 2000;
+  padding-top: 60px;
+}
+
+.barra_lateral ul { /* Estilo para las listas dentro de la barra lateral */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.barra_lateral ul li a {  /* Estilo para los enlaces dentro de la barra lateral */
+  display: block;
+  color: #111;
+  padding: 16px 28px;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+}
+.barra_lateral ul li a:hover {  /* Estilo para el efecto hover de los enlaces en la barra lateral */
+
+  background: #f5f5f5;
+}
+.barra_lateral.activa {
+  left: 0;
+}
+.desplegable { /* Estilo para los menús desplegables */
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 8px 0;
+  min-width: 150px;
+  z-index: 1001;
+} /*Finaliza estilos de los enlaces del menu desplegable del icono de registro y inicio de sesion*/
+
+
+.desplegable a { /* Estilo para los enlaces dentro del menú desplegable */
+
+  display: block;
+  padding: 10px 16px;
+  color: white;
+  text-decoration: none;
+} /*Finaliza estilos de los enlaces del menu desplegable del icono de registro y inicio de sesion*/
+
+.desplegable a:hover { /* Estilo para el efecto hover de los enlaces en el menú desplegable */
+ 
+  background-color: #444;
+  transition: 0.3s;
+} /*Finaliza estilos de los enlaces del menu desplegable del icono de registro al pasar el raton por encima estilo hover*/
+
+.registro-contenedor { /* Estilo para el contenedor del registro */
+ 
+  position: relative;
+  display: inline-block;
+} /*Finaliza estilos del contenedor del icono de registro*/
+
+
+.registro-contenedor:hover .desplegable { /* Estilo para mostrar el menú desplegable al pasar el ratón */
+
+  display: block;
+}
+
+/*Estilos del contenedor de la barra de busqueda*/
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-left: auto;
+} /*Finaliza estilos del contenedor de la barra de busqueda*/
+
+
+.search-input {  /*Estilos de la barra de busqueda*/
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #333;
+  width: 140px;
+}  /*Finaliza estilos de la barra de busqueda*/
+
+
+.search-btn { /*Estilos del boton de la barra de busqueda*/
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 16px;
+} /*Finaliza estilos del boton de la barra de busqueda*/
+
+.imagenes{ /*estilos de las 3 imagenes*/
+  margin-top: 115px; 
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}/*finaliza el estilo*/
+.imagenes img{/*empieza el estilo enfocado solo en las 3 imagenes*/
+  width: 350px;
+  height: 480px;
+  cursor: pointer;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: transform 0.3s;
+}/*finaliza el estilo*/
+.imagenes img:hover{
+  transform: scale(1.05);
+}
+.texto_imagen{ /*empieza el estilo del texto que se encunetra dentro de las imagenes*/
+  position: relative;
+  display: inline-block;
+}/*finaliza el estilo*/
+.texto{ /*estilo para centar el texto*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+  text-align: center;
+  padding: 0 8px;
+}/*finaliza el estilo*/
+
+.footer{/*empieza el estilo para todo el footer(pies de pagina)*/
+  width: 100%;
+  background-color: white;
+  color:black;
+  padding: 5px 5px;
+  justify-content:center;
+}
+.footer-texto{/*empieza el estilo para los textos de las imagenes*/
+  width: 100%;
+  margin-bottom: 10px;
+}
+.footer-texto p{/*estilo para los parrafos del footer*/
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  margin: 0;
+  padding: 10px 10px;
+}/*finaliza el estilo para los parrafos del footer*/
+.footer-columns{/*empieza el estilo para las columnas del footer*/
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1000px;
+  width: 100%;
+}/*finaliza el estilo para las columnas del footer*/
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}/*finaliza el estilo para las columnas del footer*/
+
+.footer-column h3 {/*Estilo para los titulos de las columnas del footer*/
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 15px;
+}/*Finaliza el estilo para los titulos de las columnas del footer*/
+
+.footer-column a {/*Estilo para los enlaces de las columnas del footer*/
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}/*Finaliza el estilo para los enlaces de las columnas del footer*/
+
+.footer-column a:hover {
+  color: #555;
+}
+.footer-links {/*Estilo para los enlaces de las columnas del footer*/
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}/*Finaliza el estilo para los enlaces de las columnas del footer*/
+
+.footer-column:hover .footer-links,/*Estilo para los enlaces de las columnas del footer al pasar el raton por encima de la columna*/
+.footer-title:focus + .footer-links {
+  display: flex;
+}/*Finaliza el estilo para los enlaces de las columnas del footer al pasar el raton por encima de la columna*/
+
+.footer-title {/*Estilo para los titulos de las columnas del footer*/
+  cursor: pointer;
+}/*Finaliza el estilo para los titulos de las columnas del footer*/
+.email-link {/*Estilo para el enlace de correo electronico*/
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}/*Finaliza el estilo para el enlace de correo electronico*/
+
+.email-link .small-text {/*Estilo para el texto pequeño del enlace de correo electronico*/
+  display: block;
+  font-weight: normal;
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+}/*Finaliza el estilo para el texto pequeño del enlace de correo electronico*/
+.footer-legal * {
+  margin: 0;
+  padding: 0;
+}/*Finaliza el estilo para todo lo que este dentro del footer legal*/
+
+.footer-legal {/*Estilo para la parte legal del footer*/
+  width: 100%;
+  background-color:white;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  font-size: 13px;
+  border-top: 1px solid black;
+  color: white;
+  position: relative;
+  z-index: 1;
+  height: auto;
+  margin: 0;
+  gap: 25px;
+}/*Finaliza el estilo para la parte legal del footer*/
+
+.footer-legal-links {/*Estilo para los enlaces legales del footer*/
+  text-decoration: none;
+  display: flex;
+  gap: 25px;
+}/*Finaliza el estilo para los enlaces legales del footer*/
+.footer-legal-links a {
+  color:black;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}/*Finaliza el estilo para los enlaces legales del footer*/
+
+.footer-legal-2025 {/*Estilo para el texto de derechos de autor del footer*/
+  font-size: 13px;
+  color: black;
+  white-space: nowrap;
+}/*Finaliza el estilo para el texto de derechos de autor del footer*/
+
+.footer-contenido{/*Estilo para el contenedor del footer*/
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  padding: 10px 60px; 
+  flex-wrap: nowrap;
+}/*Finaliza el estilo para el contenedor del footer*/
+
+.social-column{/*Estilo para la columna de redes sociales del footer*/
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 200px;
+  gap: 10px;
+}/*Finaliza el estilo para la columna de redes sociales del footer*/
+
+.social-column .icon{/*Estilo para los iconos de redes sociales del footer*/
+  display:flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #000;
+  color: white;
+  border-radius: 60%;
+  font-size: 18px;
+  text-decoration: none;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+}/*Finaliza el estilo para los iconos de redes sociales del footer*/
+
+.tooltip {/*Estilo para las etiquetas de los iconos de redes sociales del footer*/
+  display: none; 
+}/*Finaliza el estilo para las etiquetas de los iconos de redes sociales del footer*/
+
+.facebook:hover, .facebook:hover .tooltip {/*Estilo para el icono de facebook al pasar el raton por encima*/
+  background-color: #3b5999;
+  color: #fff;
+}
+.twitter:hover, .twitter:hover .tooltip {/*Estilo para el icono de twitter al pasar el raton por encima*/
+  background-color: #46c1f6;
+  color: #fff;
+}
+.instagram:hover, .instagram:hover .tooltip {/*Estilo para el icono de instagram al pasar el raton por encima*/
+  background-color: #e1306c;
+  color: #fff;
+}
+
+.tiktok:hover, .tiktok:hover .tooltip {/*Estilo para el icono de tiktok al pasar el raton por encima*/
+  background-color: #000;
+  color: #fff;
+}
+/*Empieza los estilos responsivos*/
+
+@media (max-width: 900px) { /* 🎯 Estilos aplicados a pantallas con un ancho máximo de 900px (laptops pequeños, tablets grandes) */
+  
+  .footer-columns { /* Contenedor principal de las columnas del pie de página */
+    flex-direction: column; /* Cambia de filas horizontales a columnas verticales */
+    align-items: flex-start; /* Alinea los elementos al inicio (izquierda) */
+    gap: 18px; /* Espaciado entre columnas */
+    max-width: 100vw; /* Asegura que no se desborde horizontalmente */
+    padding: 0 12px; /* Agrega espacio lateral interno */
+  }
+
+  .footer-column { /* Cada columna del footer */
+    min-width: 120px; /* Ancho mínimo para mantener legibilidad */
+    font-size: 15px; /* Tamaño de texto ligeramente menor */
+  }
+
+  .footer-texto p { /* Párrafos del texto principal del footer */
+    font-size: 16px; /* Ajuste del tamaño de fuente */
+    padding: 8px 4px; /* Relleno interno más compacto */
+  }
+
+  .footer-legal { /* Sección inferior del footer (información legal, derechos, etc.) */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    align-items: flex-start; /* Alinea el texto al lado izquierdo */
+    padding: 12px 12px; /* Relleno interno para respiración visual */
+    font-size: 12px; /* Texto más pequeño para información secundaria */
+    gap: 8px; /* Espacio entre líneas o bloques legales */
+  }
+
+  .footer-legal-links { /* Contenedor de los enlaces legales (Privacidad, Términos, etc.) */
+    gap: 12px; /* Espaciado entre enlaces */
+    flex-wrap: wrap; /* Permite que los enlaces bajen de línea si no caben */
+  }
+
+  .footer-legal-2025 { /* Texto de derechos reservados o copyright */
+    font-size: 12px; /* Tamaño pequeño */
+    margin-top: 8px; /* Espacio superior respecto a los enlaces */
+  }
+
+  .social-column { /* Columna de íconos o enlaces a redes sociales */
+    margin-top: 8px; /* Espaciado superior respecto a otros elementos */
+    gap: 8px; /* Espacio entre los íconos */
+  }
+}
+
+
+@media (max-width: 700px) { /* 🎯 Estilos aplicados a pantallas con un ancho máximo de 700px (tablets pequeñas o móviles grandes) */
+  
+  .navbar { /* Contenedor principal de la barra de navegación */
+    display: flex; /* Usa flexbox para organizar los elementos */
+    flex-wrap: wrap; /* Permite que los elementos bajen de línea si no caben */
+    flex-direction: row; /* Distribuye los elementos en una fila */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Deja espacio entre los extremos */
+    padding: 8px 4px; /* Espaciado interno para respiración visual */
+    height: auto; /* Altura automática para adaptarse al contenido */
+  }
+
+  .logo { /* Estilo del logotipo */
+    font-size: 1rem; /* Tamaño de fuente moderado */
+    margin-right: 12px; /* Espaciado a la derecha */
+    flex: 1 1 auto; /* Permite que el logo se adapte en tamaño */
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+
+  .nav-links { /* Contenedor de los enlaces de navegación */
+    display: flex; /* Activa flexbox */
+    flex-direction: row; /* Alinea los enlaces en una fila */
+    justify-content: flex-start; /* Los alinea al principio (izquierda) */
+    align-items: center; /* Centra los enlaces verticalmente */
+    flex: 2 1 auto; /* Permite que este bloque ocupe más espacio */
+    margin-bottom: 0; /* Elimina margen inferior */
+    gap: 0; /* Sin espacio adicional entre enlaces */
+    flex-wrap: wrap; /* Permite que los enlaces salten de línea si no caben */
+  }
+
+  .nav-links a { /* Cada enlace del menú */
+    font-size: 0.95rem; /* Texto un poco más pequeño */
+    padding: 0 8px; /* Espaciado horizontal */
+    height: 38px; /* Altura consistente */
+    border-right: none; /* Quita cualquier borde derecho */
+    border-bottom: none; /* Quita bordes inferiores */
+    text-align: left; /* Texto alineado a la izquierda */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  }
+
+  .search-container { /* Contenedor del campo de búsqueda */
+    width: auto; /* Tamaño automático */
+    padding: 2px 6px; /* Relleno interno pequeño */
+    margin-left: 8px; /* Espacio a la izquierda */
+    margin-bottom: 0; /* Sin margen inferior */
+    align-self: center; /* Centra dentro del contenedor flex */
+    flex: 0 0 auto; /* No permite que se estire */
+  }
+
+  .user-actions { /* Contenedor de íconos o botones de usuario (login, carrito, etc.) */
+    display: flex; /* Usa flexbox */
+    flex-direction: row; /* Coloca los elementos en línea */
+    align-items: center; /* Centra verticalmente */
+    gap: 10px; /* Espaciado entre íconos */
+    margin-left: auto; /* Los empuja al lado derecho */
+    order: 2; /* Cambia el orden de aparición dentro del contenedor principal */
+    flex: 0 0 auto; /* No se expande ni encoge */
+  }
+
+  .icono_hamburgesa { /* Ícono del menú hamburguesa (para móviles) */
+    order: -1; /* Lo coloca al principio del navbar */
+    margin-right: 8px; /* Espacio a la derecha */
+    margin-left: 0; /* Sin espacio a la izquierda */
+  }
+}
+
+/* 📱 Estilos adicionales para pantallas muy pequeñas (máximo 500px de ancho) */
+@media (max-width: 500px) {
+  
+  .footer-texto p { /* Texto principal del pie de página */
+    font-size: 0.85rem; /* Texto más pequeño */
+    padding: 4px 2px; /* Menos relleno interno */
+  }
+
+  .footer-legal { /* Bloque inferior legal (derechos, políticas, etc.) */
+    font-size: 0.75rem; /* Texto aún más pequeño */
+    padding: 4px 2px; /* Relleno ajustado */
+    gap: 4px; /* Menor espacio entre elementos */
+  }
+
+  .footer-legal-links a,
+  .footer-legal-2025 { /* Enlaces y texto legal */
+    font-size: 0.75rem; /* Igual tamaño pequeño */
+  }
+
+  .footer-column { /* Columnas dentro del footer */
+    min-width: 80px; /* Reduce el ancho mínimo */
+    font-size: 0.85rem; /* Texto más compacto */
+  }
+
+  .social-column { /* Contenedor de íconos de redes sociales */
+    gap: 4px; /* Menor espacio entre íconos */
+  }
+
+  .texto_imagen img { /* Imágenes dentro de una sección específica llamada texto_imagen */
+    height: 260px; /* Altura más baja para móviles */
+  }
+
+  .texto { /* Texto descriptivo o encabezado en esa misma sección */
+    font-size: 1.2rem; /* Ajusta el tamaño para legibilidad */
+  }
+} /* Finaliza los estilos responsivos */

@@ -1,0 +1,1265 @@
+/* 🔧 Reset general y ajustes de fuente */
+* {
+  box-sizing: border-box; /* Incluye padding y borde dentro del tamaño total de cada elemento */
+  font-family: "Montserrat", Arial, sans-serif; /* Fuente principal y alternativas */
+}
+
+/* 🧱 Estilos generales del cuerpo de la página */
+body {
+  padding-top: 48px; /* Espacio superior para que el contenido no quede debajo del navbar */
+  margin: 0; /* Elimina márgenes por defecto del navegador */
+  padding: 0; /* Elimina padding por defecto del navegador */
+  height: 100%; /* Altura completa */
+  min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura visible */
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+  background-color: white; /* Fondo blanco general */
+}
+
+/* 🔝 Barra de navegación (navbar) */
+.navbar {
+  position: fixed; /* Fija la barra en la parte superior */
+  top: 0; /* Alineada al borde superior */
+  left: 0; /* Alineada al borde izquierdo */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  height: 48px; /* Altura estándar del navbar */
+  display: flex; /* Usa flexbox para alinear los elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+  background: black; /* Fondo negro */
+  color: white; /* Texto blanco */
+  border-bottom: 1.5px solid #111; /* Línea inferior sutil */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  padding: 0 16px; /* Espaciado interno horizontal */
+  gap: 0; /* Sin espacio entre elementos por defecto */
+} /* 🏁 Finaliza estilos de la barra de navegación */
+
+/* 🔠 Logo dentro del navbar */
+.navbar .logo {
+  font-size: 1.1rem; /* Tamaño moderado del texto */
+  font-weight: 700; /* Negrita */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  color: white; /* Color del texto */
+  margin-right: 32px; /* Espacio a la derecha del logo */
+  font-family: "Montserrat", "Arial Narrow", Arial, sans-serif; /* Tipografía del logo */
+  text-transform: uppercase; /* Convierte el texto en mayúsculas */
+} /* 🏁 Finaliza estilos del logo */
+
+/* 🔗 Enlaces del navbar */
+.nav-links {
+  display: flex; /* Flexbox para los enlaces */
+  align-items: center; /* Centrado vertical */
+  gap: 0; /* Sin espacio extra entre enlaces */
+  margin: 0; /* Elimina márgenes */
+  padding: 0; /* Elimina relleno */
+  list-style: none; /* Elimina los puntos de lista */
+} /* 🏁 Finaliza contenedor de enlaces */
+
+/* Cada elemento de la lista del menú */
+.nav-links li {
+  display: flex; /* Flexbox para centrar el enlace dentro del <li> */
+  align-items: center;
+}
+
+/* Enlaces individuales */
+.nav-links a {
+  color: white; /* Texto blanco */
+  text-decoration: none; /* Sin subrayado */
+  font-size: 1rem; /* Tamaño de texto base */
+  font-weight: 500; /* Seminegrita */
+  padding: 0 22px; /* Espaciado horizontal */
+  height: 48px; /* Igual altura que el navbar */
+  display: flex; /* Flexbox para centrar el texto */
+  align-items: center; /* Centrado vertical */
+}
+
+/* Línea divisoria entre enlaces */
+.nav-links li:not(:last-child) a {
+  border-right: 1.5px solid white; /* Línea separadora blanca */
+}
+
+/* 🍔 Ícono del menú hamburguesa (para pantallas pequeñas) */
+.icono_hamburgesa {
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  color: white; /* Ícono blanco */
+  font-size: 20px; /* Tamaño visible */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+} /* 🏁 Finaliza icono hamburguesa */
+
+/* 👤 Botones del navbar: registro, carrito e inicio */
+.registro,
+.carrito,
+.inicio {
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  color: white; /* Íconos blancos */
+  font-size: 20px; /* Tamaño de los íconos */
+  cursor: pointer; /* Cursor de mano */
+  margin-left: 12px; /* Espacio entre botones */
+}
+
+/* 📂 Contenedor de la barra lateral */
+.barra_lateral_contenedor {
+  position: relative; /* Contenedor posicionado */
+}
+
+/* 📜 Barra lateral oculta (menú lateral) */
+.barra_lateral {
+  position: fixed; /* Fijada en pantalla */
+  top: 0; /* Desde el borde superior */
+  left: -320px; /* Oculta a la izquierda inicialmente */
+  width: 260px; /* Ancho del panel lateral */
+  height: 100vh; /* Ocupa toda la altura visible */
+  background: #fff; /* Fondo blanco */
+  border-right: 2px solid #111; /* Borde derecho oscuro */
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.07); /* Sombra sutil */
+  transition: left 0.3s; /* Animación al aparecer */
+  z-index: 2000; /* Por encima del resto */
+  padding-top: 60px; /* Espacio para el contenido superior */
+} /* 🏁 Finaliza barra lateral */
+
+/* 📋 Lista dentro de la barra lateral */
+.barra_lateral ul {
+  list-style: none; /* Sin viñetas */
+  padding: 0;
+  margin: 0;
+} /* 🏁 Finaliza lista lateral */
+
+/* 🔗 Enlaces dentro del menú lateral */
+.barra_lateral ul li a {
+  display: block; /* Ocupa todo el ancho del contenedor */
+  color: #111; /* Texto oscuro */
+  padding: 16px 28px; /* Espaciado interno */
+  text-decoration: none; /* Sin subrayado */
+  border-bottom: 1px solid #eee; /* Línea divisoria clara */
+  font-size: 1rem; /* Tamaño de texto estándar */
+}
+
+/* Efecto hover para los enlaces del lateral */
+.barra_lateral ul li a:hover {
+  background: #f5f5f5; /* Fondo gris claro al pasar el ratón */
+}
+
+/* 🟢 Cuando la barra lateral está activa */
+.barra_lateral.activa {
+  left: 0; /* Se desplaza a la vista (visible) */
+}
+
+/* 🔽 Menú desplegable (submenú) */
+.desplegable {
+  display: none; /* Oculto por defecto */
+  position: absolute; /* Posicionado respecto al contenedor padre */
+  top: 100%; /* Justo debajo del elemento padre */
+  right: 0; /* Alineado al borde derecho */
+  background-color: #222; /* Fondo oscuro */
+  border: 1px solid #333; /* Borde más claro */
+  border-radius: 6px; /* Bordes redondeados */
+  padding: 8px 0; /* Relleno vertical */
+  min-width: 150px; /* Ancho mínimo */
+  z-index: 1001; /* Encima del contenido principal */
+}
+
+/* Enlaces dentro del desplegable */
+.desplegable a {
+  display: block; /* Ocupa todo el ancho */
+  padding: 10px 16px; /* Espaciado interno */
+  color: white; /* Texto blanco */
+  text-decoration: none; /* Sin subrayado */
+}
+
+/* Hover sobre los enlaces del menú desplegable */
+.desplegable a:hover {
+  background-color: #444; /* Fondo gris más claro al pasar el ratón */
+  transition: 0.3s; /* Suaviza el cambio */
+}
+
+/* 📦 Contenedor del botón de registro con submenú */
+.registro-contenedor {
+  position: relative; /* Permite posicionar el desplegable dentro */
+  display: inline-block;
+}
+
+/* Mostrar el menú desplegable al pasar el ratón */
+.registro-contenedor:hover .desplegable {
+  display: block; /* Se hace visible */
+}
+
+/* 🔍 Contenedor del campo de búsqueda */
+.search-container {
+  display: flex; /* Flexbox para ícono e input */
+  align-items: center; /* Centrado vertical */
+  background-color: white; /* Fondo blanco */
+  border-radius: 20px; /* Bordes redondeados tipo píldora */
+  padding: 5px 10px; /* Relleno interno */
+  margin-left: auto; /* Empuja el buscador hacia la derecha */
+}
+
+/* Campo de texto de búsqueda */
+.search-input {
+  border: none; /* Sin borde */
+  outline: none; /* Quita contorno azul al enfocar */
+  padding: 5px; /* Espaciado interno */
+  border-radius: 20px; /* Redondea el borde */
+  font-size: 14px; /* Tamaño de texto */
+  color: #333; /* Texto gris oscuro */
+  width: 140px; /* Ancho del campo */
+}
+
+/* Botón del buscador (ícono de lupa) */
+.search-btn {
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Manito al pasar */
+  color: #333; /* Ícono gris */
+  font-size: 16px; /* Tamaño del ícono */
+}
+
+/* Enhanced product container with modern design and responsive layout */
+.contenedor {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 🎁 Tarjetas de producto o contenedores principales */
+.Cajas {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa); /* Fondo con un degradado sutil */
+  display: flex; /* Usa flexbox para organizar el contenido */
+  flex-direction: column; /* Coloca los elementos uno debajo del otro */
+  justify-content: center; /* Centra verticalmente el contenido */
+  align-items: center; /* Centra horizontalmente el contenido */
+  border-radius: 16px; /* Bordes redondeados */
+  width: 240px; /* Ancho fijo para las tarjetas */
+  margin-top: 2%; /* Margen superior entre filas */
+  height: auto; /* Altura automática según el contenido */
+  padding: 24px; /* Espaciado interno */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04); /* Sombras suaves para efecto de elevación */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición con rebote suave */
+  border: 1px solid rgba(0, 0, 0, 0.04); /* Borde claro casi imperceptible */
+  position: relative; /* Para permitir pseudo-elementos o contenido posicionado */
+  overflow: hidden; /* Oculta contenido que se salga del borde redondeado */
+}
+
+/* 💡 Línea decorativa animada en la parte superior de las tarjetas */
+.Cajas::before {
+  content: ""; /* Elemento vacío para crear la línea */
+  position: absolute; /* Posición absoluta dentro del contenedor */
+  top: 0; left: 0; right: 0; /* Abarca todo el ancho superior */
+  height: 3px; /* Altura de la línea */
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); /* Degradado azul-violeta */
+  transform: scaleX(0); /* Inicialmente invisible (escala horizontal cero) */
+  transition: transform 0.3s ease; /* Animación suave */
+}
+
+/* 🪄 Efecto hover para las tarjetas */
+.Cajas:hover {
+  transform: translateY(-12px) scale(1.03); /* Se eleva y crece ligeramente */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.08); /* Sombra más intensa */
+  border-color: rgba(102, 126, 234, 0.2); /* Borde con tono azulado */
+}
+
+/* 🔵 Muestra la línea superior al pasar el cursor */
+.Cajas:hover::before {
+  transform: scaleX(1); /* La línea se expande horizontalmente */
+}
+
+/* 🖼️ Imagen del producto dentro de la tarjeta */
+.Cajas img {
+  width: 180px; /* Ancho fijo */
+  height: 180px; /* Alto fijo */
+  object-fit: contain; /* Ajusta la imagen sin recortarla */
+  transition: all 0.3s ease; /* Suaviza el cambio al hacer hover */
+  border-radius: 12px; /* Bordes redondeados */
+}
+
+/* 🔍 Efecto zoom al pasar el mouse sobre la imagen */
+.Cajas:hover img {
+  transform: scale(1.08); /* Aumenta un poco el tamaño */
+}
+
+/* 📄 Contenedor de la información (nombre y precio) */
+.informacion {
+  text-align: center; /* Centra el texto */
+  margin-top: 20px; /* Espaciado superior respecto a la imagen */
+  width: 100%; /* Abarca todo el ancho de la tarjeta */
+}
+
+/* 🏷️ Nombre del producto */
+.nombre {
+  font-size: 16px; /* Tamaño del texto */
+  margin: 0 0 12px 0; /* Margen inferior */
+  color: #2d3748; /* Gris oscuro */
+  font-weight: 600; /* Seminegrita */
+  line-height: 1.4; /* Altura de línea para legibilidad */
+  transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+/* 🎨 Color del nombre cambia al pasar el cursor */
+.Cajas:hover .nombre {
+  color: #667eea; /* Azul vibrante */
+}
+
+/* 💲 Precio del producto */
+.precio {
+  font-size: 20px; /* Texto más grande para resaltar el precio */
+  font-weight: 700; /* Negrita */
+  color: #1a202c; /* Gris casi negro */
+  margin: 0;
+  transition: all 0.3s ease; /* Transición suave para color y escala */
+}
+
+/* 🪙 Efecto hover en el precio */
+.Cajas:hover .precio {
+  color: #667eea; /* Azul al pasar el mouse */
+  transform: scale(1.05); /* Ligero aumento de tamaño */
+}
+
+/* 🛒 Botón para añadir al carrito */
+.añadir_al_carrito {
+  background-color: grey; /* Fondo gris neutro */
+  border-radius: 20px; /* Bordes redondeados tipo píldora */
+  margin-left: auto; /* Alineado hacia la derecha */
+  cursor: pointer; /* Manito al pasar por encima */
+  align-items: center; /* Centrado vertical (si tiene ícono o texto) */
+}
+
+/* 🖼️ Contenedor de imágenes con texto (categorías destacadas, por ejemplo) */
+.texto_imagen {
+  position: relative; /* Permite superponer texto encima */
+  display: inline-block; /* Se comporta como bloque en línea */
+  border-radius: 12px; /* Bordes redondeados */
+  overflow: hidden; /* Evita que el contenido sobresalga */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: all 0.3s ease; /* Transición de hover */
+}
+
+/* 🪶 Efecto de elevación al pasar el cursor */
+.texto_imagen:hover {
+  transform: translateY(-4px); /* Se eleva levemente */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Sombra más marcada */
+}
+
+/* 🧾 Texto superpuesto sobre la imagen */
+.texto {
+  position: absolute; /* Encima de la imagen */
+  top: 50%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%); /* Centrado perfecto */
+  color: white; /* Texto blanco */
+  font-size: 22px; /* Tamaño grande */
+  font-weight: 700; /* Negrita */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Sombra para contraste */
+  text-align: center;
+  letter-spacing: 1px; /* Espaciado entre letras */
+  text-transform: uppercase; /* Todo en mayúsculas */
+}
+
+/* 🖼️ Galería de imágenes (categorías o productos) */
+.imagenes {
+  margin-top: 3%; /* Espacio superior */
+  display: flex; /* Flexbox para colocar las imágenes */
+  gap: 20px; /* Espaciado entre ellas */
+  transition: transform 0.3s ease; /* Suaviza el movimiento */
+  flex-wrap: wrap; /* Permite que bajen a otra fila si no caben */
+  justify-content: center; /* Centra las imágenes */
+  padding: 0 20px; /* Espaciado lateral */
+}
+
+/* 📸 Estilo de cada imagen en la galería */
+.imagenes img {
+  width: 240px; /* Ancho fijo */
+  height: 200px; /* Altura fija */
+  cursor: pointer; /* Indica que son clicables */
+  object-fit: cover; /* Recorta proporcionalmente sin deformar */
+  transition: transform 0.3s ease; /* Efecto suave al hacer hover */
+  border-radius: 12px; /* Bordes redondeados */
+}
+
+/* ✨ Efecto zoom al pasar el cursor */
+.imagenes img:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* 📦 FOOTER PRINCIPAL */
+.footer {
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  background-color: white; /* Fondo blanco */
+  color: black; /* Texto negro */
+  padding: 5px 5px; /* Espaciado interior */
+  justify-content: center; /* Centra horizontalmente (si se usa flex en hijos) */
+}
+
+/* 🧾 Texto principal del footer (por ejemplo: slogan o mensaje) */
+.footer-texto {
+  width: 100%; /* Abarca todo el ancho */
+  margin-bottom: 10px; /* Espacio inferior con otras secciones */
+}
+
+.footer-texto p {
+  font-size: 20px; /* Texto grande */
+  color: black; /* Texto negro */
+  text-align: center; /* Centrado horizontal */
+  margin: 0; /* Sin margen externo */
+  padding: 10px 10px; /* Espaciado interior */
+}
+
+/* 🧱 Contenedor principal de las columnas */
+.footer-columns {
+  display: flex; /* Flexbox para alinear columnas */
+  justify-content: left; /* Alinea las columnas al lado izquierdo */
+  align-items: flex-start; /* Alinea arriba */
+  flex-wrap: wrap; /* Permite que las columnas salten de línea si no caben */
+  gap: 30px; /* Espacio entre columnas */
+  max-width: 1000px; /* Ancho máximo del bloque */
+  width: 100%; /* Abarca todo el ancho posible */
+}
+
+/* 📚 Cada columna dentro del footer */
+.footer-column {
+  display: flex;
+  flex-direction: column; /* Los enlaces se apilan verticalmente */
+  min-width: 180px; /* Tamaño mínimo */
+}
+
+/* 🏷️ Títulos de cada columna */
+.footer-column h3 {
+  font-weight: bold; /* Texto en negrita */
+  font-size: 17px; /* Tamaño del título */
+  margin-bottom: 15px; /* Separación del primer enlace */
+}
+
+/* 🔗 Enlaces dentro del footer */
+.footer-column a {
+  text-decoration: none; /* Quita el subrayado */
+  color: black; /* Color negro */
+  font-size: 17px; /* Tamaño mediano */
+  margin-bottom: 10px; /* Espaciado entre enlaces */
+  transition: color 0.3s ease; /* Transición suave de color */
+}
+
+/* 🎨 Color de enlace al pasar el mouse */
+.footer-column a:hover {
+  color: #555; /* Gris más oscuro */
+}
+
+/* 🔽 Lista de enlaces que se muestra al pasar el cursor (efecto acordeón simple) */
+.footer-links {
+  display: none; /* Oculta los enlaces inicialmente */
+  flex-direction: column; /* Los organiza verticalmente */
+  gap: 10px; /* Espaciado entre ellos */
+}
+
+/* 👆 Muestra los enlaces al pasar el cursor sobre la columna o al enfocar el título */
+.footer-column:hover .footer-links,
+.footer-title:focus + .footer-links {
+  display: flex; /* Hace visibles los enlaces */
+}
+
+/* 🔘 Título de sección que puede recibir foco o clic */
+.footer-title {
+  cursor: pointer; /* Indica interactividad */
+}
+
+/* ✉️ Estilo para enlaces de correo electrónico */
+.email-link {
+  font-weight: bold; /* Resalta el texto */
+  display: inline-block;
+  margin-top: 10px; /* Separación respecto al texto superior */
+}
+
+/* 📩 Texto pequeño debajo del correo (ejemplo: “Atención al cliente”) */
+.email-link .small-text {
+  display: block; /* Nueva línea */
+  font-weight: normal; /* Peso normal */
+  font-size: 12px; /* Tamaño pequeño */
+  color: #777; /* Gris suave */
+  margin-top: 5px;
+}
+
+/* 🔧 Reinicia márgenes y rellenos dentro del bloque legal */
+.footer-legal * {
+  margin: 0;
+  padding: 0;
+}
+
+/* ⚖️ Sección legal del footer (derechos, políticas, etc.) */
+.footer-legal {
+  width: 100%; /* Abarca todo el ancho */
+  background-color: white; /* Fondo blanco */
+  padding: 20px 60px; /* Espaciado interno amplio */
+  display: flex; /* Flexbox para distribuir elementos */
+  justify-content: space-between; /* Separación entre texto y enlaces */
+  align-items: center; /* Centrado vertical */
+  font-size: 13px; /* Tamaño pequeño */
+  border-top: 1px solid black; /* Línea superior divisoria */
+  color: white; /* Texto blanco (aunque el fondo es blanco, podría usarse luego con fondo oscuro) */
+  position: relative; /* Permite posicionamiento de hijos */
+  z-index: 1; /* Asegura que esté sobre otros elementos si se superponen */
+  height: auto; /* Ajusta la altura según contenido */
+  margin: 0;
+  gap: 25px; /* Espacio entre los elementos internos */
+}
+
+/* 📜 Enlaces legales (política de privacidad, términos, etc.) */
+.footer-legal-links {
+  text-decoration: none;
+  display: flex;
+  gap: 25px; /* Separación entre cada enlace */
+}
+
+.footer-legal-links a {
+  color: black; /* Texto negro */
+  text-decoration: none; /* Sin subrayado */
+  font-size: 13px; /* Tamaño discreto */
+  transition: color 0.3s ease; /* Suaviza el cambio de color al pasar el cursor */
+}
+
+/* 📅 Texto con el año o derechos reservados */
+.footer-legal-2025 {
+  font-size: 13px;
+  color: black;
+  white-space: nowrap; /* Evita que el texto se parta en varias líneas */
+}
+
+/* 🧭 Contenedor principal del contenido superior del footer */
+.footer-contenido {
+  display: flex; /* Flexbox para organizar columnas y redes */
+  flex-direction: row-reverse; /* Invierte el orden visual (por ejemplo, redes a la derecha) */
+  align-items: flex-start; /* Alinea arriba */
+  padding: 10px 60px; /* Espaciado interno */
+  flex-wrap: nowrap; /* Mantiene todo en una sola línea si cabe */
+}
+
+/* 🌐 Columna de redes sociales */
+.social-column {
+  display: flex;
+  flex-wrap: nowrap; /* Las redes se mantienen en una línea */
+  max-width: 200px; /* Límite de ancho */
+  gap: 10px; /* Espacio entre íconos */
+}
+
+/* 🔘 Estilo base de los íconos sociales */
+.social-column .icon {
+  display: flex;
+  justify-content: center; /* Centra el ícono dentro del círculo */
+  width: 30px; /* Tamaño cuadrado del botón */
+  height: 30px;
+  background-color: #000; /* Fondo negro por defecto */
+  color: white; /* Ícono blanco */
+  border-radius: 60%; /* Hace el botón circular */
+  font-size: 18px; /* Tamaño del ícono */
+  text-decoration: none; /* Sin subrayado */
+  align-items: center; /* Centra verticalmente */
+  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+}
+
+/* 💬 Tooltip oculto (si se usa para mostrar texto al pasar el cursor) */
+.tooltip {
+  display: none;
+}
+
+/* 🎨 Colores de hover personalizados para cada red social */
+.facebook:hover,
+.facebook:hover .tooltip {
+  background-color: #3b5999; /* Azul de Facebook */
+  color: #fff;
+}
+
+.twitter:hover,
+.twitter:hover .tooltip {
+  background-color: #46c1f6; /* Celeste de Twitter */
+  color: #fff;
+}
+
+.instagram:hover,
+.instagram:hover .tooltip {
+  background-color: #e1306c; /* Rosa de Instagram */
+  color: #fff;
+}
+
+.tiktok:hover,
+.tiktok:hover .tooltip {
+  background-color: #000; /* Negro de TikTok */
+  color: #fff;
+}
+
+
+/* 🧩 Estilos para pantallas con un ancho máximo de 2000px 
+   (aplica en monitores grandes o pantallas de escritorio grandes) */
+@media (max-width: 2000px) {
+  /* 📸 Ajuste de imágenes en la sección .nuevo */
+  .nuevo img {
+    width: 1000px; /* Ancho grande de la imagen principal */
+    height: 800px; /* Alto grande proporcional */
+  }
+
+  /* 📝 Texto de la sección "nuevo" */
+  .texto_nuevo {
+    font-size: 32px; /* Tamaño grande de fuente */
+  }
+
+  /* 🖼️ Imágenes dentro del contenedor .imagenes */
+  .imagenes img {
+    width: 250px; /* Ancho estándar para pantallas grandes */
+    height: 200px; /* Alto proporcional */
+  }
+
+  /* 📦 Contenedores de producto o cajas */
+  .Cajas {
+    width: 220px; /* Ancho de cada caja */
+  }
+
+  .Cajas img {
+    width: 160px; /* Tamaño de la imagen dentro de la caja */
+    height: 160px;
+  }
+
+  /* 🦶 Contenido superior del footer (redes, columnas, etc.) */
+  .footer-contenido {
+    padding: 10px 30px; /* Reduce un poco el padding lateral */
+  }
+
+  /* ⚖️ Parte legal del footer */
+  .footer-legal {
+    padding: 20px 30px; /* Mantiene buen espaciado sin ser excesivo */
+  }
+}
+
+/* 💻 Estilos para pantallas con un ancho máximo de 1366px 
+   (laptops y monitores medianos) */
+@media (max-width: 1366px) {
+  /* 📸 Imagen principal más pequeña */
+  .nuevo img {
+    width: 500px; /* Reduce el tamaño para adaptarse */
+    height: 300px;
+  }
+
+  /* 📏 Agrega espacio superior a la sección de imágenes */
+  .imagenes {
+    padding-top: 40px;
+  }
+
+  /* 📝 Texto principal un poco más ajustado */
+  .texto_nuevo {
+    font-size: 32px; /* Mantiene tamaño adecuado para laptop */
+  }
+
+  /* 🖼️ Imágenes de categorías o productos */
+  .imagenes img {
+    width: 180px; /* Más pequeñas */
+    height: 160px;
+  }
+
+  /* 📦 Cajas de productos ligeramente reducidas */
+  .Cajas {
+    width: 220px; /* Mantiene proporciones cómodas */
+  }
+
+  .Cajas img {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* 🦶 Footer con padding reducido para aprovechar el espacio */
+  .footer-contenido {
+    padding: 10px 30px;
+  }
+
+  /* ⚖️ Parte inferior legal del footer */
+  .footer-legal {
+    padding: 20px 30px;
+  }
+}
+
+/* Adding responsive media queries for mobile, tablet, and desktop */
+
+/* 📱 Tablet y pantallas menores (hasta 1024px de ancho) */
+@media (max-width: 1024px) {
+
+  /* Imagen principal de la sección .nuevo */
+  .nuevo img {
+    width: 500px;  /* Reduce el ancho de la imagen */
+    height: 400px; /* Mantiene una altura proporcionada */
+  }
+
+  /* Texto destacado de la sección .nuevo */
+  .texto_nuevo {
+    font-size: 32px; /* Mantiene buena legibilidad en tablet */
+  }
+
+  /* Imágenes de categorías o productos */
+  .imagenes img {
+    width: 180px;  /* Reduce tamaño para ajustar a pantallas medianas */
+    height: 160px;
+  }
+
+  /* Contenedor de productos */
+  .Cajas {
+    width: 220px; /* Ligeramente más estrecho */
+  }
+
+  /* Imagen dentro de cada caja */
+  .Cajas img {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* Contenido del footer */
+  .footer-contenido {
+    padding: 10px 30px; /* Reduce el espaciado lateral */
+  }
+
+  /* Pie legal del footer */
+  .footer-legal {
+    padding: 20px 30px; /* Ajuste similar para mantener proporciones */
+  }
+}
+
+/* 📲 Modo retrato de tablet y móviles grandes (hasta 768px de ancho) */
+@media (max-width: 768px) {
+
+  /* 🔝 Barra de navegación */
+  .navbar {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos salten de línea */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 4px; /* Reduce márgenes y relleno */
+    height: auto; /* Altura adaptable */
+  }
+
+  /* Logo de la barra */
+  .logo {
+    font-size: 1rem; /* Más pequeño */
+    margin-right: 12px;
+    flex: 1 1 auto;
+    text-align: left;
+  }
+
+  /* Contenedor de enlaces de navegación */
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 2 1 auto;
+    margin-bottom: 0;
+    gap: 0;
+    flex-wrap: wrap; /* Permite saltar de línea */
+  }
+
+  /* Enlaces individuales */
+  .nav-links a {
+    font-size: 0.95rem;
+    padding: 0 8px;
+    height: 38px;
+    border-right: none; /* Elimina separación vertical */
+    border-bottom: none;
+    text-align: left;
+    white-space: nowrap; /* Evita saltos de línea dentro del enlace */
+  }
+
+  /* Barra de búsqueda */
+  .search-container {
+    width: auto;
+    padding: 2px 6px;
+    margin-left: 8px;
+    margin-bottom: 0;
+    align-self: center;
+    flex: 0 0 auto;
+  }
+
+  /* Acciones del usuario (iconos de cuenta, carrito, etc.) */
+  .user-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    order: 2;
+    flex: 0 0 auto;
+  }
+
+  /* Icono de menú hamburguesa */
+  .icono_hamburgesa {
+    order: -1;
+    margin-right: 8px;
+    margin-left: 0;
+  }
+
+  /* 📸 Sección "nuevo" */
+  .nuevo {
+    flex-direction: column; /* Pasa a disposición vertical */
+    align-items: center;
+  }
+
+  .nuevo img {
+    width: 600px;
+    height: 350px;
+    margin-top: 0%;
+    object-fit: cover; /* Asegura que la imagen se recorte bien */
+  }
+
+  .texto_nuevo {
+    font-size: 28px; /* Texto más compacto */
+  }
+
+  /* Cinta de ofertas */
+  .franja-ofertas {
+    font-size: 0.95rem;
+  }
+
+  /* 🎨 Imágenes de categorías */
+  .imagenes {
+    gap: 12px;
+    padding: 0 10px;
+  }
+
+  .imagenes img {
+    width: 150px;
+    height: 140px;
+  }
+
+  .texto {
+    font-size: 18px;
+  }
+
+  /* 📦 Contenedor de productos */
+  .contenedor {
+    gap: 20px;
+    padding: 30px 15px;
+  }
+
+  .Cajas {
+    width: 200px;
+    padding: 20px;
+  }
+
+  .Cajas img {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* 📋 Texto dentro de las cajas */
+  .nombre {
+    font-size: 15px;
+  }
+
+  .precio {
+    font-size: 18px;
+  }
+
+  /* 🦶 Footer principal */
+  .footer-texto p {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+
+  .footer-contenido {
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    padding: 10px 20px;
+    gap: 20px;
+  }
+
+  .footer-columns {
+    gap: 20px;
+  }
+
+  .footer-column {
+    min-width: 150px;
+  }
+
+  .social-column {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  /* ⚖️ Pie de página legal */
+  .footer-legal {
+    flex-direction: column; /* Texto y enlaces apilados */
+    padding: 15px 20px;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .footer-legal-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* 📱 Mobile (max-width: 640px) — estilos para pantallas de celulares */
+@media (max-width: 640px) {
+
+  /* 🔝 Barra de navegación principal */
+  .navbar {
+    padding: 0 10px; /* Reduce el espacio interno horizontal */
+  }
+
+  /* Logo del sitio dentro de la barra */
+  .navbar .logo {
+    font-size: 0.85rem;       /* Hace el texto más pequeño */
+    letter-spacing: 1px;      /* Separa ligeramente las letras */
+    margin-right: 8px;        /* Espacio derecho reducido */
+  }
+
+  /* Contenedor del buscador */
+  .search-container {
+    padding: 4px 8px;         /* Menor espacio interno */
+  }
+
+  /* Campo de texto del buscador */
+  .search-input {
+    width: 80px;              /* Más corto para caber en móvil */
+    font-size: 12px;          /* Texto más pequeño */
+    padding: 4px;             /* Menor altura */
+  }
+
+  /* Botón de búsqueda (ícono o texto) */
+  .search-btn {
+    font-size: 14px;          /* Botón más pequeño */
+  }
+
+  /* Enlaces o botones de la parte derecha de la navbar */
+  .registro,
+  .carrito,
+  .inicio {
+    font-size: 18px;          /* Iconos o texto medianos */
+    margin-left: 8px;         /* Espacio mínimo entre ellos */
+  }
+
+  /* 📑 Menú lateral (si está presente) */
+  .barra_lateral {
+    width: 220px;             /* Ajuste al ancho del móvil */
+  }
+
+  /* 🖼 Imagen principal o banner */
+  .nuevo img {
+    height: 280px;            /* Más baja para pantallas pequeñas */
+    width: 600px;             /* Mantiene buena proporción horizontal */
+  }
+
+  /* Texto de presentación sobre la imagen */
+  .texto_nuevo {
+    font-size: 24px;          /* Más pequeño para móviles */
+  }
+
+  /* Cinta o franja de ofertas */
+  .franja-ofertas {
+    font-size: 0.85rem;       /* Texto más compacto */
+    padding: 6px 0;           /* Menos alto */
+  }
+
+  /* 🖼 Contenedor de imágenes de categorías o secciones */
+  .imagenes {
+    padding-top: 100px;       /* Espacio superior para separar del banner */
+    gap: 10px;                /* Espacio entre imágenes */
+    margin-top: 5%;
+  }
+
+  /* Cada imagen dentro del contenedor .imagenes */
+  .imagenes img {
+    width: 130px;             /* Más pequeñas para caber 2–3 por fila */
+    height: 120px;
+  }
+
+  /* Texto debajo de las imágenes o títulos */
+  .texto {
+    font-size: 16px;          /* Tamaño legible sin ocupar demasiado */
+  }
+
+  /* 📦 Contenedor de las cajas de productos */
+  .contenedor {
+    gap: 15px;                /* Espacio entre cajas reducido */
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+  }
+
+  /* Cajas individuales de productos */
+  .Cajas {
+    width: 160px;             /* Más estrechas */
+    padding: 16px;            /* Menos relleno interno */
+    margin-top: 4%;
+  }
+
+  /* Imagen dentro de cada caja */
+  .Cajas img {
+    width: 130px;
+    height: 130px;
+  }
+
+  /* Nombre del producto */
+  .nombre {
+    font-size: 14px;          /* Texto más pequeño */
+    margin: 0 0 8px 0;
+  }
+
+  /* Precio del producto */
+  .precio {
+    font-size: 16px;          /* Tamaño adecuado para móvil */
+  }
+
+  /* 🦶 Texto del footer */
+  .footer-texto p {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
+  /* Contenedor principal del footer */
+  .footer-contenido {
+    padding: 10px 15px;       /* Ajuste general de márgenes */
+  }
+
+  /* Columnas del footer */
+  .footer-columns {
+    flex-direction: column;   /* Se apilan verticalmente */
+    gap: 15px;                /* Espacio entre cada bloque */
+  }
+
+  /* Cada columna ocupa todo el ancho */
+  .footer-column {
+    min-width: 100%;
+  }
+
+  /* Título de las secciones del footer */
+  .footer-column h3 {
+    font-size: 16px;
+  }
+
+  /* Enlaces del footer */
+  .footer-column a {
+    font-size: 15px;
+  }
+
+  /* ⚖️ Pie legal (parte inferior del footer) */
+  .footer-legal {
+    padding: 12px 15px;       /* Menos relleno */
+    font-size: 11px;          /* Texto pequeño */
+  }
+
+  /* Enlaces legales */
+  .footer-legal-links a {
+    font-size: 11px;
+  }
+
+  /* Año o derechos reservados */
+  .footer-legal-2025 {
+    font-size: 11px;
+  }
+
+  /* 🔗 Iconos de redes sociales */
+  .social-column .icon {
+    width: 28px;              /* Iconos más pequeños */
+    height: 28px;
+    font-size: 16px;
+  }
+}
+
+
+/* 📱 Extra small mobile (max-width: 480px)
+   — Para pantallas muy pequeñas (teléfonos compactos, antiguos o modo reducido) */
+@media (max-width: 480px) {
+
+  /* Imagen del banner principal */
+  .nuevo img {
+    height: 240px; /* Se reduce la altura del banner */
+  }
+
+  /* Texto superpuesto o destacado en el banner */
+  .texto_nuevo {
+    font-size: 20px; /* Más pequeño, legible en pantallas chicas */
+  }
+
+  /* 🖼 Imágenes de categorías */
+  .imagenes img {
+    width: 110px;  /* Imágenes más pequeñas */
+    height: 100px;
+  }
+
+  /* Texto debajo de imágenes o categorías */
+  .texto {
+    font-size: 14px;
+  }
+
+  /* 📦 Tarjetas o cajas de producto */
+  .Cajas {
+    width: 145px;   /* Caja más compacta */
+    padding: 14px;  /* Menor margen interno */
+  }
+
+  .Cajas img {
+    width: 115px;
+    height: 115px;
+  }
+
+  /* Nombre y precio del producto */
+  .nombre {
+    font-size: 13px;
+  }
+
+  .precio {
+    font-size: 15px;
+  }
+
+  /* 🦶 Texto superior del footer */
+  .footer-texto p {
+    font-size: 14px;
+  }
+}
+
+
+/* 📱 Ultra small mobile (max-width: 360px)
+   — Pensado para dispositivos muy pequeños (por ejemplo, teléfonos económicos o vista muy comprimida) */
+@media (max-width: 360px) {
+
+  /* 🔝 Barra de navegación principal */
+  .navbar {
+    padding: 0 10px; /* Menos espacio lateral */
+  }
+
+  /* Logo del sitio */
+  .navbar .logo {
+    font-size: 0.85rem;    /* Texto más pequeño */
+    letter-spacing: 1px;   /* Espaciado entre letras */
+    margin-right: 8px;
+  }
+
+  /* 🔍 Buscador en el encabezado */
+  .search-container {
+    padding: 4px 8px;
+  }
+
+  .search-input {
+    width: 80px;     /* Más angosto */
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .search-btn {
+    font-size: 14px;
+  }
+
+  /* 🔗 Iconos o botones de usuario */
+  .registro,
+  .carrito,
+  .inicio {
+    font-size: 18px;
+    margin-left: 8px;
+  }
+
+  /* Barra lateral (si existe) */
+  .barra_lateral {
+    width: 220px;
+  }
+
+  /* 🖼 Banner principal */
+  .nuevo img {
+    height: 280px;
+    width: 360px; /* Ocupa el ancho del móvil */
+  }
+
+  .texto_nuevo {
+    font-size: 24px;
+  }
+
+  /* 🟨 Franja de ofertas o promoción */
+  .franja-ofertas {
+    font-size: 0.85rem;
+    padding: 6px 0;
+  }
+
+  /* 🖼 Bloque de imágenes */
+  .imagenes {
+    gap: 10px;
+    margin-top: 5%;
+  }
+
+  .imagenes img {
+    width: 130px;
+    height: 120px;
+  }
+
+  .texto {
+    font-size: 16px;
+  }
+
+  /* 📦 Contenedor principal de productos */
+  .contenedor {
+    gap: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 100px; /* Añade aire superior */
+  }
+
+  .Cajas {
+    width: 160px;
+    padding: 16px;
+    margin-top: 4%;
+  }
+
+  .Cajas img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .nombre {
+    font-size: 14px;
+    margin: 0 0 8px 0;
+  }
+
+  .precio {
+    font-size: 16px;
+  }
+
+  /* 🦶 Footer */
+  .footer-texto p {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
+  .footer-contenido {
+    padding: 10px 15px;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-column {
+    min-width: 100%;
+  }
+
+  .footer-column h3 {
+    font-size: 16px;
+  }
+
+  .footer-column a {
+    font-size: 15px;
+  }
+
+  .footer-legal {
+    padding: 12px 15px;
+    font-size: 11px;
+  }
+
+  .footer-legal-links a {
+    font-size: 11px;
+  }
+
+  .footer-legal-2025 {
+    font-size: 11px;
+  }
+
+  .social-column .icon {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+}
+

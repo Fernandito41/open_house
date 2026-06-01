@@ -1,0 +1,1320 @@
+
+* { /* Selecciona todos los elementos */ 
+  box-sizing: border-box; /* Incluye padding y border en el ancho/alto */ 
+} /* Fin de regla para todos los elementos */
+
+body { /* Estilos generales de la página */ 
+  padding-top: 80px; /* Espacio para la barra de navegación */ 
+  margin: 0px; /* Quitar márgenes por defecto */ 
+  padding: 0; /* Quitar padding por defecto */ 
+  height: 100%; /* Alto completo para el navbar */ 
+  min-height: 100vh; /* Altura mínima de la ventana del navbar (barra de navegación) */ 
+  font-family: Arial, Helvetica, sans-serif; /* Tipografía principal */ 
+  overflow-x: hidden; /* Quitar scroll horizontal */ 
+  color: gray; /* Color de texto por defecto */ 
+  background-color: white; /* Color de fondo de la página */ 
+} /* Finaliza estilos del body */
+ 
+.navbar { /* Estilos de la barra de navegación */ 
+  position: fixed; /* Fija la barra en la ventana */ 
+  top: 0; /* Posición superior */ 
+  left: 0; /* Posición izquierda */ 
+  width: 100%; /* Ancho completo */ 
+  height: 48px; /* Alto de la barra */ 
+  display: flex; /* Usar flexbox */ 
+  align-items: center; /* Centrar verticalmente */ 
+  background: black; /* Fondo negro */ 
+  color: white; /* Texto blanco */ 
+  border-bottom: 1.5px solid #111; /* Borde inferior oscuro */ 
+  z-index: 1000; /* Apilar por encima de otros elementos */ 
+  padding: 0 16px; /* Espaciado horizontal */ 
+  gap: 0; /* Sin espacio entre items */ 
+} /* Finaliza estilos de la barra de navegación */
+
+.navbar .logo { /* Estilos del logo de la barra de navegación */ 
+  font-size: 1.1rem; /* Tamaño de fuente del logo */ 
+  font-weight: 700; /* Negrita */ 
+  letter-spacing: 2px; /* Espaciado entre letras */ 
+  color: white; /* Color blanco para el logo */ 
+  margin-right: 32px; /* Separación derecha */ 
+  font-family: "Montserrat", "Arial Narrow", Arial, sans-serif; /* Tipografías alternativas */ 
+  text-transform: uppercase; /* Texto en mayúsculas */ 
+} /* Finaliza estilos del logo de la barra de navegación */
+
+.nav-links { /* Estilos de los enlaces de la barra de navegación */ 
+  display: flex; /* Mostrar en fila */ 
+  align-items: center; /* Centrar verticalmente */ 
+  gap: 0; /* Sin espacio entre items */ 
+  margin: 0; /* Quitar margen */ 
+  padding: 0; /* Quitar padding */ 
+  list-style: none; /* Quitar viñetas */ 
+} /* Finaliza estilos de los enlaces de la barra de navegación */
+
+.nav-links li { /* Estilos de los items de la lista de navegación */ 
+  display: flex; /* Usar flex para el item */ 
+  align-items: center; /* Centrar contenido */ 
+} /* Finaliza estilos de los items de la lista de navegación */
+
+.nav-links a {  /* Estilos de los enlaces de la barra de navegación */ 
+  color: white; /* Color del texto */ 
+  text-decoration: none; /* Quitar subrayado */ 
+  font-size: 1rem; /* Tamaño de fuente */ 
+  font-weight: 500; /* Peso de fuente */ 
+  padding: 0 22px; /* Espaciado horizontal dentro del enlace */ 
+  height: 48px; /* Alto igual al navbar */ 
+  display: flex; /* Flex para alinear contenido */ 
+  align-items: center; /* Centrar verticalmente */ 
+} /* Finaliza estilos de los enlaces de la barra de navegación */
+
+.nav-links li:not(:last-child) a { /* Estilo del borde entre enlaces excepto el último */ 
+  border-right: 1.5px solid white; /* Línea divisoria derecha */ 
+} /* Fin de la regla de borde */
+
+.icono_hamburgesa { /* Estilos del icono de la hamburguesa */ 
+  background: none; /* Sin fondo */ 
+  border: none; /* Sin borde */ 
+  color: white; /* Color blanco */ 
+  font-size: 20px; /* Tamaño de icono */ 
+  cursor: pointer; /* Cursor puntero */ 
+} /* Finaliza estilos del icono de la hamburguesa */
+
+.registro, /* Iconos de la barra */ 
+.carrito, /* Iconos de la barra */ 
+.inicio { /* Iconos de la barra */ 
+  background: none; /* Sin fondo */ 
+  border: none; /* Sin borde */ 
+  color: white; /* Color blanco */ 
+  font-size: 20px; /* Tamaño de icono */ 
+  cursor: pointer; /* Cursor puntero */ 
+  margin-left: 12px; /* Espacio a la izquierda */ 
+} /* Finaliza estilos de los iconos de la barra */
+
+.barra_lateral_contenedor { /* Estilo para el contenedor de la barra lateral */ 
+  position: relative; /* Posicionamiento relativo para hijos absolutos */ 
+} /* Finaliza estilo para el contenedor de la barra lateral */
+
+.barra_lateral { /* Estilos de la barra lateral (no del contenedor) */ 
+  position: fixed; /* Fija la barra lateral en la ventana */ 
+  top: 0; /* Posición superior */ 
+  left: -320px; /* Oculta la barra a la izquierda por defecto */ 
+  width: 260px; /* Ancho de la barra lateral */ 
+  height: 100vh; /* Alto completo de la ventana */ 
+  background: #fff; /* Fondo blanco */ 
+  border-right: 2px solid #111; /* Borde derecho oscuro */ 
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.07); /* Sombra lateral */ 
+  transition: left 0.3s; /* Transición al mostrar/ocultar */ 
+  z-index: 2000; /* Apilar por encima */ 
+  padding-top: 60px; /* Espacio superior dentro de la barra */ 
+} /* Finaliza estilos de la barra lateral */
+
+.barra_lateral ul { /* Estilos de la lista de la barra lateral */ 
+  list-style: none; /* Quitar viñetas */ 
+  padding: 0; /* Quitar padding */ 
+  margin: 0; /* Quitar margen */ 
+} /* Finaliza estilos de la lista de la barra lateral */
+
+.barra_lateral ul li a {  /* Estilos de los enlaces de la barra lateral */ 
+  display: block; /* Enlaces en bloque */ 
+  color: #111; /* Color del texto */ 
+  padding: 16px 28px; /* Espaciado interno */ 
+  text-decoration: none; /* Quitar subrayado */ 
+  border-bottom: 1px solid #eee; /* Línea separadora inferior */ 
+  font-size: 1rem; /* Tamaño de fuente */ 
+} /* Finaliza estilos de los enlaces de la barra lateral */
+
+.barra_lateral ul li a:hover { /* Hover para enlaces de la barra lateral */ 
+  background: #f5f5f5; /* Fondo claro al pasar el ratón */ 
+} /* Fin del hover */
+
+.barra_lateral.activa { /* Clase que posiciona la barra lateral visible */ 
+  left: 0; /* Muestra la barra al moverla a 0 */ 
+} /* Fin de la regla activa */
+
+.desplegable { /* Estilos del menú desplegable del icono de registro */ 
+  display: none; /* Oculto por defecto */ 
+  position: absolute; /* Posicionamiento absoluto respecto al contenedor */ 
+  top: 100%; /* Posicionado justo debajo del elemento padre */ 
+  right: 0; /* Alineado a la derecha */ 
+  background-color: #222; /* Fondo oscuro */ 
+  border: 1px solid #333; /* Borde ligeramente más claro */ 
+  border-radius: 6px; /* Esquinas redondeadas */ 
+  padding: 8px 0; /* Espaciado interno vertical */ 
+  min-width: 150px; /* Ancho mínimo */ 
+  z-index: 1001; /* Apilar por encima */ 
+} /* Finaliza estilos del menú desplegable */
+
+.desplegable a { /* Estilos de los enlaces del menú desplegable */ 
+  display: block; /* Enlaces en bloque */ 
+  padding: 10px 16px; /* Espaciado interno */ 
+  color: white; /* Texto blanco */ 
+  text-decoration: none; /* Quitar subrayado */ 
+} /* Finaliza estilos de los enlaces del menú desplegable */
+
+.desplegable a:hover { /* Estilos hover para enlaces del desplegable */ 
+  background-color: #444; /* Fondo más claro al pasar el ratón */ 
+  transition: 0.3s; /* Transición suave */ 
+} /* Finaliza hover del desplegable */
+
+.registro-contenedor { /* Estilos del contenedor del icono de registro */ 
+  position: relative; /* Posicionamiento relativo para el desplegable */ 
+  display: inline-block; /* Mantener inline con bloque interno */ 
+}  /* Finaliza estilos del contenedor del icono de registro */
+
+.registro-contenedor:hover .desplegable { /* Mostrar desplegable al hover del contenedor */ 
+  display: block; /* Muestra el menú desplegable */ 
+} /* Fin de la regla hover que muestra el desplegable */
+
+.search-container { /* Estilos del contenedor de la barra de búsqueda */ 
+  display: flex; /* Usar flexbox */ 
+  align-items: center; /* Centrar verticalmente */ 
+  background-color: white; /* Fondo blanco */ 
+  border-radius: 20px; /* Bordes redondeados */ 
+  padding: 5px 10px; /* Espaciado interno */ 
+  margin-left: auto; /* Empuja el contenedor a la derecha */ 
+} /* Finaliza estilos del contenedor de la barra de búsqueda */
+
+.search-input { /* Estilos de la barra de búsqueda */ 
+  border: none; /* Sin borde */ 
+  outline: none; /* Sin outline al focus */ 
+  padding: 5px; /* Espaciado interno */ 
+  border-radius: 20px; /* Bordes redondeados */ 
+  font-size: 14px; /* Tamaño de fuente */ 
+  color: #333; /* Color del texto */ 
+  width: 140px; /* Ancho por defecto */ 
+} /* Finaliza estilos del input de búsqueda */
+
+.search-btn {  /* Estilos del botón de la barra de búsqueda */ 
+  background: none; /* Sin fondo */ 
+  border: none; /* Sin borde */ 
+  cursor: pointer; /* Cursor puntero */ 
+  color: #333; /* Color del icono/texto */ 
+  font-size: 16px; /* Tamaño del botón */ 
+}  /* Finaliza estilos del botón de la barra de búsqueda */
+
+
+.container { /* Contenedor de producto con diseño moderno y adaptable */ 
+  display: flex; /* Usar flexbox para distribuir secciones */ 
+  justify-content: center; /* Centrar horizontalmente */ 
+  align-items: flex-start; /* Alinear elementos al inicio verticalmente */ 
+  gap: 30px; /* Espacio entre elementos */ 
+  padding: 40px; /* Espaciado interno general */ 
+} /* Fin de estilos del contenedor principal */
+
+img { /* Estilos generales para las imágenes */ 
+  height: 600px; /* Altura fija para las imágenes */ 
+  margin-left: 2%; /* Margen izquierdo */ 
+} /* Fin de estilos generales de imagen */
+
+.left { /* Sección izquierda del contenedor */ 
+  margin-top: 150px; /* Margen superior */ 
+  display: flex; /* Usar flexbox */ 
+  justify-content: center; /* Centrar contenido horizontalmente */ 
+  align-items: center; /* Alinear contenido verticalmente */ 
+} /* Fin de estilos para la sección izquierda */
+
+.left img { /* Imagen dentro de la sección izquierda */ 
+  object-fit: cover; /* Ajustar imagen sin deformarse */ 
+  width: 400px; /* Ancho fijo */ 
+  border-radius: 15px; /* Bordes redondeados */ 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Sombra suave */ 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición al pasar el ratón */ 
+} /* Fin de estilos de imagen izquierda */
+
+.left img:hover { /* Efecto hover en la imagen izquierda */ 
+  transform: translateY(-5px); /* Elevar imagen ligeramente */ 
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2); /* Aumentar sombra */ 
+} /* Fin de hover de la imagen izquierda */
+
+.right { /* Sección derecha del contenedor */ 
+  margin-top: 80px; /* Margen superior */ 
+  max-width: 500px; /* Ancho máximo */ 
+  padding: 20px; /* Espaciado interno */ 
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); /* Fondo degradado claro */ 
+  border-radius: 15px; /* Bordes redondeados */ 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra sutil */ 
+  align-items: center; /* Alinear contenido al centro */ 
+} /* Fin de estilos de la sección derecha */
+
+.right h2 { /* Estilo del título del producto */ 
+  font-size: 32px; /* Tamaño de fuente grande */ 
+  margin-bottom: 15px; /* Espaciado inferior */ 
+  color: #2c3e50; /* Color oscuro */ 
+  font-weight: 600; /* Seminegrita */ 
+  line-height: 1.3; /* Altura de línea */ 
+} /* Fin de estilos del título */
+
+.price { /* Estilo del precio del producto */ 
+  font-weight: bold; /* Negrita */ 
+  font-size: 32px; /* Tamaño grande */ 
+  margin: 15px 0; /* Espaciado vertical */ 
+  color: #00875a; /* Verde principal */ 
+  text-shadow: 0 2px 4px rgba(0, 135, 90, 0.1); /* Sombra ligera */ 
+} /* Fin de estilos del precio */
+
+.color { /* Estilo del color del producto */ 
+  font-size: 18px; /* Tamaño de fuente medio */ 
+  color: #666; /* Gris */ 
+  margin-bottom: 20px; /* Espaciado inferior */ 
+  font-weight: 500; /* Seminegrita */ 
+} /* Fin de estilos de color */
+
+.informacion { /* Sección de información adicional */ 
+  background: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */ 
+  padding: 15px; /* Espaciado interno */ 
+  border-radius: 10px; /* Bordes redondeados */ 
+  margin: 20px 0; /* Espaciado vertical */ 
+  border-left: 4px solid #00875a; /* Borde lateral verde */ 
+  line-height: 1.6; /* Altura de línea cómoda */ 
+} /* Fin de estilos de la información */
+
+.sizes { /* Contenedor de tallas */ 
+  margin: 20px 0; /* Espaciado vertical */ 
+} /* Fin del contenedor de tallas */
+
+.sizes label { /* Etiquetas de las tallas */ 
+  display: inline-block; /* Mostrar en línea en bloque */ 
+  margin: 5px 8px 5px 0; /* Espaciado alrededor */ 
+  cursor: pointer; /* Cursor puntero */ 
+  transition: all 0.3s ease; /* Transición suave */ 
+} /* Fin de estilos iniciales de etiquetas de tallas */
+
+.sizes label input[type="radio"] { /* Input tipo radio dentro de las tallas */ 
+  display: none; /* Ocultar el input */ 
+} /* Fin de ocultar input radio */
+
+.sizes label { /* Reajuste de estilos para las tallas */ 
+  width: 70px; /* Ancho fijo */ 
+  height: 50px; /* Alto fijo */ 
+  border: 2px solid #ddd; /* Borde gris claro */ 
+  border-radius: 8px; /* Bordes redondeados */ 
+  display: inline-flex; /* Usar flexbox */ 
+  align-items: center; /* Centrar verticalmente */ 
+  justify-content: center; /* Centrar horizontalmente */ 
+  font-weight: 600; /* Negrita media */ 
+  transition: all 0.3s ease; /* Transición suave */ 
+  background: white; /* Fondo blanco */ 
+} /* Fin de estilos de etiquetas de tallas */
+
+.sizes label:hover { /* Efecto hover en tallas */ 
+  border-color: #00875a; /* Borde verde */ 
+  background: #f0f9f5; /* Fondo verde claro */ 
+  transform: translateY(-2px); /* Elevar ligeramente */ 
+} /* Fin de hover de tallas */
+
+.sizes label input[type="radio"]:checked + label,
+.sizes label:has(input[type="radio"]:checked) { /* Estilo cuando la talla está seleccionada */ 
+  background: #00875a; /* Fondo verde */ 
+  color: white; /* Texto blanco */ 
+  border-color: #00875a; /* Borde verde */ 
+  box-shadow: 0 4px 12px rgba(0, 135, 90, 0.3); /* Sombra verde */ 
+} /* Fin de estilo de selección de tallas */
+
+form label { /* Etiquetas de formulario */ 
+  font-weight: 600; /* Negrita media */ 
+  color: #2c3e50; /* Color oscuro */ 
+  margin-bottom: 8px; /* Espaciado inferior */ 
+  display: block; /* Mostrar en bloque */ 
+} /* Fin de etiquetas de formulario */
+
+#cantidad { /* Campo de cantidad */ 
+  width: 80px; /* Ancho fijo */ 
+  padding: 8px 12px; /* Espaciado interno */ 
+  border: 2px solid #ddd; /* Borde gris claro */ 
+  border-radius: 6px; /* Bordes redondeados */ 
+  font-size: 16px; /* Tamaño de fuente */ 
+  margin: 10px 0 20px 0; /* Espaciado vertical */ 
+  transition: border-color 0.3s ease; /* Transición suave del borde */ 
+} /* Fin de campo cantidad */
+
+#cantidad:focus { /* Estilo cuando el campo tiene foco */ 
+  outline: none; /* Quitar contorno */ 
+  border-color: #00875a; /* Borde verde */ 
+  box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.1); /* Resplandor verde */ 
+} /* Fin de estado focus */
+
+.btn { /* Botón principal */ 
+  margin-top: 25px; /* Margen superior */ 
+  padding: 15px 30px; /* Espaciado interno */ 
+  width: 100%; /* Ancho completo */ 
+  background: linear-gradient(135deg, #00875a 0%, #006c46 100%); /* Fondo degradado verde */ 
+  color: white; /* Texto blanco */ 
+  border: none; /* Sin borde */ 
+  border-radius: 10px; /* Bordes redondeados */ 
+  cursor: pointer; /* Cursor puntero */ 
+  font-size: 18px; /* Tamaño de fuente */ 
+  font-weight: 600; /* Negrita media */ 
+  text-transform: uppercase; /* Texto en mayúsculas */ 
+  letter-spacing: 1px; /* Espaciado entre letras */ 
+  transition: all 0.3s ease; /* Transición suave */ 
+  box-shadow: 0 4px 15px rgba(0, 135, 90, 0.3); /* Sombra verde */ 
+} /* Fin de botón principal */
+
+.btn:hover { /* Efecto hover del botón */ 
+  background: linear-gradient(135deg, #006c46 0%, #005a3a 100%); /* Fondo más oscuro */ 
+  transform: translateY(-2px); /* Elevar botón */ 
+  box-shadow: 0 6px 20px rgba(0, 135, 90, 0.4); /* Aumentar sombra */ 
+} /* Fin de hover del botón */
+
+.btn:active { /* Efecto al presionar el botón */ 
+  transform: translateY(0); /* Volver a posición normal */ 
+  box-shadow: 0 2px 10px rgba(0, 135, 90, 0.3); /* Reducir sombra */ 
+} /* Fin de estado activo del botón */
+
+/* Reverted to original footer styling */
+/* Keeping footer intact as requested */
+.footer { /* Contenedor principal del pie de página */ 
+  width: 100%; /* Ancho completo */ 
+  background-color: white; /* Fondo blanco */ 
+  color: black; /* Texto negro */ 
+  padding: 5px 5px; /* Espaciado interno */ 
+  justify-content: center; /* Centrar contenido */ 
+} /* Fin del contenedor principal del pie de página */
+
+.footer-texto { /* Sección de texto principal del footer */ 
+  width: 100%; /* Ancho completo */ 
+  margin-bottom: 10px; /* Espaciado inferior */ 
+} /* Fin de la sección de texto */
+
+.footer-texto p { /* Párrafos dentro del texto del footer */ 
+  font-size: 20px; /* Tamaño de fuente */ 
+  color: black; /* Texto negro */ 
+  text-align: center; /* Centrar texto */ 
+  margin: 0; /* Sin márgenes */ 
+  padding: 10px 10px; /* Espaciado interno */ 
+} /* Fin de estilos de los párrafos del footer */
+
+.footer-columns { /* Contenedor de las columnas del footer */ 
+  display: flex; /* Usar flexbox */ 
+  justify-content: left; /* Alinear a la izquierda */ 
+  align-items: flex-start; /* Alinear arriba */ 
+  flex-wrap: wrap; /* Permitir salto de línea */ 
+  gap: 30px; /* Espaciado entre columnas */ 
+  max-width: 1000px; /* Ancho máximo */ 
+  width: 100%; /* Ancho completo */ 
+} /* Fin de contenedor de columnas */
+
+.footer-column { /* Columna individual del footer */ 
+  display: flex; /* Usar flexbox */ 
+  flex-direction: column; /* Disposición vertical */ 
+  min-width: 180px; /* Ancho mínimo */ 
+} /* Fin de columna individual */
+
+.footer-column h3 { /* Título de la columna */ 
+  font-weight: bold; /* Negrita */ 
+  font-size: 17px; /* Tamaño de fuente */ 
+  margin-bottom: 15px; /* Espaciado inferior */ 
+} /* Fin de título de columna */
+
+.footer-column a { /* Enlaces dentro de las columnas */ 
+  text-decoration: none; /* Quitar subrayado */ 
+  color: black; /* Texto negro */ 
+  font-size: 17px; /* Tamaño de fuente */ 
+  margin-bottom: 10px; /* Espaciado inferior */ 
+  transition: color 0.3s ease; /* Transición de color */ 
+} /* Fin de enlaces de columna */
+
+.footer-column a:hover { /* Efecto hover en enlaces del footer */ 
+  color: #555; /* Cambiar a gris medio */ 
+} /* Fin de hover de enlaces */
+
+.footer-links { /* Contenedor de enlaces ocultos (submenu) */ 
+  display: none; /* Ocultos por defecto */ 
+  flex-direction: column; /* Disposición vertical */ 
+  gap: 10px; /* Espaciado entre enlaces */ 
+} /* Fin de enlaces ocultos */
+
+.footer-column:hover .footer-links,
+.footer-title:focus + .footer-links { /* Mostrar enlaces al hover o focus */ 
+  display: flex; /* Mostrar los enlaces */ 
+} /* Fin de interacción con enlaces ocultos */
+
+.footer-title { /* Título interactivo de columna */ 
+  cursor: pointer; /* Cursor puntero */ 
+} /* Fin de título interactivo */
+
+.email-link { /* Enlace de correo electrónico */ 
+  font-weight: bold; /* Negrita */ 
+  display: inline-block; /* Mostrar como bloque en línea */ 
+  margin-top: 10px; /* Espaciado superior */ 
+} /* Fin de enlace de correo */
+
+.email-link .small-text { /* Texto pequeño debajo del correo */ 
+  display: block; /* Mostrar como bloque */ 
+  font-weight: normal; /* Peso normal */ 
+  font-size: 12px; /* Tamaño pequeño */ 
+  color: #777; /* Color gris */ 
+  margin-top: 5px; /* Espaciado superior */ 
+} /* Fin de texto pequeño debajo del correo */
+
+.footer-legal * { /* Reinicio de márgenes y padding en footer legal */ 
+  margin: 0; /* Sin margen */ 
+  padding: 0; /* Sin padding */ 
+} /* Fin de reseteo */
+
+.footer-legal { /* Sección legal del footer */ 
+  width: 100%; /* Ancho completo */ 
+  background-color: white; /* Fondo blanco */ 
+  padding: 20px 60px; /* Espaciado interno */ 
+  display: flex; /* Usar flexbox */ 
+  justify-content: space-between; /* Espacio entre elementos */ 
+  align-items: center; /* Centrar verticalmente */ 
+  font-size: 13px; /* Tamaño de fuente pequeño */ 
+  border-top: 1px solid black; /* Línea superior negra */ 
+  color: white; /* Texto blanco (aunque fondo es blanco, probablemente error visual) */ 
+  position: relative; /* Posición relativa */ 
+  z-index: 1; /* Nivel de apilamiento */ 
+  height: auto; /* Altura automática */ 
+  margin: 0; /* Sin margen */ 
+  gap: 25px; /* Espaciado entre elementos */ 
+} /* Fin de sección legal */
+
+.footer-legal-links { /* Contenedor de enlaces legales */ 
+  text-decoration: none; /* Sin subrayado */ 
+  display: flex; /* Usar flexbox */ 
+  gap: 25px; /* Espaciado entre enlaces */ 
+} /* Fin de contenedor de enlaces legales */
+
+.footer-legal-links a { /* Enlaces dentro de la sección legal */ 
+  color: black; /* Texto negro */ 
+  text-decoration: none; /* Sin subrayado */ 
+  font-size: 13px; /* Tamaño pequeño */ 
+  transition: color 0.3s ease; /* Transición de color */ 
+} /* Fin de enlaces legales */
+
+.footer-legal-2025 { /* Texto de derechos o año */ 
+  font-size: 13px; /* Tamaño pequeño */ 
+  color: black; /* Texto negro */ 
+  white-space: nowrap; /* Evitar salto de línea */ 
+} /* Fin de texto de derechos */
+
+.footer-contenido { /* Contenedor principal del contenido del footer */ 
+  display: flex; /* Usar flexbox */ 
+  flex-direction: row-reverse; /* Orden inverso */ 
+  align-items: flex-start; /* Alinear arriba */ 
+  padding: 10px 60px; /* Espaciado interno */ 
+  flex-wrap: nowrap; /* Sin salto de línea */ 
+} /* Fin de contenedor de contenido */
+
+.social-column { /* Contenedor de iconos sociales */ 
+  display: flex; /* Usar flexbox */ 
+  flex-wrap: nowrap; /* Sin salto de línea */ 
+  max-width: 200px; /* Ancho máximo */ 
+  gap: 10px; /* Espacio entre iconos */ 
+} /* Fin de columna social */
+
+.social-column .icon { /* Iconos de redes sociales */ 
+  display: flex; /* Usar flexbox */ 
+  justify-content: center; /* Centrar horizontalmente */ 
+  width: 30px; /* Ancho del icono */ 
+  height: 30px; /* Alto del icono */ 
+  background-color: #000; /* Fondo negro */ 
+  color: white; /* Icono blanco */ 
+  border-radius: 60%; /* Forma circular */ 
+  font-size: 18px; /* Tamaño del icono */ 
+  text-decoration: none; /* Sin subrayado */ 
+  align-items: center; /* Centrar verticalmente */ 
+  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */ 
+} /* Fin de iconos sociales */
+
+.tooltip { /* Tooltip oculto */ 
+  display: none; /* No se muestra por defecto */ 
+} /* Fin del tooltip */
+
+.facebook:hover,
+.facebook:hover .tooltip { /* Hover en Facebook */ 
+  background-color: #3b5999; /* Fondo azul Facebook */ 
+  color: #fff; /* Texto blanco */ 
+} /* Fin hover Facebook */
+
+.twitter:hover,
+.twitter:hover .tooltip { /* Hover en Twitter */ 
+  background-color: #46c1f6; /* Fondo azul claro Twitter */ 
+  color: #fff; /* Texto blanco */ 
+} /* Fin hover Twitter */
+
+.instagram:hover,
+.instagram:hover .tooltip { /* Hover en Instagram */ 
+  background-color: #e1306c; /* Fondo rosa Instagram */ 
+  color: #fff; /* Texto blanco */ 
+} /* Fin hover Instagram */
+
+.tiktok:hover,
+.tiktok:hover .tooltip { /* Hover en TikTok */ 
+  background-color: #000; /* Fondo negro TikTok */ 
+  color: #fff; /* Texto blanco */ 
+} /* Fin hover TikTok */
+
+
+/* Adding responsive media queries for all requested breakpoints */
+
+/* Large Desktops - 2000px */ /* Estilos para pantallas grandes (hasta 2000px) */
+@media (max-width: 2000px) {
+  .container { /* Contenedor principal */
+    padding: 40px 60px; /* Aumenta el espacio lateral */
+  } /* Fin del contenedor */
+
+  img { /* Imágenes generales */
+    height: 600px; /* Altura fija para mantener proporciones grandes */
+  } /* Fin de imágenes generales */
+
+  .left img { /* Imagen del lado izquierdo */
+    width: 450px; /* Ajusta el ancho de la imagen */
+  } /* Fin de imagen izquierda */
+
+  .right { /* Contenedor derecho (información del producto) */
+    max-width: 550px; /* Limita el ancho para mantener equilibrio visual */
+  } /* Fin del contenedor derecho */
+} /* Fin de media query para 2000px */
+
+
+/* Standard Laptops - 1366px */ /* Estilos para laptops estándar */
+@media (max-width: 1366px) {
+  .container { /* Contenedor principal */
+    padding: 30px 40px; /* Reduce el padding */
+    gap: 25px; /* Espacio entre secciones */
+  } /* Fin de contenedor */
+
+  .left { /* Sección izquierda (imagen) */
+    margin-top: 120px; /* Ajuste superior para centrado visual */
+  } /* Fin de sección izquierda */
+
+  .left img { /* Imagen de producto */
+    width: 380px; /* Ajuste de tamaño para pantallas medianas */
+  } /* Fin de imagen */
+
+  .right { /* Sección derecha (texto y botones) */
+    margin-top: 60px; /* Espaciado superior */
+    max-width: 480px; /* Ancho máximo del panel derecho */
+  } /* Fin de sección derecha */
+
+  .right h2 { /* Título del producto */
+    font-size: 28px; /* Reduce tamaño de fuente */
+  } /* Fin del título */
+
+  .price { /* Precio del producto */
+    font-size: 28px; /* Ajuste proporcional al título */
+  } /* Fin del precio */
+
+  .footer-contenido { /* Contenido del pie de página */
+    padding: 10px 40px; /* Menor padding lateral */
+  } /* Fin del contenido del footer */
+
+  .footer-legal { /* Sección legal del footer */
+    padding: 20px 40px; /* Ajuste de espaciado */
+  } /* Fin de footer legal */
+} /* Fin de media query para 1366px */
+
+
+/* Tablets Landscape - 1024px */ /* Estilos para tablets en horizontal */
+@media (max-width: 1024px) {
+  .nav-links { /* Oculta enlaces de navegación en tablets */
+    display: none; /* Se reemplazan por el menú hamburguesa */
+  } /* Fin de enlaces de navegación */
+
+  .icono_hamburgesa { /* Ícono de menú hamburguesa */
+    display: block; /* Se muestra en pantallas pequeñas */
+  } /* Fin de icono hamburguesa */
+
+  .search-input { /* Barra de búsqueda */
+    width: 120px; /* Reduce su tamaño */
+  } /* Fin de barra de búsqueda */
+
+  .container { /* Contenedor principal */
+    flex-direction: column; /* Cambia disposición a vertical */
+    align-items: center; /* Centra contenido */
+    padding: 20px; /* Reduce padding */
+    gap: 20px; /* Espacio entre secciones */
+  } /* Fin del contenedor */
+
+  .left { /* Sección izquierda (imagen) */
+    margin-top: 80px; /* Ajuste superior */
+  } /* Fin de sección izquierda */
+
+  .left img { /* Imagen del producto */
+    width: 100%; /* Imagen ocupa todo el ancho */
+    max-width: 500px; /* Límite máximo para evitar deformaciones */
+  } /* Fin de imagen */
+
+  .right { /* Sección derecha */
+    margin-top: 20px; /* Menor separación con la imagen */
+    max-width: 100%; /* Ocupa todo el ancho disponible */
+    width: 100%; /* Ajuste completo */
+  } /* Fin de sección derecha */
+
+  .footer-columns { /* Columnas del footer */
+    gap: 20px; /* Menor separación entre columnas */
+  } /* Fin de columnas footer */
+
+  .footer-contenido { /* Contenido del footer */
+    padding: 10px 30px; /* Ajuste del padding lateral */
+  } /* Fin del contenido footer */
+
+  .footer-legal { /* Sección legal */
+    padding: 15px 30px; /* Ajuste de espaciado */
+  } /* Fin del footer legal */
+} /* Fin de media query para 1024px */
+
+/* Tablets Portrait - 768px */ /* Estilos para tablets en orientación vertical */
+@media (max-width: 768px) {
+  .navbar { /* Barra de navegación */
+    display: flex; /* Muestra los elementos en línea */
+    flex-wrap: wrap; /* Permite que los elementos bajen a otra línea */
+    flex-direction: row; /* Dirección en fila */
+    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Espacia los elementos */
+    padding: 8px 4px; /* Espaciado interno */
+    height: auto; /* Altura automática */
+  } /* Fin de la barra de navegación */
+
+  .logo { /* Logo del sitio */
+    font-size: 1rem; /* Tamaño del texto del logo */
+    margin-right: 12px; /* Margen derecho */
+    flex: 1 1 auto; /* Ajuste flexible */
+    text-align: left; /* Alineación a la izquierda */
+  } /* Fin del logo */
+
+  .nav-links { /* Enlaces de navegación */
+    display: flex; /* Muestra en línea */
+    flex-direction: row; /* Dirección horizontal */
+    justify-content: flex-start; /* Alinea al inicio */
+    align-items: center; /* Centra verticalmente */
+    flex: 2 1 auto; /* Ajuste flexible */
+    margin-bottom: 0; /* Sin margen inferior */
+    gap: 0; /* Sin separación */
+    flex-wrap: wrap; /* Permite ajuste en varias filas */
+  } /* Fin de enlaces de navegación */
+
+  .nav-links a { /* Enlaces individuales */
+    font-size: 0.95rem; /* Tamaño de fuente reducido */
+    padding: 0 8px; /* Espaciado lateral */
+    height: 38px; /* Altura del enlace */
+    border-right: none; /* Sin borde lateral */
+    border-bottom: none; /* Sin borde inferior */
+    text-align: left; /* Alineación del texto */
+    white-space: nowrap; /* Evita salto de línea */
+  } /* Fin de los enlaces individuales */
+
+  .search-container { /* Contenedor de la barra de búsqueda */
+    width: auto; /* Ancho automático */
+    padding: 2px 6px; /* Espaciado interno */
+    margin-left: 8px; /* Margen izquierdo */
+    margin-bottom: 0; /* Sin margen inferior */
+    align-self: center; /* Centra verticalmente */
+    flex: 0 0 auto; /* Sin expansión flexible */
+  } /* Fin del contenedor de búsqueda */
+
+  .user-actions { /* Acciones de usuario (íconos) */
+    display: flex; /* Muestra en línea */
+    flex-direction: row; /* Dirección horizontal */
+    align-items: center; /* Centra verticalmente */
+    gap: 10px; /* Espacio entre íconos */
+    margin-left: auto; /* Empuja hacia la derecha */
+    order: 2; /* Orden de aparición */
+    flex: 0 0 auto; /* Fijo */
+  } /* Fin de acciones de usuario */
+
+  .icono_hamburgesa { /* Ícono del menú hamburguesa */
+    order: -1; /* Mueve al inicio del orden */
+    margin-right: 8px; /* Margen derecho */
+    margin-left: 0; /* Sin margen izquierdo */
+  } /* Fin de icono hamburguesa */
+
+  .container { /* Contenedor principal */
+    padding: 15px; /* Menor espaciado interno */
+  } /* Fin de contenedor */
+
+  .left { /* Sección izquierda (imagen) */
+    margin-top: 60px; /* Ajuste superior */
+  } /* Fin de sección izquierda */
+
+  .left img { /* Imagen del producto */
+    max-width: 400px; /* Tamaño máximo ajustado */
+  } /* Fin de imagen */
+
+  .right h2 { /* Título del producto */
+    font-size: 26px; /* Tamaño de fuente ajustado */
+  } /* Fin del título */
+
+  .price { /* Precio del producto */
+    font-size: 26px; /* Tamaño ajustado */
+  } /* Fin del precio */
+
+  .color { /* Color del producto */
+    font-size: 16px; /* Tamaño del texto */
+  } /* Fin del color */
+
+  .btn { /* Botón principal */
+    font-size: 16px; /* Tamaño del texto */
+    padding: 12px 25px; /* Espaciado interno */
+  } /* Fin del botón */
+
+  .footer-texto p { /* Texto superior del pie de página */
+    font-size: 18px; /* Tamaño del texto */
+    padding: 10px 15px; /* Espaciado */
+  } /* Fin del texto del footer */
+
+  .footer-contenido { /* Contenido del footer */
+    flex-direction: column; /* Dirección vertical */
+    padding: 10px 20px; /* Espaciado interno */
+    gap: 20px; /* Espacio entre elementos */
+  } /* Fin del contenido del footer */
+
+  .footer-columns { /* Columnas del footer */
+    gap: 20px; /* Espaciado entre columnas */
+  } /* Fin de columnas */
+
+  .footer-column { /* Columna individual */
+    min-width: 150px; /* Ancho mínimo */
+  } /* Fin de columna */
+
+  .social-column { /* Columna de redes sociales */
+    max-width: 100%; /* Ancho total */
+    justify-content: center; /* Centra los íconos */
+  } /* Fin de redes sociales */
+
+  .footer-legal { /* Sección legal inferior */
+    flex-direction: column; /* Dirección vertical */
+    padding: 15px 20px; /* Espaciado interno */
+    gap: 15px; /* Espacio entre elementos */
+    text-align: center; /* Centra el texto */
+  } /* Fin del footer legal */
+
+  .footer-legal-links { /* Enlaces legales */
+    flex-direction: column; /* Dirección vertical */
+    gap: 10px; /* Espaciado entre enlaces */
+  } /* Fin de enlaces legales */
+} /* Fin de media query para 768px */
+
+
+/* Large Phones - 640px */ /* Estilos para teléfonos grandes */
+@media (max-width: 640px) {
+  .navbar { /* Barra de navegación */
+    padding: 0 10px; /* Espaciado lateral */
+    height: 100px; /* Altura fija */
+  } /* Fin de navbar */
+
+  .navbar .logo { /* Logo dentro de la navbar */
+    font-size: 0.85rem; /* Tamaño reducido */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    margin-right: 8px; /* Margen derecho */
+  } /* Fin del logo */
+
+  .search-container { /* Barra de búsqueda */
+    padding: 4px 8px; /* Espaciado reducido */
+  } /* Fin de barra búsqueda */
+
+  .search-input { /* Campo de texto de búsqueda */
+    width: 80px; /* Ancho reducido */
+    font-size: 12px; /* Tamaño de texto pequeño */
+    padding: 4px; /* Espaciado interno */
+  } /* Fin de input búsqueda */
+
+  .search-btn { /* Botón de búsqueda */
+    font-size: 14px; /* Tamaño del icono */
+  } /* Fin del botón búsqueda */
+
+  .registro,
+  .carrito,
+  .inicio { /* Iconos de acciones */
+    font-size: 18px; /* Tamaño de iconos */
+    margin-left: 8px; /* Espaciado entre iconos */
+  } /* Fin de iconos */
+
+  .barra_lateral { /* Barra lateral del menú */
+    width: 220px; /* Ancho reducido */
+  } /* Fin de barra lateral */
+
+  .container { /* Contenedor principal */
+    padding: 10px; /* Espaciado reducido */
+  } /* Fin de contenedor */
+
+  .left { /* Sección izquierda */
+    margin-top: 50px; /* Espaciado superior */
+  } /* Fin de izquierda */
+
+  .left img { /* Imagen de producto */
+    max-width: 320px; /* Tamaño máximo reducido */
+  } /* Fin de imagen */
+
+  .right { /* Sección derecha */
+    padding: 15px; /* Espaciado interno */
+  } /* Fin de derecha */
+
+  .right h2 { /* Título del producto */
+    font-size: 24px; /* Tamaño más pequeño */
+  } /* Fin de título */
+
+  .price { /* Precio */
+    font-size: 24px; /* Tamaño reducido */
+  } /* Fin de precio */
+
+  .color { /* Texto del color */
+    font-size: 15px; /* Tamaño reducido */
+  } /* Fin de color */
+
+  .sizes label { /* Botones de talla */
+    width: 45px; /* Ancho más pequeño */
+    height: 45px; /* Altura más pequeña */
+  } /* Fin de tallas */
+
+  #cantidad { /* Campo de cantidad */
+    width: 70px; /* Ancho reducido */
+  } /* Fin de cantidad */
+
+  .btn { /* Botón principal */
+    font-size: 15px; /* Tamaño más pequeño */
+    padding: 12px 20px; /* Espaciado interno */
+  } /* Fin de botón */
+
+  .footer-texto p { /* Texto del footer */
+    font-size: 18px; /* Tamaño reducido */
+  } /* Fin de texto footer */
+
+  .footer-column h3 { /* Título de columna del footer */
+    font-size: 16px; /* Tamaño más pequeño */
+  } /* Fin de título columna */
+
+  .footer-column a { /* Enlaces del footer */
+    font-size: 15px; /* Tamaño reducido */
+  } /* Fin de enlaces footer */
+} /* Fin de media query para 640px */
+
+/* Phones - max 480px */               /* Estilos aplicados para pantallas de hasta 480px */
+@media (max-width: 480px) {            /* Inicia el bloque de media query */
+
+  .navbar {                            /* Barra de navegación */
+    height: 44px;                      /* Altura de la barra */
+    padding: 0 10px;                   /* Espaciado interno a los lados */
+  }
+
+  .navbar .logo {                      /* Logo dentro de la barra de navegación */
+    font-size: 0.85rem;                /* Tamaño del texto del logo */
+    margin-right: 10px;                /* Espaciado a la derecha */
+    letter-spacing: 1px;               /* Espaciado entre letras */
+  }
+
+  .nav-links a {                       /* Enlaces del menú de navegación */
+    height: 44px;                      /* Altura de cada enlace */
+  }
+
+  .search-container {                  /* Contenedor del campo de búsqueda */
+    padding: 4px 8px;                  /* Espaciado interno */
+  }
+
+  .search-input {                      /* Campo de entrada del buscador */
+    width: 80px;                       /* Ancho del campo */
+    font-size: 12px;                   /* Tamaño de fuente */
+    padding: 4px;                      /* Espaciado interno */
+  }
+
+  .search-btn {                        /* Botón de búsqueda */
+    font-size: 14px;                   /* Tamaño de fuente */
+  }
+
+  .registro,                           /* Elemento de registro */
+  .carrito,                            /* Icono o enlace del carrito */
+  .inicio {                            /* Enlace de inicio */
+    font-size: 16px;                   /* Tamaño de fuente */
+    margin-left: 6px;                  /* Espaciado a la izquierda */
+  }
+
+  .barra_lateral {                     /* Barra lateral del sitio */
+    width: 200px;                      /* Ancho de la barra lateral */
+  }
+
+  .container {                         /* Contenedor principal */
+    padding: 8px;                      /* Espaciado interno */
+    margin-top: 60px;                  /* Margen superior */
+  }
+
+  .left {                              /* Sección izquierda (por ejemplo imágenes) */
+    margin-top: 30px;                  /* Margen superior */
+    display: flex;                     /* Usa flexbox */
+    flex-direction: column;            /* Coloca los elementos en columna */
+    gap: 20px;                         /* Espacio entre los elementos */
+  }
+
+  .left img {                          /* Imágenes dentro de la sección izquierda */
+    width: 100%;                       /* Ocupan todo el ancho disponible */
+    max-width: 300px;                  /* Ancho máximo de 300px */
+    height: auto;                      /* Altura automática para mantener proporción */
+  }
+
+  .right {                             /* Sección derecha (detalles o texto) */
+    padding: 10px;                     /* Espaciado interno */
+  }
+
+  .right h2 {                          /* Título dentro de la sección derecha */
+    font-size: 20px;                   /* Tamaño de fuente */
+  }
+
+  .price {                             /* Precio del producto */
+    font-size: 20px;                   /* Tamaño del texto del precio */
+  }
+
+  .color {                             /* Texto del color del producto */
+    font-size: 13px;                   /* Tamaño de fuente */
+  }
+
+  .informacion {                       /* Sección de información adicional */
+    padding: 10px;                     /* Espaciado interno */
+    font-size: 13px;                   /* Tamaño de fuente */
+  }
+
+  .sizes label {                       /* Etiquetas de selección de talla */
+    width: 38px;                       /* Ancho de cada etiqueta */
+    height: 38px;                      /* Altura de cada etiqueta */
+    font-size: 13px;                   /* Tamaño de fuente */
+    margin: 4px 6px 4px 0;             /* Márgenes alrededor */
+  }
+
+  #cantidad {                          /* Campo para seleccionar cantidad */
+    width: 60px;                       /* Ancho del campo */
+    font-size: 13px;                   /* Tamaño de fuente */
+    padding: 6px 10px;                 /* Espaciado interno */
+  }
+
+  .btn {                               /* Botones generales */
+    font-size: 13px;                   /* Tamaño de fuente */
+    padding: 10px 15px;                /* Espaciado interno */
+    margin-top: 20px;                  /* Margen superior */
+  }
+
+  /* Footer */
+  .footer-texto p {                    /* Texto del pie de página */
+    font-size: 16px;                   /* Tamaño de fuente */
+    padding: 8px 10px;                 /* Espaciado interno */
+  }
+
+  .footer-contenido {                  /* Contenedor principal del footer */
+    padding: 10px 15px;                /* Espaciado interno */
+    flex-direction: column;            /* Disposición en columna */
+    gap: 15px;                         /* Espacio entre elementos */
+  }
+
+  .footer-columns {                    /* Agrupación de columnas en el footer */
+    flex-direction: column;            /* Cambia a disposición vertical */
+    gap: 15px;                         /* Espacio entre columnas */
+  }
+
+  .footer-column {                     /* Cada columna del footer */
+    min-width: 100%;                   /* Ocupar todo el ancho */
+  }
+
+  .footer-column h3 {                  /* Títulos de las secciones del footer */
+    font-size: 15px;                   /* Tamaño de fuente */
+  }
+
+  .footer-column a {                   /* Enlaces dentro del footer */
+    font-size: 14px;                   /* Tamaño de fuente */
+  }
+
+  .social-column .icon {               /* Iconos de redes sociales */
+    width: 28px;                       /* Ancho de cada icono */
+    height: 28px;                      /* Altura de cada icono */
+    font-size: 16px;                   /* Tamaño del símbolo */
+  }
+
+  .footer-legal {                      /* Sección legal inferior del footer */
+    padding: 12px 15px;                /* Espaciado interno */
+    font-size: 11px;                   /* Tamaño de fuente */
+    flex-direction: column;            /* Disposición vertical */
+    text-align: center;                /* Texto centrado */
+    gap: 10px;                         /* Espacio entre líneas */
+  }
+
+  .footer-legal-links a {              /* Enlaces dentro de la sección legal */
+    font-size: 11px;                   /* Tamaño de fuente */
+  }
+
+  .footer-legal-2025 {                 /* Texto de derechos reservados o año */
+    font-size: 11px;                   /* Tamaño de fuente */
+  }
+}                                       /* Cierre del bloque @media */
+
+
+
+/* Small Phones - 360px */              /* Estilos aplicados para pantallas de hasta 414px */
+@media (max-width: 414px) {             /* Inicio del bloque de media query */
+
+  .navbar {                             /* Barra de navegación */
+    padding: 0 10px;                    /* Espaciado interno lateral */
+    height: 100px;                      /* Altura de la barra */
+  }
+
+  .navbar .logo {                       /* Logo dentro de la barra de navegación */
+    font-size: 0.85rem;                 /* Tamaño de fuente */
+    letter-spacing: 1px;                /* Espaciado entre letras */
+    margin-right: 8px;                  /* Espaciado a la derecha */
+  }
+
+  .search-container {                   /* Contenedor del buscador */
+    padding: 4px 8px;                   /* Espaciado interno */
+  }
+
+  .search-input {                       /* Campo de entrada del buscador */
+    width: 80px;                        /* Ancho del campo */
+    font-size: 12px;                    /* Tamaño de fuente */
+    padding: 4px;                       /* Espaciado interno */
+  }
+
+  .search-btn {                         /* Botón de búsqueda */
+    font-size: 14px;                    /* Tamaño de fuente */
+  }
+
+  .registro,                            /* Enlace o icono de registro */
+  .carrito,                             /* Enlace o icono del carrito */
+  .inicio {                             /* Enlace o icono de inicio */
+    font-size: 18px;                    /* Tamaño de fuente */
+    margin-left: 8px;                   /* Espaciado a la izquierda */
+  }
+
+  .barra_lateral {                      /* Barra lateral */
+    width: 220px;                       /* Ancho de la barra lateral */
+  }
+
+  .container {                          /* Contenedor principal */
+    padding: 8px;                       /* Espaciado interno */
+    margin-top: 80px;                   /* Margen superior */
+  }
+
+  .left {                               /* Sección izquierda (por ejemplo, imágenes) */
+    margin-top: 30px;                   /* Margen superior */
+    display: flex;                      /* Se usa flexbox */
+    flex-direction: column;             /* Disposición en columna */
+    gap: 20px;                          /* Espacio entre imágenes */
+  }
+
+  .left img {                           /* Imágenes dentro de la sección izquierda */
+    width: 1500px;                      /* Ancho de la imagen */
+    height: 300px;                      /* Altura fija */
+  }
+
+  .right {                              /* Sección derecha (detalles del producto, etc.) */
+    padding: 10px;                      /* Espaciado interno */
+  }
+
+  .right h2 {                           /* Título dentro de la sección derecha */
+    font-size: 20px;                    /* Tamaño de fuente */
+  }
+
+  .price {                              /* Precio del producto */
+    font-size: 20px;                    /* Tamaño de fuente */
+  }
+
+  .color {                              /* Texto del color del producto */
+    font-size: 13px;                    /* Tamaño de fuente */
+  }
+
+  .informacion {                        /* Sección de información adicional */
+    padding: 10px;                      /* Espaciado interno */
+    font-size: 13px;                    /* Tamaño de fuente */
+  }
+
+  .sizes label {                        /* Etiquetas de selección de talla */
+    width: 38px;                        /* Ancho de cada etiqueta */
+    height: 38px;                       /* Altura de cada etiqueta */
+    font-size: 13px;                    /* Tamaño de fuente */
+    margin: 4px 6px 4px 0;              /* Márgenes alrededor */
+  }
+
+  #cantidad {                           /* Campo para seleccionar cantidad */
+    width: 60px;                        /* Ancho del campo */
+    font-size: 13px;                    /* Tamaño de fuente */
+    padding: 6px 10px;                  /* Espaciado interno */
+  }
+
+  .btn {                                /* Botones generales */
+    font-size: 13px;                    /* Tamaño de fuente */
+    padding: 10px 15px;                 /* Espaciado interno */
+    margin-top: 20px;                   /* Margen superior */
+  }
+
+  .footer-texto p {                     /* Texto del pie de página */
+    font-size: 16px;                    /* Tamaño de fuente */
+    padding: 8px 10px;                  /* Espaciado interno */
+  }
+
+  .footer-contenido {                   /* Contenedor principal del footer */
+    padding: 10px 15px;                 /* Espaciado interno */
+  }
+
+  .footer-columns {                     /* Contenedor de columnas en el footer */
+    flex-direction: column;             /* Disposición vertical */
+    gap: 15px;                          /* Espacio entre columnas */
+  }
+
+  .footer-column {                      /* Cada columna del footer */
+    min-width: 100%;                    /* Ocupar todo el ancho disponible */
+  }
+
+  .footer-column h3 {                   /* Títulos dentro del footer */
+    font-size: 16px;                    /* Tamaño de fuente */
+  }
+
+  .footer-column a {                    /* Enlaces dentro del footer */
+    font-size: 15px;                    /* Tamaño de fuente */
+  }
+
+  .footer-legal {                       /* Sección legal del pie de página */
+    padding: 12px 15px;                 /* Espaciado interno */
+    font-size: 11px;                    /* Tamaño de fuente */
+  }
+
+  .footer-legal-links a {               /* Enlaces legales del footer */
+    font-size: 11px;                    /* Tamaño de fuente */
+  }
+
+  .footer-legal-2025 {                  /* Texto del año o derechos reservados */
+    font-size: 11px;                    /* Tamaño de fuente */
+  }
+
+  .social-column .icon {                /* Iconos de redes sociales */
+    width: 28px;                        /* Ancho de cada icono */
+    height: 28px;                       /* Altura de cada icono */
+    font-size: 16px;                    /* Tamaño del símbolo */
+  }
+}                                       /* Cierre del bloque @media */
+
+/* Small Phones - 360px */ /* Estilos aplicados para pantallas de hasta 360px */
+@media (max-width: 360px) { /* Inicio del bloque de media query */
+
+  .navbar { /* Barra de navegación */
+    padding: 0 10px; /* Espaciado interno lateral */
+    height: 120px; /* Altura de la barra */
+  }
+
+  .navbar .logo { /* Logo dentro de la barra de navegación */
+    font-size: 0.85rem; /* Tamaño de fuente */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    margin-right: 8px; /* Espaciado a la derecha */
+  }
+
+  .search-container { /* Contenedor del buscador */
+    padding: 4px 8px; /* Espaciado interno */
+  }
+
+  .search-input { /* Campo de entrada del buscador */
+    width: 80px; /* Ancho del campo */
+    font-size: 12px; /* Tamaño de fuente */
+    padding: 4px; /* Espaciado interno */
+  }
+
+  .search-btn { /* Botón de búsqueda */
+    font-size: 14px; /* Tamaño de fuente */
+  }
+
+  .registro, /* Enlace o icono de registro */
+  .carrito, /* Enlace o icono del carrito */
+  .inicio { /* Enlace o icono de inicio */
+    font-size: 18px; /* Tamaño de fuente */
+    margin-left: 8px; /* Espaciado a la izquierda */
+  }
+
+  .barra_lateral { /* Barra lateral */
+    width: 220px; /* Ancho de la barra lateral */
+  }
+
+  .container { /* Contenedor principal */
+    padding: 8px; /* Espaciado interno */
+    margin-top: 80px; /* Margen superior */
+  }
+
+  .left { /* Sección izquierda (por ejemplo imágenes) */
+    margin-top: 30px; /* Margen superior */
+    display: flex; /* Se usa flexbox */
+    flex-direction: column; /* Disposición en columna */
+    gap: 20px; /* Espacio entre imágenes */
+  }
+
+  .left img { /* Imágenes dentro de la sección izquierda */
+    width: 1500px; /* Ancho de la imagen */
+    height: 300px; /* Altura fija */
+  }
+
+  .right { /* Sección derecha (detalles del producto, etc.) */
+    padding: 10px; /* Espaciado interno */
+  }
+
+  .right h2 { /* Título dentro de la sección derecha */
+    font-size: 20px; /* Tamaño de fuente */
+  }
+
+  .price { /* Precio del producto */
+    font-size: 20px; /* Tamaño de fuente */
+  }
+
+  .color { /* Texto del color del producto */
+    font-size: 13px; /* Tamaño de fuente */
+  }
+
+  .informacion { /* Sección de información adicional */
+    padding: 10px; /* Espaciado interno */
+    font-size: 13px; /* Tamaño de fuente */
+  }
+
+  .sizes label { /* Etiquetas de selección de talla */
+    width: 38px; /* Ancho de cada etiqueta */
+    height: 38px; /* Altura de cada etiqueta */
+    font-size: 13px; /* Tamaño de fuente */
+    margin: 4px 6px 4px 0; /* Márgenes alrededor */
+  }
+
+  #cantidad { /* Campo para seleccionar cantidad */
+    width: 60px; /* Ancho del campo */
+    font-size: 13px; /* Tamaño de fuente */
+    padding: 6px 10px; /* Espaciado interno */
+  }
+
+  .btn { /* Botones generales */
+    font-size: 13px; /* Tamaño de fuente */
+    padding: 10px 15px; /* Espaciado interno */
+    margin-top: 20px; /* Margen superior */
+  }
+
+  .footer-texto p { /* Texto del pie de página */
+    font-size: 16px; /* Tamaño de fuente */
+    padding: 8px 10px; /* Espaciado interno */
+  }
+
+  .footer-contenido { /* Contenedor principal del footer */
+    padding: 10px 15px; /* Espaciado interno */
+  }
+
+  .footer-columns { /* Contenedor de columnas en el footer */
+    flex-direction: column; /* Disposición vertical */
+    gap: 15px; /* Espacio entre columnas */
+  }
+
+  .footer-column { /* Cada columna del footer */
+    min-width: 100%; /* Ocupar todo el ancho disponible */
+  }
+
+  .footer-column h3 { /* Títulos dentro del footer */
+    font-size: 16px; /* Tamaño de fuente */
+  }
+
+  .footer-column a { /* Enlaces dentro del footer */
+    font-size: 15px; /* Tamaño de fuente */
+  }
+
+  .footer-legal { /* Sección legal del pie de página */
+    padding: 12px 15px; /* Espaciado interno */
+    font-size: 11px; /* Tamaño de fuente */
+  }
+
+  .footer-legal-links a { /* Enlaces legales del footer */
+    font-size: 11px; /* Tamaño de fuente */
+  }
+
+  .footer-legal-2025 { /* Texto del año o derechos reservados */
+    font-size: 11px; /* Tamaño de fuente */
+  }
+
+  .social-column .icon { /* Iconos de redes sociales */
+    width: 28px; /* Ancho de cada icono */
+    height: 28px; /* Altura de cada icono */
+    font-size: 16px; /* Tamaño del símbolo */
+  }
+} /* Cierre del bloque @media */
+

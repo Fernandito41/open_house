@@ -1,0 +1,97 @@
+/* Estilo general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente legible y moderna */
+    background: #f4f4f9; /* Fondo gris claro y suave */
+    margin: 0; /* Elimina el margen por defecto del navegador */
+    padding: 0; /* Elimina el padding por defecto del navegador */
+}
+
+/* Contenedor principal */
+.perfil-wrapper {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 50px auto; /* Centra el contenedor horizontalmente y da espacio superior/inferior */
+    display: flex; /* Activa el modelo flexible */
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center; /* Centra horizontalmente los hijos */
+    gap: 20px; /* Espacio entre los elementos hijos */
+}
+
+/* Tarjeta de perfil */
+.perfil-card {
+    background: #fff; /* Fondo blanco */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Sombra suave para efecto de elevación */
+    padding: 30px; /* Espacio interno alrededor del contenido */
+    width: 100%; /* Ocupa todo el ancho disponible del contenedor */
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Organiza el contenido en columna */
+    align-items: center; /* Centra el contenido horizontalmente */
+    transition: transform 0.3s; /* Transición suave para el hover */
+}
+
+/* Efecto hover sobre la tarjeta */
+.perfil-card:hover {
+    transform: translateY(-5px); /* Levanta ligeramente la tarjeta al pasar el mouse */
+}
+
+/* Foto de perfil */
+.perfil-card img {
+    width: 120px; /* Ancho fijo de la imagen */
+    height: 120px; /* Altura igual al ancho (cuadrada) */
+    border-radius: 50%; /* La convierte en un círculo */
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    margin-bottom: 20px; /* Espacio inferior respecto al texto */
+    border: 3px solid #4e73df; /* Borde azul alrededor de la foto */
+}
+
+/* Nombre de usuario */
+.perfil-card h1 {
+    margin: 0; /* Elimina márgenes por defecto */
+    color: #333; /* Texto gris oscuro */
+}
+
+/* Datos del usuario */
+.perfil-card p {
+    color: #555; /* Texto gris medio */
+    margin: 5px 0; /* Pequeño espacio vertical entre párrafos */
+}
+
+/* Botones dentro del perfil */
+.perfil-card .btn {
+    margin-top: 15px; /* Espacio superior respecto a otros elementos */
+    padding: 10px 20px; /* Espacio interno vertical y horizontal */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #4e73df; /* Color azul principal */
+    color: #fff; /* Texto blanco */
+    font-size: 16px; /* Tamaño de fuente cómodo */
+    cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
+    text-decoration: none; /* Quita subrayado si es un enlace */
+    transition: 0.3s; /* Transición suave en hover */
+}
+
+/* Efecto hover del botón */
+.perfil-card .btn:hover {
+    background-color: #2e59d9; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Contenedor flexible para varios botones */
+.perfil-card .btn-group {
+    display: flex; /* Distribuye los botones en fila */
+    gap: 15px; /* Espacio entre botones */
+    flex-wrap: wrap; /* Permite que los botones bajen si no caben */
+    justify-content: center; /* Centra los botones */
+    margin-top: 15px; /* Espacio superior respecto al contenido anterior */
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 500px) {
+    .perfil-card {
+        padding: 20px; /* Reduce el padding en pantallas chicas */
+    }
+
+    .perfil-card img {
+        width: 100px; /* Imagen más pequeña */
+        height: 100px; /* Mantiene la forma circular */
+    }
+}

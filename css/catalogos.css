@@ -1,0 +1,1188 @@
+* { /*Estilos generales para todos los elementos*/
+  box-sizing: border-box;
+  font-family: "Montserrat", Arial, sans-serif;
+} /*Finaliza estilos generales para todos los elementos*/
+
+body { /*Estilos generales de la pagina*/
+  padding-top: 48px; /*Espacio para la barra de navegacion*/
+  margin: 0; /*Quitar margenes por defecto*/
+  padding: 0; /*Quitar padding por defecto*/
+  height: 100%; /*Alto completo para el navbar*/
+  min-height: 100vh; /*Altura minima de la ventana del navbar (barra de navegacion*/
+  overflow-x: hidden; /*Quitar scroll horizontal*/
+  background-color: white; /*Color de fondo de la pagina*/
+
+} /*Finaliza estilos generales de la pagina*/
+
+
+.navbar { /*Estilos de la barra de navegacion*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  background: black;
+  color: white;
+  border-bottom: 1.5px solid #111;
+  z-index: 1000;
+  padding: 0 16px;
+  gap: 0;
+} /*Finaliza estilos de la barra de navegacion*/
+
+
+.navbar .logo { /*Estilos del logo de la barra de navegacion*/
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: white;
+  margin-right: 32px;
+  font-family: "Montserrat", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+} /*Finaliza estilos del logo de la barra de navegacion*/
+
+
+.nav-links {  /*Estilos de los enlaces de la barra de navegacion*/
+ 
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+} /*Finaliza estilos de los enlaces de la barra de navegacion*/
+
+
+.nav-links li { /*Estilos de los enlaces de la barra de navegacion*/
+ 
+  display: flex;
+  align-items: center;
+} /*Finaliza estilos de los enlaces de la barra de navegacion*/
+
+
+.nav-links a { /*Estilos de los enlaces de la barra de navegacion*/
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0 22px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+} /*Finaliza estilos de los enlaces de la barra de navegacion*/
+
+.nav-links li:not(:last-child) a { /*Estilo del borde de lista*/
+  border-right: 1.5px solid white;
+} /*Finaliza estilo del borde de lista*/
+
+.icono_hamburgesa { /*Estilos del icono de la hamburguesa*/
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+} /*Finaliza estilos del icono de la hamburguesa*/
+
+/*Iconos de la barra*/
+.registro,
+.carrito,
+.inicio { /*Estilos de los iconos de registro, carrito e inicio*/
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 12px;
+} /*Finaliza estilos de los iconos de registro, carrito e inicio*/
+
+.barra_lateral_contenedor { /*Estilo para el contenedor de la barra lateral*/
+  
+  position: relative;
+} /*Finaliza estilo para el contenedor de la barra lateral*/
+
+
+.barra_lateral { /*Estilos de la barra lateral ya no del contenedor*/
+
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 260px;
+  height: 100vh;
+  background: #fff;
+  border-right: 2px solid #111;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.07);
+  transition: left 0.3s;
+  z-index: 2000;
+  padding-top: 60px;
+} /*Finaliza estilos de la barra lateral ya no del contenedor*/
+
+
+.barra_lateral ul { /*Estilos de la lista de la barra lateral*/
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+} /*Finaliza estilos de la lista de la barra lateral*/
+
+
+.barra_lateral ul li a { /*Estilos de los enlaces de la barra lateral*/
+
+  display: block;
+  color: #111;
+  padding: 16px 28px;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+} /*Finaliza estilos de los enlaces de la barra lateral*/
+
+.barra_lateral ul li a:hover { /*Estilos hover de los enlaces de la barra lateral*/
+  background: #f5f5f5;
+} /*Finaliza estilos hover de los enlaces de la barra lateral*/
+
+.barra_lateral.activa { /*Estilos de la barra lateral cuando esta activa*/
+  left: 0;
+} /*Finaliza estilos de la barra lateral cuando esta activa*/
+
+.desplegable { /*Estilos del menu desplegable del icono de registro*/
+
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 8px 0;
+  min-width: 150px;
+  z-index: 1001;
+} /*Finaliza estilos del menu desplegable del icono de registro*/
+
+
+.desplegable a { /*Estilos de los enlaces del menu desplegable del icono de registro*/
+
+  display: block;
+  padding: 10px 16px;
+  color: white;
+  text-decoration: none;
+} /*Finaliza estilos de los enlaces del menu desplegable del icono de registro y inicio de sesion*/
+
+.desplegable a:hover { /*Estilos de los enlaces del menu desplegable del icono de registron y inicio de sesion al pasar el raton por encima*/
+
+  background-color: #444;
+  transition: 0.3s;
+} /*Finaliza estilos de los enlaces del menu desplegable del icono de registro al pasar el raton por encima estilo hover*/
+
+.registro-contenedor { /*Estilos del contenedor del icono de registro*/
+
+  position: relative;
+  display: inline-block;
+} /*Finaliza estilos del contenedor del icono de registro*/
+
+ 
+.registro-contenedor:hover .desplegable { /*Estilos del menu desplegable del icono de registro al pasar el raton por encima del contenedor*/
+
+  display: block;
+} /*Finaliza estilos del menu desplegable del icono de registro al pasar el raton por encima del contenedor*/
+
+/*Estilos del contenedor de la barra de busqueda*/
+.search-container { /*Estilos del contenedor de la barra de busqueda*/
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-left: auto;
+} /*Finaliza estilos del contenedor de la barra de busqueda*/
+
+
+.search-input { /*Estilos de la barra de busqueda*/
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #333;
+  width: 140px;
+} /*Finaliza estilos del boton de la barra de busqueda*/
+
+
+.search-btn {  /*Estilos del boton de la barra de busqueda*/
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 16px;
+}  /*Finaliza estilos del boton de la barra de busqueda*/
+
+.contenedor { /* Contenedor de producto mejorado con diseño moderno y disposición adaptable */
+
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+} /*Finaliza estilos del contenedor de productos*/
+
+.Cajas { /*Estilos de las cajas de productos*/
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  width: 240px;
+  margin-top: 2%;
+  height: auto;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+} /*Finaliza estilos de las cajas de productos*/
+
+.Cajas::before { /*Estilos del borde superior animado de las cajas*/
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+} /*Finaliza estilos del borde superior animado de las cajas*/
+
+.Cajas:hover { /*Estilos hover de las cajas de productos*/
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-color: rgba(102, 126, 234, 0.2);
+} /*Finaliza estilos hover de las cajas de productos*/
+
+.Cajas:hover::before { /*Estilos hover del borde superior de las cajas*/
+  transform: scaleX(1);
+} /*Finaliza estilos hover del borde superior de las cajas*/
+
+.Cajas img { /*Estilos de las imagenes de productos*/
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+} /*Finaliza estilos de las imagenes de productos*/
+
+.Cajas:hover img { /*Estilos hover de las imagenes de productos*/
+  transform: scale(1.08);
+} /*Finaliza estilos hover de las imagenes de productos*/
+
+.informacion { /*Estilos de la informacion del producto*/
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+} /*Finaliza estilos de la informacion del producto*/
+
+.nombre { /*Estilos del nombre del producto*/
+  font-size: 16px;
+  margin: 0 0 12px 0;
+  color: #2d3748;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+} /*Finaliza estilos del nombre del producto*/
+
+.Cajas:hover .nombre { /*Estilos hover del nombre del producto*/
+  color: #667eea;
+} /*Finaliza estilos hover del nombre del producto*/
+
+.precio { /*Estilos del precio del producto*/
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0;
+  transition: all 0.3s ease;
+} /*Finaliza estilos del precio del producto*/
+
+.Cajas:hover .precio { /*Estilos hover del precio del producto*/
+  color: #667eea;
+  transform: scale(1.05);
+} /*Finaliza estilos hover del precio del producto*/
+
+.añadir_al_carrito { /*Estilos del boton añadir al carrito*/
+  background-color: grey;
+  border-radius: 20px;
+  margin-left: auto;
+  cursor: pointer;
+  align-items: center;
+} /*Finaliza estilos del boton añadir al carrito*/
+
+/* Enhanced category images with better responsive design */
+.texto_imagen { /*Estilos del contenedor de texto sobre imagen*/
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+} /*Finaliza estilos del contenedor de texto sobre imagen*/
+
+.texto_imagen:hover { /*Estilos hover del contenedor de texto sobre imagen*/
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+} /*Finaliza estilos hover del contenedor de texto sobre imagen*/
+
+.texto { /*Estilos del texto sobre las imagenes de categoria*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+} /*Finaliza estilos del texto sobre las imagenes de categoria*/
+
+.imagenes { /*Estilos del contenedor de imagenes de categorias*/
+  margin-top: 3%;
+  display: flex;
+  gap: 20px;
+  transition: transform 0.3s ease;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
+} /*Finaliza estilos del contenedor de imagenes de categorias*/
+
+.imagenes img { /*Estilos de las imagenes de categorias*/
+  width: 240px;
+  height: 200px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+} /*Finaliza estilos de las imagenes de categorias*/
+
+.imagenes img:hover { /*Estilos hover de las imagenes de categorias*/
+  transform: scale(1.05);
+} /*Finaliza estilos hover de las imagenes de categorias*/
+
+/* Keeping footer intact as requested */
+.footer { /*Estilos del footer*/
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px 5px;
+  justify-content: center;
+} /*Finaliza estilos del footer*/
+
+.footer-texto { /*Estilos del texto del footer*/
+  width: 100%;
+  margin-bottom: 10px;
+} /*Finaliza estilos del texto del footer*/
+
+.footer-texto p { /*Estilos del parrafo del footer*/
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  margin: 0;
+  padding: 10px 10px;
+} /*Finaliza estilos del parrafo del footer*/
+
+.footer-columns { /*Estilos de las columnas del footer*/
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1000px;
+  width: 100%;
+} /*Finaliza estilos de las columnas del footer*/
+
+.footer-column { /*Estilos de cada columna del footer*/
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+} /*Finaliza estilos de cada columna del footer*/
+
+.footer-column h3 { /*Estilos de los titulos de las columnas del footer*/
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 15px;
+} /*Finaliza estilos de los titulos de las columnas del footer*/
+
+.footer-column a { /*Estilos de los enlaces de las columnas del footer*/
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+} /*Finaliza estilos de los enlaces de las columnas del footer*/
+
+.footer-column a:hover { /*Estilos hover de los enlaces de las columnas del footer*/
+  color: #555;
+} /*Finaliza estilos hover de los enlaces de las columnas del footer*/
+
+.footer-links { /*Estilos de los enlaces del footer*/
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+} /*Finaliza estilos de los enlaces del footer*/
+
+.footer-column:hover .footer-links,
+.footer-title:focus + .footer-links { /*Mostrar enlaces al hacer hover o focus*/
+  display: flex;
+} /*Finaliza estilos para mostrar enlaces al hacer hover o focus*/
+
+.footer-title { /*Estilos del titulo del footer*/
+  cursor: pointer;
+} /*Finaliza estilos del titulo del footer*/
+
+.email-link { /*Estilos del enlace de email*/
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+} /*Finaliza estilos del enlace de email*/
+
+.email-link .small-text { /*Estilos del texto pequeño del email*/
+  display: block;
+  font-weight: normal;
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+} /*Finaliza estilos del texto pequeño del email*/
+
+.footer-legal * { /*Reset de estilos del footer legal*/
+  margin: 0;
+  padding: 0;
+} /*Finaliza reset de estilos del footer legal*/
+
+.footer-legal { /*Estilos del footer legal*/
+  width: 100%;
+  background-color: white;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  border-top: 1px solid black;
+  color: white;
+  position: relative;
+  z-index: 1;
+  height: auto;
+  margin: 0;
+  gap: 25px;
+} /*Finaliza estilos del footer legal*/
+
+.footer-legal-links { /*Estilos de los enlaces legales del footer*/
+  text-decoration: none;
+  display: flex;
+  gap: 25px;
+} /*Finaliza estilos de los enlaces legales del footer*/
+
+.footer-legal-links a { /*Estilos de los enlaces legales del footer*/
+  color: black;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s ease;
+} /*Finaliza estilos de los enlaces legales del footer*/
+
+.footer-legal-2025 { /*Estilos del copyright del footer*/
+  font-size: 13px;
+  color: black;
+  white-space: nowrap;
+} /*Finaliza estilos del copyright del footer*/
+
+.footer-contenido { /*Estilos del contenido del footer*/
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  padding: 10px 60px;
+  flex-wrap: nowrap;
+} /*Finaliza estilos del contenido del footer*/
+
+.social-column { /*Estilos de la columna de redes sociales*/
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 200px;
+  gap: 10px;
+} /*Finaliza estilos de la columna de redes sociales*/
+
+.social-column .icon { /*Estilos de los iconos de redes sociales*/
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #000;
+  color: white;
+  border-radius: 60%;
+  font-size: 18px;
+  text-decoration: none;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+} /*Finaliza estilos de los iconos de redes sociales*/
+
+.tooltip { /*Estilos del tooltip*/
+  display: none;
+} /*Finaliza estilos del tooltip*/
+
+.facebook:hover,
+.facebook:hover .tooltip { /*Estilos hover de Facebook*/
+  background-color: #3b5999;
+  color: #fff;
+} /*Finaliza estilos hover de Facebook*/
+
+.twitter:hover,
+.twitter:hover .tooltip { /*Estilos hover de Twitter*/
+  background-color: #46c1f6;
+  color: #fff;
+} /*Finaliza estilos hover de Twitter*/
+
+.instagram:hover,
+.instagram:hover .tooltip { /*Estilos hover de Instagram*/
+  background-color: #e1306c;
+  color: #fff;
+} /*Finaliza estilos hover de Instagram*/
+
+.tiktok:hover,
+.tiktok:hover .tooltip { /*Estilos hover de TikTok*/
+  background-color: #000;
+  color: #fff;
+} /*Finaliza estilos hover de TikTok*/
+
+/* Tablet and below (max-width: 1024px) */
+/*Pantallas grandes 2000px*/
+@media (max-width: 2000px) {
+  .nuevo img { /*Estilos de imagen nuevo en pantallas grandes*/
+  width: 1000px;
+    height: 800px;
+  } /*Finaliza estilos de imagen nuevo en pantallas grandes*/
+
+
+  .texto_nuevo { /*Estilos del texto nuevo en pantallas grandes*/
+    font-size: 32px;
+  } /*Finaliza estilos del texto nuevo en pantallas grandes*/
+
+  .imagenes img { /*Estilos de imagenes de categorias en pantallas grandes*/
+    width: 250px;
+    height: 200px;
+  } /*Finaliza estilos de imagenes de categorias en pantallas grandes*/
+
+  .Cajas { /*Estilos de las cajas en pantallas grandes*/
+    width: 220px;
+  } /*Finaliza estilos de las cajas en pantallas grandes*/
+
+  .Cajas img { /*Estilos de imagenes de productos en pantallas grandes*/
+    width: 160px;
+    height: 160px;
+  } /*Finaliza estilos de imagenes de productos en pantallas grandes*/
+
+  .footer-contenido { /*Estilos del contenido del footer en pantallas grandes*/
+    padding: 10px 30px;
+  } /*Finaliza estilos del contenido del footer en pantallas grandes*/
+
+  .footer-legal { /*Estilos del footer legal en pantallas grandes*/
+    padding: 20px 30px;
+  } /*Finaliza estilos del footer legal en pantallas grandes*/
+} /*Finaliza media query para pantallas grandes 2000px*/
+
+/*Laptops estandar 1366px*/
+@media (max-width: 1366px) {
+  .nuevo img { /*Estilos de imagen nuevo en laptops*/
+    width: 500px;
+    height: 300px;
+  } /*Finaliza estilos de imagen nuevo en laptops*/
+
+  .imagenes{ /*Estilos del contenedor de imagenes en laptops*/
+    padding-top: 40px;
+  } /*Finaliza estilos del contenedor de imagenes en laptops*/
+
+
+  .texto_nuevo { /*Estilos del texto nuevo en laptops*/
+    font-size: 32px;
+  } /*Finaliza estilos del texto nuevo en laptops*/
+
+  .imagenes img { /*Estilos de imagenes de categorias en laptops*/
+    width: 180px;
+    height: 160px;
+  } /*Finaliza estilos de imagenes de categorias en laptops*/
+
+  .Cajas { /*Estilos de las cajas en laptops*/
+    width: 220px;
+  } /*Finaliza estilos de las cajas en laptops*/
+
+  .Cajas img { /*Estilos de imagenes de productos en laptops*/
+    width: 160px;
+    height: 160px;
+  } /*Finaliza estilos de imagenes de productos en laptops*/
+
+  .footer-contenido { /*Estilos del contenido del footer en laptops*/
+    padding: 10px 30px;
+  } /*Finaliza estilos del contenido del footer en laptops*/
+
+  .footer-legal { /*Estilos del footer legal en laptops*/
+    padding: 20px 30px;
+  } /*Finaliza estilos del footer legal en laptops*/
+} /*Finaliza media query para laptops 1366px*/
+
+
+/* Adding responsive media queries for mobile, tablet, and desktop */
+
+/* Tablet and below (max-width: 1024px) */
+/*Tablets horizontal 1024px*/
+@media (max-width: 1024px) {
+  .nuevo img { /*Estilos de imagen nuevo en tablets*/
+    width: 500px;
+    height: 400px;
+  } /*Finaliza estilos de imagen nuevo en tablets*/
+
+
+  .texto_nuevo { /*Estilos del texto nuevo en tablets*/
+    font-size: 32px;
+  } /*Finaliza estilos del texto nuevo en tablets*/
+
+  .imagenes img { /*Estilos de imagenes de categorias en tablets*/
+    width: 180px;
+    height: 160px;
+  } /*Finaliza estilos de imagenes de categorias en tablets*/
+
+  .Cajas { /*Estilos de las cajas en tablets*/
+    width: 220px;
+  } /*Finaliza estilos de las cajas en tablets*/
+
+  .Cajas img { /*Estilos de imagenes de productos en tablets*/
+    width: 160px;
+    height: 160px;
+  } /*Finaliza estilos de imagenes de productos en tablets*/
+
+  .footer-contenido { /*Estilos del contenido del footer en tablets*/
+    padding: 10px 30px;
+  } /*Finaliza estilos del contenido del footer en tablets*/
+
+  .footer-legal { /*Estilos del footer legal en tablets*/
+    padding: 20px 30px;
+  } /*Finaliza estilos del footer legal en tablets*/
+} /*Finaliza media query para tablets 1024px*/
+
+/* Tablet portrait and below (max-width: 768px) */
+/*Tablets vertical 768px*/
+@media (max-width: 768px) {
+  .navbar { /*Estilos del navbar en tablets verticales*/
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 4px;
+    height: auto;
+  } /*Finaliza estilos del navbar en tablets verticales*/
+
+  .logo { /*Estilos del logo en tablets verticales*/
+    font-size: 1rem;
+    margin-right: 12px;
+    flex: 1 1 auto;
+    text-align: left;
+  } /*Finaliza estilos del logo en tablets verticales*/
+
+  .nav-links { /*Estilos de los enlaces de navegacion en tablets verticales*/
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 2 1 auto;
+    margin-bottom: 0;
+    gap: 0;
+    flex-wrap: wrap;
+  } /*Finaliza estilos de los enlaces de navegacion en tablets verticales*/
+
+  .nav-links a { /*Estilos de los enlaces de navegacion en tablets verticales*/
+    font-size: 0.95rem;
+    padding: 0 8px;
+    height: 38px;
+    border-right: none;
+    border-bottom: none;
+    text-align: left;
+    white-space: nowrap;
+  } /*Finaliza estilos de los enlaces de navegacion en tablets verticales*/
+
+  .search-container { /*Estilos del contenedor de busqueda en tablets verticales*/
+    width: auto;
+    padding: 2px 6px;
+    margin-left: 8px;
+    margin-bottom: 0;
+    align-self: center;
+    flex: 0 0 auto;
+  } /*Finaliza estilos del contenedor de busqueda en tablets verticales*/
+
+  .user-actions { /*Estilos de las acciones de usuario en tablets verticales*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    order: 2;
+    flex: 0 0 auto;
+  } /*Finaliza estilos de las acciones de usuario en tablets verticales*/
+
+  .icono_hamburgesa { /*Estilos del icono hamburguesa en tablets verticales*/
+    order: -1;
+    margin-right: 8px;
+    margin-left: 0;
+  } /*Finaliza estilos del icono hamburguesa en tablets verticales*/
+
+
+  .nuevo { /*Estilos de la seccion nuevo en tablets verticales*/
+    flex-direction: column;
+    align-items: center;
+  } /*Finaliza estilos de la seccion nuevo en tablets verticales*/
+
+  .nuevo img { /*Estilos de imagen nuevo en tablets verticales*/
+    width: 600px;
+    height: 350px;
+    margin-top: 0%;
+    object-fit: cover;
+  } /*Finaliza estilos de imagen nuevo en tablets verticales*/
+
+  .texto_nuevo { /*Estilos del texto nuevo en tablets verticales*/
+    font-size: 28px;
+  } /*Finaliza estilos del texto nuevo en tablets verticales*/
+
+  .franja-ofertas { /*Estilos de la franja de ofertas en tablets verticales*/
+    font-size: 0.95rem;
+  } /*Finaliza estilos de la franja de ofertas en tablets verticales*/
+
+  .imagenes { /*Estilos del contenedor de imagenes en tablets verticales*/
+    gap: 12px;
+    padding: 0 10px;
+  } /*Finaliza estilos del contenedor de imagenes en tablets verticales*/
+
+  .imagenes img { /*Estilos de imagenes de categorias en tablets verticales*/
+    width: 150px;
+    height: 140px;
+  } /*Finaliza estilos de imagenes de categorias en tablets verticales*/
+
+  .texto { /*Estilos del texto sobre imagenes en tablets verticales*/
+    font-size: 18px;
+  } /*Finaliza estilos del texto sobre imagenes en tablets verticales*/
+
+  .contenedor { /*Estilos del contenedor de productos en tablets verticales*/
+    gap: 20px;
+    padding: 30px 15px;
+  } /*Finaliza estilos del contenedor de productos en tablets verticales*/
+
+  .Cajas { /*Estilos de las cajas en tablets verticales*/
+    width: 200px;
+    padding: 20px;
+  } /*Finaliza estilos de las cajas en tablets verticales*/
+
+  .Cajas img { /*Estilos de imagenes de productos en tablets verticales*/
+    width: 150px;
+    height: 150px;
+  } /*Finaliza estilos de imagenes de productos en tablets verticales*/
+
+  .nombre { /*Estilos del nombre del producto en tablets verticales*/
+    font-size: 15px;
+  } /*Finaliza estilos del nombre del producto en tablets verticales*/
+
+  .precio { /*Estilos del precio en tablets verticales*/
+    font-size: 18px;
+  } /*Finaliza estilos del precio en tablets verticales*/
+
+  .footer-texto p { /*Estilos del texto del footer en tablets verticales*/
+    font-size: 18px;
+    padding: 10px 15px;
+  } /*Finaliza estilos del texto del footer en tablets verticales*/
+
+  .footer-contenido { /*Estilos del contenido del footer en tablets verticales*/
+    flex-direction: column;
+    padding: 10px 20px;
+    gap: 20px;
+  } /*Finaliza estilos del contenido del footer en tablets verticales*/
+
+  .footer-columns { /*Estilos de las columnas del footer en tablets verticales*/
+    gap: 20px;
+  } /*Finaliza estilos de las columnas del footer en tablets verticales*/
+
+  .footer-column { /*Estilos de cada columna del footer en tablets verticales*/
+    min-width: 150px;
+  } /*Finaliza estilos de cada columna del footer en tablets verticales*/
+
+  .social-column { /*Estilos de la columna de redes sociales en tablets verticales*/
+    max-width: 100%;
+    justify-content: center;
+  } /*Finaliza estilos de la columna de redes sociales en tablets verticales*/
+
+  .footer-legal { /*Estilos del footer legal en tablets verticales*/
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 15px;
+    text-align: center;
+  } /*Finaliza estilos del footer legal en tablets verticales*/
+
+  .footer-legal-links { /*Estilos de los enlaces legales en tablets verticales*/
+    flex-direction: column;
+    gap: 10px;
+  } /*Finaliza estilos de los enlaces legales en tablets verticales*/
+} /*Finaliza media query para tablets verticales 768px*/
+
+/* Mobile (max-width: 640px) */
+/*Telefonos grandes 640px*/
+@media (max-width: 640px) {
+  .navbar { /*Estilos del navbar en telefonos grandes*/
+    padding: 0 10px;
+  } /*Finaliza estilos del navbar en telefonos grandes*/
+
+  .navbar .logo { /*Estilos del logo en telefonos grandes*/
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-right: 8px;
+  } /*Finaliza estilos del logo en telefonos grandes*/
+
+  .search-container { /*Estilos del contenedor de busqueda en telefonos grandes*/
+    padding: 4px 8px;
+  } /*Finaliza estilos del contenedor de busqueda en telefonos grandes*/
+
+  .search-input { /*Estilos de la barra de busqueda en telefonos grandes*/
+    width: 80px;
+    font-size: 12px;
+    padding: 4px;
+  } /*Finaliza estilos de la barra de busqueda en telefonos grandes*/
+
+  .search-btn { /*Estilos del boton de busqueda en telefonos grandes*/
+    font-size: 14px;
+  } /*Finaliza estilos del boton de busqueda en telefonos grandes*/
+
+  .registro,
+  .carrito,
+  .inicio { /*Estilos de los iconos en telefonos grandes*/
+    font-size: 18px;
+    margin-left: 8px;
+  } /*Finaliza estilos de los iconos en telefonos grandes*/
+
+  .barra_lateral { /*Estilos de la barra lateral en telefonos grandes*/
+    width: 220px;
+  } /*Finaliza estilos de la barra lateral en telefonos grandes*/
+
+  .nuevo img { /*Estilos de imagen nuevo en telefonos grandes*/
+    height: 280px;
+    width: 600px;
+  } /*Finaliza estilos de imagen nuevo en telefonos grandes*/
+
+  .texto_nuevo { /*Estilos del texto nuevo en telefonos grandes*/
+    font-size: 24px;
+  } /*Finaliza estilos del texto nuevo en telefonos grandes*/
+
+  .franja-ofertas { /*Estilos de la franja de ofertas en telefonos grandes*/
+    font-size: 0.85rem;
+    padding: 6px 0;
+  } /*Finaliza estilos de la franja de ofertas en telefonos grandes*/
+
+  .imagenes { /*Estilos del contenedor de imagenes en telefonos grandes*/
+    padding-top: 80px;
+    gap: 10px;
+    margin-top: 5%;
+  } /*Finaliza estilos del contenedor de imagenes en telefonos grandes*/
+
+  .imagenes img { /*Estilos de imagenes de categorias en telefonos grandes*/
+    width: 130px;
+    height: 120px;
+  } /*Finaliza estilos de imagenes de categorias en telefonos grandes*/
+
+  .texto { /*Estilos del texto sobre imagenes en telefonos grandes*/
+    font-size: 16px;
+  } /*Finaliza estilos del texto sobre imagenes en telefonos grandes*/
+
+  .contenedor { /*Estilos del contenedor de productos en telefonos grandes*/
+    gap: 15px;
+    padding: 20px 10px;
+  } /*Finaliza estilos del contenedor de productos en telefonos grandes*/
+
+  .Cajas { /*Estilos de las cajas en telefonos grandes*/
+    width: 160px;
+    padding: 16px;
+    margin-top: 4%;
+  } /*Finaliza estilos de las cajas en telefonos grandes*/
+
+  .Cajas img { /*Estilos de imagenes de productos en telefonos grandes*/
+    width: 130px;
+    height: 130px;
+  } /*Finaliza estilos de imagenes de productos en telefonos grandes*/
+
+  .nombre { /*Estilos del nombre del producto en telefonos grandes*/
+    font-size: 14px;
+    margin: 0 0 8px 0;
+  } /*Finaliza estilos del nombre del producto en telefonos grandes*/
+
+  .precio { /*Estilos del precio en telefonos grandes*/
+    font-size: 16px;
+  } /*Finaliza estilos del precio en telefonos grandes*/
+
+  .footer-texto p { /*Estilos del texto del footer en telefonos grandes*/
+    font-size: 16px;
+    padding: 8px 10px;
+  } /*Finaliza estilos del texto del footer en telefonos grandes*/
+
+  .footer-contenido { /*Estilos del contenido del footer en telefonos grandes*/
+    padding: 10px 15px;
+  } /*Finaliza estilos del contenido del footer en telefonos grandes*/
+
+  .footer-columns { /*Estilos de las columnas del footer en telefonos grandes*/
+    flex-direction: column;
+    gap: 15px;
+  } /*Finaliza estilos de las columnas del footer en telefonos grandes*/
+
+  .footer-column { /*Estilos de cada columna del footer en telefonos grandes*/
+    min-width: 100%;
+  } /*Finaliza estilos de cada columna del footer en telefonos grandes*/
+
+  .footer-column h3 { /*Estilos de los titulos de columnas del footer en telefonos grandes*/
+    font-size: 16px;
+  } /*Finaliza estilos de los titulos de columnas del footer en telefonos grandes*/
+
+  .footer-column a { /*Estilos de los enlaces de columnas del footer en telefonos grandes*/
+    font-size: 15px;
+  } /*Finaliza estilos de los enlaces de columnas del footer en telefonos grandes*/
+
+  .footer-legal { /*Estilos del footer legal en telefonos grandes*/
+    padding: 12px 15px;
+    font-size: 11px;
+  } /*Finaliza estilos del footer legal en telefonos grandes*/
+
+  .footer-legal-links a { /*Estilos de los enlaces legales en telefonos grandes*/
+    font-size: 11px;
+  } /*Finaliza estilos de los enlaces legales en telefonos grandes*/
+
+  .footer-legal-2025 { /*Estilos del copyright en telefonos grandes*/
+    font-size: 11px;
+  } /*Finaliza estilos del copyright en telefonos grandes*/
+
+  .social-column .icon { /*Estilos de los iconos de redes sociales en telefonos grandes*/
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  } /*Finaliza estilos de los iconos de redes sociales en telefonos grandes*/
+} /*Finaliza media query para telefonos grandes 640px*/
+
+/* Extra small mobile (max-width: 480px) */
+/*Telefonos medianos 480px*/
+@media (max-width: 480px) {
+  .nuevo img { /*Estilos de imagen nuevo en telefonos medianos*/
+    height: 240px;
+  } /*Finaliza estilos de imagen nuevo en telefonos medianos*/
+
+  .texto_nuevo { /*Estilos del texto nuevo en telefonos medianos*/
+    font-size: 20px;
+  } /*Finaliza estilos del texto nuevo en telefonos medianos*/
+
+  .imagenes img { /*Estilos de imagenes de categorias en telefonos medianos*/
+    width: 110px;
+    height: 100px;
+  } /*Finaliza estilos de imagenes de categorias en telefonos medianos*/
+
+  .texto { /*Estilos del texto sobre imagenes en telefonos medianos*/
+    font-size: 14px;
+  } /*Finaliza estilos del texto sobre imagenes en telefonos medianos*/
+
+  .Cajas { /*Estilos de las cajas en telefonos medianos*/
+    width: 145px;
+    padding: 14px;
+  } /*Finaliza estilos de las cajas en telefonos medianos*/
+
+  .Cajas img { /*Estilos de imagenes de productos en telefonos medianos*/
+    width: 115px;
+    height: 115px;
+  } /*Finaliza estilos de imagenes de productos en telefonos medianos*/
+
+  .nombre { /*Estilos del nombre del producto en telefonos medianos*/
+    font-size: 13px;
+  } /*Finaliza estilos del nombre del producto en telefonos medianos*/
+
+  .precio { /*Estilos del precio en telefonos medianos*/
+    font-size: 15px;
+  } /*Finaliza estilos del precio en telefonos medianos*/
+
+  .footer-texto p { /*Estilos del texto del footer en telefonos medianos*/
+    font-size: 14px;
+  } /*Finaliza estilos del texto del footer en telefonos medianos*/
+} /*Finaliza media query para telefonos medianos 480px*/
+
+/* Extra small mobile (max-width: 480px) */
+/*Telefonos medianos 600px*/
+@media (max-width: 600px) {
+  .nuevo img { /*Estilos de imagen nuevo en telefonos de 600px*/
+    height: 240px;
+  } /*Finaliza estilos de imagen nuevo en telefonos de 600px*/
+
+  .texto_nuevo { /*Estilos del texto nuevo en telefonos de 600px*/
+    font-size: 20px;
+  } /*Finaliza estilos del texto nuevo en telefonos de 600px*/
+
+  .imagenes img { /*Estilos de imagenes de categorias en telefonos de 600px*/
+    width: 110px;
+    height: 100px;
+  } /*Finaliza estilos de imagenes de categorias en telefonos de 600px*/
+
+  .texto { /*Estilos del texto sobre imagenes en telefonos de 600px*/
+    font-size: 14px;
+  } /*Finaliza estilos del texto sobre imagenes en telefonos de 600px*/
+
+  .Cajas { /*Estilos de las cajas en telefonos de 600px*/
+    width: 145px;
+    padding: 14px;
+  } /*Finaliza estilos de las cajas en telefonos de 600px*/
+
+  .Cajas img { /*Estilos de imagenes de productos en telefonos de 600px*/
+    width: 115px;
+    height: 115px;
+  } /*Finaliza estilos de imagenes de productos en telefonos de 600px*/
+
+  .nombre { /*Estilos del nombre del producto en telefonos de 600px*/
+    font-size: 13px;
+  } /*Finaliza estilos del nombre del producto en telefonos de 600px*/
+
+  .precio { /*Estilos del precio en telefonos de 600px*/
+    font-size: 15px;
+  } /*Finaliza estilos del precio en telefonos de 600px*/
+
+  .footer-texto p { /*Estilos del texto del footer en telefonos de 600px*/
+    font-size: 14px;
+  } /*Finaliza estilos del texto del footer en telefonos de 600px*/
+} /*Finaliza media query para telefonos de 600px*/
+
+
+/* Mobile (max-width: 640px) */
+/*Telefonos pequeños 360px*/
+@media (max-width: 360px) {
+  .navbar { /*Estilos del navbar en telefonos pequeños*/
+    padding: 0 10px;
+  } /*Finaliza estilos del navbar en telefonos pequeños*/
+
+  .navbar .logo { /*Estilos del logo en telefonos pequeños*/
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-right: 8px;
+  } /*Finaliza estilos del logo en telefonos pequeños*/
+
+  .search-container { /*Estilos del contenedor de busqueda en telefonos pequeños*/
+    padding: 4px 8px;
+  } /*Finaliza estilos del contenedor de busqueda en telefonos pequeños*/
+
+  .search-input { /*Estilos de la barra de busqueda en telefonos pequeños*/
+    width: 80px;
+    font-size: 12px;
+    padding: 4px;
+  } /*Finaliza estilos de la barra de busqueda en telefonos pequeños*/
+
+  .search-btn { /*Estilos del boton de busqueda en telefonos pequeños*/
+    font-size: 14px;
+  } /*Finaliza estilos del boton de busqueda en telefonos pequeños*/
+
+  .registro,
+  .carrito,
+  .inicio { /*Estilos de los iconos en telefonos pequeños*/
+    font-size: 18px;
+    margin-left: 8px;
+  } /*Finaliza estilos de los iconos en telefonos pequeños*/
+
+  .barra_lateral { /*Estilos de la barra lateral en telefonos pequeños*/
+    width: 220px;
+  } /*Finaliza estilos de la barra lateral en telefonos pequeños*/
+
+
+  .texto_nuevo { /*Estilos del texto nuevo en telefonos pequeños*/
+    font-size: 24px;
+  } /*Finaliza estilos del texto nuevo en telefonos pequeños*/
+
+  .franja-ofertas { /*Estilos de la franja de ofertas en telefonos pequeños*/
+    font-size: 0.85rem;
+    padding: 6px 0;
+  } /*Finaliza estilos de la franja de ofertas en telefonos pequeños*/
+
+  .imagenes { /*Estilos del contenedor de imagenes en telefonos pequeños*/
+    gap: 10px;
+    margin-top: 5%;
+  } /*Finaliza estilos del contenedor de imagenes en telefonos pequeños*/
+
+  .imagenes img { /*Estilos de imagenes de categorias en telefonos pequeños*/
+    width: 130px;
+    height: 120px;
+  } /*Finaliza estilos de imagenes de categorias en telefonos pequeños*/
+
+  .texto { /*Estilos del texto sobre imagenes en telefonos pequeños*/
+    font-size: 16px;
+  } /*Finaliza estilos del texto sobre imagenes en telefonos pequeños*/
+
+  .contenedor { /*Estilos del contenedor de productos en telefonos pequeños*/
+    gap: 15px;
+    padding: 20px 10px;
+  } /*Finaliza estilos del contenedor de productos en telefonos pequeños*/
+
+  .Cajas { /*Estilos de las cajas en telefonos pequeños*/
+    width: 160px;
+    padding: 16px;
+    margin-top: 4%;
+  } /*Finaliza estilos de las cajas en telefonos pequeños*/
+
+  .Cajas img { /*Estilos de imagenes de productos en telefonos pequeños*/
+    width: 130px;
+    height: 130px;
+  } /*Finaliza estilos de imagenes de productos en telefonos pequeños*/
+
+  .nombre { /*Estilos del nombre del producto en telefonos pequeños*/
+    font-size: 14px;
+    margin: 0 0 8px 0;
+  } /*Finaliza estilos del nombre del producto en telefonos pequeños*/
+
+  .precio { /*Estilos del precio en telefonos pequeños*/
+    font-size: 16px;
+  } /*Finaliza estilos del precio en telefonos pequeños*/
+
+  .footer-texto p { /*Estilos del texto del footer en telefonos pequeños*/
+    font-size: 16px;
+    padding: 8px 10px;
+  } /*Finaliza estilos del texto del footer en telefonos pequeños*/
+
+  .footer-contenido { /*Estilos del contenido del footer en telefonos pequeños*/
+    padding: 10px 15px;
+  } /*Finaliza estilos del contenido del footer en telefonos pequeños*/
+
+  .footer-columns { /*Estilos de las columnas del footer en telefonos pequeños*/
+    flex-direction: column;
+    gap: 15px;
+  } /*Finaliza estilos de las columnas del footer en telefonos pequeños*/
+
+  .footer-column { /*Estilos de cada columna del footer en telefonos pequeños*/
+    min-width: 100%;
+  } /*Finaliza estilos de cada columna del footer en telefonos pequeños*/
+
+  .footer-column h3 { /*Estilos de los titulos de columnas del footer en telefonos pequeños*/
+    font-size: 16px;
+  } /*Finaliza estilos de los titulos de columnas del footer en telefonos pequeños*/
+
+  .footer-column a { /*Estilos de los enlaces de columnas del footer en telefonos pequeños*/
+    font-size: 15px;
+  } /*Finaliza estilos de los enlaces de columnas del footer en telefonos pequeños*/
+
+  .footer-legal { /*Estilos del footer legal en telefonos pequeños*/
+    padding: 12px 15px;
+    font-size: 11px;
+  } /*Finaliza estilos del footer legal en telefonos pequeños*/
+
+  .footer-legal-links a { /*Estilos de los enlaces legales en telefonos pequeños*/
+    font-size: 11px;
+  } /*Finaliza estilos de los enlaces legales en telefonos pequeños*/
+
+  .footer-legal-2025 { /*Estilos del copyright en telefonos pequeños*/
+    font-size: 11px;
+  } /*Finaliza estilos del copyright en telefonos pequeños*/
+
+  .social-column .icon { /*Estilos de los iconos de redes sociales en telefonos pequeños*/
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  } /*Finaliza estilos de los iconos de redes sociales en telefonos pequeños*/
+} /*Finaliza media query para telefonos pequeños 360px*/

@@ -1,0 +1,84 @@
+/* sesion.css */
+
+body#login {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5; /* mismo fondo que login */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+form {
+    background: #ffffff; /* fondo del formulario */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.terminos-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #555;
+}
+
+.terminos-container input[type="checkbox"] {
+    transform: scale(1); /* tamaño normal */
+    margin: 0;
+    vertical-align: middle;
+}
+
+.terminos-container label {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #555;
+}
+
+button#boton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button#boton:hover {
+    background-color: #0056b3;
+}

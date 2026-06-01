@@ -1,0 +1,75 @@
+/* Contenedor principal del bloque “nuevo”} */
+.nuevo {
+  position: sticky; /* Mantiene la barra o sección fija en la parte superior al hacer scroll */
+  top: 0; /* Se fija en la parte superior de la ventana */
+  z-index: 1; /* Asegura que quede por encima de otros elementos */
+  display: flex; /* Usa modelo flexible para centrar el contenido */
+  justify-content: center; /* Centra horizontalmente los elementos dentro */
+  background: #fff; /* Fondo blanco */
+}
+/* Contenedor de las imágenes destacadas */
+.nuevos_imagenes {
+  position: relative; /* Permite posicionar elementos hijos de forma absoluta */
+}
+
+/* Configuración de las imágenes principales */
+.nuevos_imagenes img {
+  width: 700px; /* Ancho fijo de la imagen */
+  height: 670px; /* Alto fijo de la imagen */
+  object-fit: cover; /* Ajusta la imagen sin deformarla, recortando lo necesario */
+}
+
+/* Texto centrado sobre la imagen principal */
+.texto_nuevo {
+  position: absolute; /* Se coloca encima de la imagen */
+  top: 50%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%); /* Centra exactamente el texto */
+  color: white; /* Color del texto */
+  font-size: 40px;  /* Tamaño grande para destacar */
+  font-weight: bold; /* Texto en negrita */
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* Sombra para mejorar visibilidad */
+  text-align: center; /* Centra el texto si hay varias líneas */
+  z-index: 2;  /* Asegura que quede sobre la imagen */
+}
+/* Texto centrado sobre imágenes pequeñas */
+.texto{
+  position: absolute; /* Igual que arriba, se superpone a la imagen */
+  top: 50%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%);
+  color: white; /* Color del texto */
+  font-size: 20px; /* Tamaño más pequeño que el texto principal */
+  font-weight: bold; /* Texto en negrita */
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* Sombra para mejorar visibilidad */
+  text-align: center;  /* Centra el texto si hay varias líneas */
+}
+/* Contenedor individual para imagen + texto */
+.texto_imagen{
+  position: relative; /* Permite colocar texto sobre la imagen hija */
+  display: inline-block; /* Mantiene las imágenes en línea una junto a otra */
+}
+/* Sección que contiene todas las imágenes pequeñas */
+.imagenes {
+  position: relative;
+  z-index: 2; /* Queda sobre otros elementos de menor jerarquía */           
+  margin-top: -200px;  /* Desplaza hacia arriba para solapar con otra sección */    
+  display: flex; /* Distribuye las imágenes en fila */
+  flex-wrap: wrap; /* Permite que las imágenes bajen a otra línea si no caben */
+  gap: 10px; /* Espacio entre imágenes */
+  padding: 15px; /* Margen interno general */
+  background: white; /* Fondo blanco para separar del resto del contenido */
+}
+/* Estilo individual de cada imagen pequeña */
+.imagenes img {
+  width: 205px; /* Tamaño de las miniaturas */
+  height: 220px; /* Alto fijo de la imagen */
+  cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+  object-fit: cover;  /* Evita deformación al ajustar al contenedor */
+  transition: transform 0.3s ease; /* Transición suave al hacer hover */
+}
+
+/* Efecto al pasar el cursor sobre una imagen */
+.imagenes img:hover {
+  transform: scale(1.1); /* Amplía ligeramente la imagen */
+}

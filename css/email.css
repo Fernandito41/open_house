@@ -1,0 +1,341 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body { /*Estilos generales de la pagina*/
+  margin: 0; /*Quitar margenes por defecto*/
+  padding: 0; /*Quitar el padding por defecto*/
+  font-family: Century Gothic, sans-serif;
+  background-color: #f5f5f5; /*Color de fondo de la pagina*/
+}
+
+#login {   /* Contenedor principal para el formulario de inicio de sesión */
+  margin: 4% auto;
+  padding: 0 15px;
+  max-width: 100%;
+}
+
+#login form {  /* Estilos para el formulario dentro del contenedor #login */
+  width: 100%;
+  max-width: 450px;
+  margin: 20px auto;
+  padding: 20px 15px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 10px 10px 112px 0px rgba(114, 114, 114, 0.75);
+  border-radius: 15px;
+  min-height: auto;
+}
+
+h1 {  /* Estilo para el encabezado principal (título) del formulario */
+  margin-top: 6px;
+  margin-bottom: 20px;
+  color: rgb(80, 80, 80);
+  font-size: 24px;
+  font-family: Century Gothic, sans-serif;
+}
+
+ /* Estilo para el campo de datos del formulario, con un borde y fondo personalizados */
+#logindatos {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px 15px;
+  margin: 0;
+  background-color: #fafafa;
+}
+
+#login input { /* Estilos generales para los campos de entrada (input) del formulario */
+  border-radius: 15px;
+  width: 100%;
+  max-width: 100%;
+  height: 45px;
+  margin: 10px 0;
+  display: block;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-family: Century Gothic, sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#login input:focus { /* Aplica los estilos a los elementos que tengan la clase */
+  outline: none;
+  border-color: rgb(56, 115, 224);
+  box-shadow: 0 0 0 3px rgba(56, 115, 224, 0.1);
+}
+
+#login input.control { /*Es un selector combinado de css*/
+  padding-left: 15px;
+  font-size: 16px;
+}
+
+/* Checkbox de términos */
+#login input.terminos {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin: 15px 8px 15px 0;
+  padding: 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
+/* Estilo para el texto relacionado con los términos */
+.terminos {
+  display: inline;
+}
+
+p.terminos {  /* Estilo para el párrafo que contiene el texto de términos */
+  font-size: 12px;
+  color: rgb(97, 91, 91);
+  margin: 0;
+  display: inline;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+
+/* Botón de crear cuenta */
+#boton { /* Estilo para el botón de envío del formulario */
+  background-color: rgb(56, 115, 224);
+  border-radius: 15px;
+  width: 100%;
+  max-width: 200px;
+  height: 48px;
+  color: rgb(255, 255, 255);
+  font-family: Century Gothic, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px auto 10px;
+  display: block;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#boton:hover { /* Estilos para el botón cuando se pasa el mouse sobre él */
+  background-color: rgb(40, 95, 200);
+}
+
+#boton:active {  /* Estilos para el botón cuando se hace clic en él */
+  transform: scale(0.98);
+}
+
+/* Estados de validación */
+.required { /* Estilos para indicar que un campo es obligatorio */
+  border-radius: 15px;
+  box-shadow: 0px 0px 8px #ff9800 !important;
+  border-color: #ff9800 !important;
+}
+
+.invalid { /* Estilos para indicar que un campo es inválido */
+  border-radius: 15px;
+  border-color: rgb(12, 28, 243) !important;
+  border-width: 2px;
+  box-shadow: 0px 0px 8px rgba(12, 28, 243, 0.3) !important;
+}
+
+/* Mensajes de resultado */
+.result { /* Estilo para los mensajes de resultado del formulario (errores, éxito, etc.) */
+
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* Tablets pequeñas - 480px y superior */
+@media (min-width: 480px) {
+
+  /* Contenedor principal del login */
+  #login {
+    padding: 0 20px; /* Agrega espacio lateral para pantallas pequeñas */
+  }
+
+  /* Formulario dentro del login */
+  #login form {
+    padding: 25px 20px; /* Ajusta el padding interno del formulario */
+  }
+
+  /* Contenedor de los datos del login */
+  #logindatos {
+    padding: 25px 20px; /* Espaciado interno uniforme */
+  }
+
+  /* Título principal */
+  h1 {
+    font-size: 26px; /* Aumenta ligeramente el tamaño del título */
+    margin-bottom: 25px; /* Espacio inferior entre título y formulario */
+  }
+
+  /* Campos de entrada del formulario */
+  #login input {
+    height: 48px; /* Ajusta la altura de los inputs */
+    font-size: 17px; /* Tamaño del texto dentro del input */
+    padding: 12px 18px; /* Espacio interno para el texto */
+  }
+
+  /* Inputs con clase .control */
+  #login input.control {
+    padding-left: 18px; /* Espacio a la izquierda para íconos o texto */
+    font-size: 17px; /* Tamaño de fuente coherente con el input base */
+  }
+
+  /* Texto de los términos y condiciones */
+  p.terminos {
+    font-size: 13px; /* Texto pequeño para mayor armonía visual */
+  }
+
+  /* Botón principal de enviar */
+  #boton {
+    font-size: 17px; /* Tamaño de texto del botón */
+    height: 50px; /* Altura del botón */
+    max-width: 220px; /* Limita el ancho máximo del botón */
+  }
+
+  /* Texto de resultado o error */
+  .result {
+    font-size: 15px; /* Tamaño de texto del mensaje */
+  }
+}
+
+/* Tablets - 768px y superior */
+@media (min-width: 768px) {
+
+  /* Contenedor del login */
+  #login {
+    margin: 5% auto; /* Centra el login verticalmente */
+    padding: 0 30px; /* Más espacio lateral */
+  }
+
+  /* Formulario */
+  #login form {
+    max-width: 500px; /* Ancho máximo del formulario */
+    padding: 30px 25px; /* Espaciado interno */
+  }
+
+  /* Contenedor de los datos */
+  #logindatos {
+    padding: 30px 25px; /* Espaciado interno */
+  }
+
+  /* Título */
+  h1 {
+    font-size: 28px; /* Tamaño de fuente más grande */
+    margin-bottom: 30px; /* Mayor separación inferior */
+  }
+
+  /* Inputs */
+  #login input {
+    height: 50px; /* Más altura */
+    font-size: 18px; /* Texto más grande */
+    padding: 14px 20px; /* Espacio interno amplio */
+  }
+
+  /* Inputs con clase control */
+  #login input.control {
+    padding-left: 20px; /* Espacio adicional a la izquierda */
+    font-size: 18px; /* Tamaño de fuente */
+  }
+
+  /* Checkbox de términos */
+  #login input.terminos {
+    width: 20px; /* Tamaño del checkbox */
+    height: 20px; /* Altura igual al ancho */
+    margin-right: 10px; /* Espacio entre el checkbox y el texto */
+  }
+
+  /* Texto de términos */
+  p.terminos {
+    font-size: 14px; /* Tamaño ligeramente mayor */
+  }
+
+  /* Botón */
+  #boton {
+    max-width: 240px; /* Botón más ancho */
+    height: 52px; /* Más alto */
+    font-size: 18px; /* Texto más grande */
+    margin-top: 25px; /* Espacio superior */
+  }
+}
+
+/* Desktop - 1024px y superior */
+@media (min-width: 1024px) {
+
+  /* Contenedor principal */
+  #login {
+    margin: 6% auto; /* Centrado con más margen superior */
+  }
+
+  /* Formulario */
+  #login form {
+    max-width: 550px; /* Ancho máximo ampliado */
+    padding: 35px 30px; /* Espaciado interno más amplio */
+  }
+
+  /* Contenedor de datos */
+  #logindatos {
+    padding: 35px 30px; /* Espacio interno coherente */
+  }
+
+  /* Título */
+  h1 {
+    font-size: 30px; /* Título más grande */
+    margin-bottom: 35px; /* Más espacio debajo del título */
+  }
+
+  /* Inputs */
+  #login input {
+    height: 52px; /* Campos más altos */
+    margin: 12px 0; /* Espaciado vertical entre campos */
+  }
+
+  /* Botón */
+  #boton {
+    max-width: 260px; /* Botón aún más ancho */
+    height: 54px; /* Más alto */
+    margin-top: 30px; /* Espacio superior mayor */
+  }
+
+  /* Efecto hover del botón */
+  #boton:hover {
+    box-shadow: 0 4px 12px rgba(56, 115, 224, 0.4); /* Sombra suave al pasar el cursor */
+  }
+}
+
+/* Pantallas grandes - 1440px y superior */
+@media (min-width: 1440px) {
+
+  /* Contenedor */
+  #login {
+    margin: 1% auto; /* Reduce el margen superior en pantallas muy grandes */
+  }
+
+  /* Formulario */
+  #login form {
+    max-width: 600px; /* Ancho máximo amplio */
+    padding: 40px 35px; /* Más espacio interno */
+  }
+
+  /* Contenedor de datos */
+  #logindatos {
+    padding: 40px 35px; /* Padding igual al del formulario */
+  }
+}
+
+/* Accesibilidad - Reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+
+  /* Desactiva transiciones para usuarios que prefieren menos animaciones */
+  #boton,
+  #login input {
+    transition: none; /* Sin animación */
+  }
+
+  /* Desactiva efectos activos */
+  #boton:active {
+    transform: none; /* Sin movimiento al hacer clic */
+  }
+}

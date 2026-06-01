@@ -1,0 +1,110 @@
+*{
+	/* Aplica el modelo de caja para que width y height incluyan padding y borde */
+box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo de la página */
+body {
+    color: white; /* Texto blanco por defecto */
+    font-family: sans-serif; /* Fuente limpia sin serifas */
+}
+
+/* Estilos para las etiquetas del formulario */
+.formulario_label {
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: black; /* Texto negro */
+    margin-left: 30px; /* Separación izquierda */
+    margin-top: 80px; /* Espacio arriba */
+    margin-bottom: 67px; /* Espacio abajo */
+    font-size: 1.20em; /* Texto un poco más grande */
+}
+
+/* Contenedor principal del formulario */
+.formulario {
+    display: block; /* Se comporta como bloque */
+    background: white; /* Fondo blanco */
+    width: 647px; /* Ancho fijo */
+    margin-top: 90px;
+    padding-right: 10px;
+    padding-left: 10px; 
+    margin-bottom: 24px;
+    margin-left: 370px; /* Centrado manual horizontal */
+    margin-right: 370px;
+    height: 349px; /* Altura fija */
+    box-shadow: 0 0 20px 1px #cccccc; /* Sombra gris alrededor */
+    border: 1.5px solid #ffcc00; /* Borde amarillo */
+    border-radius: 20px; /* Bordes redondeados */
+}
+
+/* Estilo de títulos dentro del formulario */
+.titulo {
+    text-align: center; /* Centrado */
+    color: black; /* Texto negro */
+}
+
+/* Estilos para los campos de entrada */
+.formulario_input {
+    display: block;
+    background: #ccccff; /* Fondo azul claro */
+    border: 1px solid rgba(0,0,0,0.3); /* Borde gris semitransparente */
+    width: 520px; /* Ancho de la caja */
+    height: 37px; /* Altura de la caja */
+    padding: 10px; /* Espaciado interno */
+    margin-left: 77px; /* Separación izquierda */
+    margin-top: 10px; /* Espacio superior */
+    font-size: 16px; /* Tamaño de letra */
+    border-radius: 20px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+/* Estilos cuando el campo está en foco (clic o tabulador) */
+.formulario_input:focus {
+    outline: 1.3px solid blue; /* Borde resaltado azul */
+}
+
+/* Botón de envío del formulario */
+.formulario_submit {
+    display: block;
+    background-color: #48e; /* Azul */
+    color: #fff; /* Texto blanco */
+    width: calc(70% - 70px); /* Ancho relativo con cálculo */
+    cursor: pointer; /* Cambia el cursor a “mano” */
+    border-radius: 20px; /* Bordes redondeados */
+    height: 40px; /* Altura fija */
+    margin-left: 131px; /* Posición centrada */
+    margin-top: 17px; /* Espacio superior */
+}
+
+/* Botón de envío cuando recibe foco */
+.formulario_submit:focus {
+    display: block;
+    background-color: black; /* Cambia a negro */
+    color: #fff; /* Texto blanco */
+    width: calc(70% - 70px);
+    cursor: pointer;
+    border-radius: 20px;
+    height: 40px;
+    margin-left: 131px;
+    margin-top: 17px;
+}
+
+/* Caja verde con título o mensaje de conexión */
+.title_conexion {
+    display: block;
+    margin-top: 60px;
+    margin-bottom: 0;
+    box-shadow: 0 0 20px 1px #66ff66; /* Sombra verde */
+    background: #00ff00; /* Fondo verde fuerte */
+    width: 500px;
+    margin-left: 0;
+    color: black; /* Texto negro */
+    border-radius: 20px; /* Bordes redondeados */
+}
+
+/* Resultados o mensajes de salida */
+.result {
+    margin-top: -77px; /* Mueve el texto hacia arriba */
+    margin-left: 20px; /* Separación izquierda */
+    color: black; /* Texto negro */
+    font-size: 1.2em; /* Texto un poco más grande */
+}
